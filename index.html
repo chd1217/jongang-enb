@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주)중앙이엔비 - 친환경 자원순환 전문기업</title>
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --gray-bg: #f1f5f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', -apple-system, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+        .logo span { color: var(--primary); }
+        .nav-links a { color: var(--text-light); text-decoration: none; margin-left: 30px; font-size: 15px; opacity: 0.8; transition: 0.3s; }
+        .nav-links a:hover { opacity: 1; color: var(--primary); }
+
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80') center/cover; }
+        .hero h2 { font-size: 18px; color: var(--primary); font-weight: 600; letter-spacing: 2px; margin-bottom: 15px; }
+        .hero h1 { font-size: 48px; font-weight: 700; line-height: 1.3; margin-bottom: 20px; word-break: keep-all; }
+        .hero p { font-size: 18px; color: #94a3b8; max-width: 650px; line-height: 1.6; word-break: keep-all; margin-bottom: 30px; }
+        .btn { padding: 12px 30px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; transition: 0.3s; }
+        .btn:hover { background: var(--primary-dark); }
+
+        /* Forest & Impact Interactive Section */
+        .impact-section { position: relative; padding: 150px 20px; background: #064e3b; overflow: hidden; }
+        .tree-bg-left, .tree-bg-right { position: absolute; bottom: -50px; width: 300px; opacity: 0.2; transition: all 0.8s ease-out; pointer-events: none; }
+        .tree-bg-left { left: -100px; }
+        .tree-bg-right { right: -100px; }
+
+        .impact-container { max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+        .impact-title { font-size: 32px; margin-bottom: 20px; }
+        .impact-desc { color: #a7f3d0; margin-bottom: 60px; font-size: 18px; word-break: keep-all; }
+
+        .counter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .counter-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px 20px; border-radius: 12px; backdrop-filter: blur(5px); }
+        .counter-number { font-size: 42px; font-weight: 800; color: #34d399; margin-bottom: 10px; }
+        .counter-label { font-size: 16px; color: #e2e8f0; }
+
+        /* Content Sections */
+        .section { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 50px; }
+        .section-title span { color: var(--primary); }
+
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #1e293b; padding: 35px; border-radius: 10px; border: 1px solid #334155; }
+        .card h3 { color: var(--primary); font-size: 20px; margin-bottom: 15px; }
+        .card p { color: #cbd5e1; line-height: 1.6; font-size: 15px; }
+        .card ul { list-style: none; margin-top: 15px; }
+        .card ul li { color: #94a3b8; font-size: 14px; margin-bottom: 8px; }
+        .card ul li::before { content: "• "; color: var(--primary); }
+
+        /* Contact Section */
+        .contact-section { background: var(--gray-bg); color: var(--text-dark); padding: 100px 20px; }
+        .contact-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info h3 { font-size: 28px; margin-bottom: 20px; color: #0f172a; }
+        .contact-info p { margin-bottom: 15px; color: #475569; line-height: 1.6; }
+        .info-item { margin-top: 25px; }
+        .info-item div { font-size: 15px; margin-bottom: 8px; color: #1e293b; }
+        .info-item strong { color: #0f172a; }
+
+        .contact-form { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #334155; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
+        .submit-btn { width: 100%; padding: 14px; background: var(--primary); color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        .submit-btn:hover { background: var(--primary-dark); }
+
+        footer { text-align: center; padding: 30px; background: #020617; color: #64748b; font-size: 13px; border-top: 1px solid #1e293b; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .contact-container { grid-template-columns: 1fr; }
+            nav { padding: 20px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">(주)중앙<span>이엔비</span></div>
+        <div class="nav-links">
+            <a href="#about">기업소개</a>
+            <a href="#business">사업&설비</a>
+            <a href="#impact">환경기여</a>
+            <a href="#contact">견적/수거문의</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>ENVIRONMENT & RECYCLING</h2>
+        <h1>보이지 않는 곳에서,<br>지구의 숨통을 트입니다.</h1>
+        <p>(주)중앙이엔비는 정직한 투명성과 약속을 바탕으로, 버려진 자원에 새 생명을 불어넣어 나무와 동물이 함께 숨 쉬는 내일을 만들어갑니다.</p>
+        <a href="#contact" class="btn">정직한 견적 문의하기</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-title">겸손하지만 단단한 <span>중앙이엔비의 약속</span></div>
+        <div class="card-grid">
+            <div class="card">
+                <h3>01. 투명성과 정직함</h3>
+                <p>과장된 규모보다 정직한 계량과 신뢰를 우선시합니다. 단 1톤의 폐기물도 성실하고 투명하게 처리 과정을 공유합니다.</p>
+            </div>
+            <div class="card">
+                <h3>02. 신속한 수집운반</h3>
+                <p>전용 기동 장비를 활용하여 현장의 요구에 맞게 가장 신속하고 차질 없는 수거 및 운반 프로세스를 이행합니다.</p>
+            </div>
+            <div class="card">
+                <h3>03. 자원순환의 가치</h3>
+                <p>단순한 처리를 넘어 가연성 자원 재활용을 통해 지구의 소중한 에너지 자원으로 재탄생시키는 사명감을 가집니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Forest & Impact Section -->
+    <section class="impact-section" id="impact">
+        <!-- SVG Tree Backgrounds for Animation -->
+        <svg class="tree-bg-left" id="treeLeft" viewBox="0 0 100 100" fill="#34d399"><path d="M50 10 L20 60 H35 L10 90 H90 L65 60 H80 Z"/></svg>
+        <svg class="tree-bg-right" id="treeRight" viewBox="0 0 100 100" fill="#34d399"><path d="M50 10 L20 60 H35 L10 90 H90 L65 60 H80 Z"/></svg>
+
+        <div class="impact-container">
+            <h2 class="impact-title">우리가 함께 살려낸 푸른 지구</h2>
+            <p class="impact-desc">(주)중앙이엔비가 재활용한 가연성 폐기물은 소각 및 매립 부담을 줄여 수많은 나무와 생물들의 터전을 지키고 있습니다.</p>
+            
+            <div class="counter-grid">
+                <div class="counter-card">
+                    <div class="counter-number">12,480+</div>
+                    <div class="counter-label">누적 지켜낸 소나무 (그루)</div>
+                </div>
+                <div class="counter-card">
+                    <div class="counter-number">3,850 t</div>
+                    <div class="counter-label">탄소 배출 절감량</div>
+                </div>
+                <div class="counter-card">
+                    <div class="counter-number">100 %</div>
+                    <div class="counter-label">약속 준수 및 투명 처리율</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business & Equipment Section -->
+    <section class="section" id="business">
+        <div class="section-title">주요 사업 및 <span>보유 설비</span></div>
+        <div class="card-grid">
+            <div class="card">
+                <h3>처리 가능 품목</h3>
+                <p>재활용 가능한 가연성 자원을 중심으로 안전하고 효율적으로 분리 및 파쇄를 진행합니다.</p>
+                <ul>
+                    <li>폐합성수지류</li>
+                    <li>폐목재류</li>
+                    <li>건설 폐기물 (가연성)</li>
+                    <li>생활 폐기물 (합성수지류)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>현장 최적화 설비 라인업</h3>
+                <p>일일 60톤의 정밀 처리 허가를 바탕으로 과부하 없이 안정적이고 완벽한 공정을 유지합니다.</p>
+                <ul>
+                    <li>고성능 가연성 자원 전용 파쇄기</li>
+                    <li>현장 규격별 굴착기 라인업 (06 / 08 / 02)</li>
+                    <li>이동식 롤온/롤오프 기동 압롤차 2대</li>
+                    <li>자체 수집운반 시스템</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>정직한 견적 및 수거 문의</h3>
+                <p>지구를 생각하는 마음으로 최적의 비용과 완벽한 처리를 약속드립니다. 부담 없이 문의를 남겨주십시오.</p>
+                
+                <div class="info-item">
+                    <div><strong>본사 / 공장:</strong> 충청남도 공주시 탄천면 차돌배기길 72-14</div>
+                    <div><strong>대표 전화:</strong> 041-858-9701</div>
+                    <div><strong>팩스 번호:</strong> 041-858-9704</div>
+                    <div><strong>주요 서비스:</strong> 폐기물 중간처리(파쇄), 수집운반, 자원재활용</div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form onsubmit="alert('문의가 정상적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'); return false;">
+                    <div class="form-group">
+                        <label>업체명 / 성함</label>
+                        <input type="text" placeholder="예: (주)중앙환경 / 홍길동" required>
+                    </div>
+                    <div class="form-group">
+                        <label>연락처</label>
+                        <input type="tel" placeholder="010-0000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>문의 내용 (폐기물 종류 및 예상 물량)</label>
+                        <textarea rows="4" placeholder="예: 폐합성수지 약 5톤 수거 및 파쇄 견적 문의드립니다." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">정직한 견적 요청하기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; (주)중앙이엔비 All Rights Reserved. | 충청남도 공주시 탄천면 차돌배기길 72-14 | TEL: 041-858-9701</p>
+    </footer>
+
+    <!-- Interactive Scroll Script -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const value = window.scrollY;
+            const treeLeft = document.getElementById('treeLeft');
+            const treeRight = document.getElementById('treeRight');
+            
+            // 나무 스크롤 인터랙션 (스크롤 내릴수록 나무가 커지며 중앙으로 이동)
+            if(value > 600) {
+                let scale = Math.min(1 + (value - 600) * 0.0015, 2.2);
+                let opacity = Math.min((value - 600) * 0.002, 0.4);
+                
+                treeLeft.style.transform = `scale(${scale})`;
+                treeLeft.style.opacity = opacity;
+                
+                treeRight.style.transform = `scale(${scale})`;
+                treeRight.style.opacity = opacity;
+            }
+        });
+    </script>
+</body>
+</html>
