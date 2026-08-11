@@ -1,0 +1,525 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   중앙이앤비 — Design System
+   DESIGN-nvidia.md 토큰 준수:
+   · 2모드 서페이스 — 화이트 캔버스(본문) + 블랙 챕터(히어로/CTA/푸터)
+   · 단일 액센트 그린. 나머지는 흑/백/회색
+   · 2px 각진 지오메트리, 헤어라인 보더, 그림자 없음
+   · 단일 서체 · 굵기(400/700/800)와 크기만으로 위계
+   ========================================================================== */
+
+@theme {
+  /* 브랜드 액센트 — 심볼에서 추출한 그린 (유일한 UI 컬러) */
+  --color-primary: #40a030;
+  --color-primary-dark: #33822a;
+  --color-accent: #2f7a22; /* 화이트 위 소형 텍스트용 (대비 4.9:1) */
+  --color-accent-on-dark: #6cc44f; /* 블랙 위 텍스트용 (대비 9.4:1) */
+  --color-on-primary: #000000;
+
+  /* 심볼 보조 컬러 — 그래픽에만 사용 */
+  --color-brand-blue: #0060c0;
+
+  /* 커서 — 밝은 배경에서 브랜드 그린, 어두운 배경에서 심볼 블루.
+     블루는 검정 위 가독성을 위해 심볼 블루(#0060c0)를 한 단계 밝힌 값. */
+  --color-cursor-light: #40a030;
+  --color-cursor-dark: #2e8ee0;
+
+  /* 서페이스 */
+  --color-canvas: #ffffff;
+  --color-soft: #f7f7f7;
+  --color-dark: #000000;
+  --color-elevated: #1a1a1a;
+  --color-elevated-2: #262626;
+
+  /* 헤어라인 */
+  --color-hairline: #cccccc;
+  --color-hairline-strong: #5e5e5e;
+
+  /* 텍스트 */
+  --color-ink: #000000;
+  --color-body: #1a1a1a;
+  --color-mute: #757575;
+  --color-stone: #898989;
+  --color-ash: #a7a7a7;
+  --color-on-dark: #ffffff;
+
+  /* 라운드 */
+  --radius-none: 0px;
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+
+  --font-sans: var(--font-pretendard);
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-power: cubic-bezier(0.65, 0.05, 0, 1);
+}
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2")
+    format("woff2-variations");
+}
+
+:root {
+  --font-pretendard: "Pretendard Variable", "Pretendard", -apple-system,
+    "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+  --line: #cccccc;
+  --pad: clamp(1.25rem, 3.6vw, 3rem);
+  --maxw: 1280px;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: #ffffff;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #000;
+}
+
+/* ────────  다크 챕터 (히어로 · CTA 스트립 · 푸터)  ──────── */
+
+.dark-ch {
+  background: var(--color-dark);
+  color: var(--color-on-dark);
+  --line: #5e5e5e;
+}
+.dark-ch * {
+  border-color: var(--line);
+}
+.accent {
+  color: var(--color-accent);
+}
+/* 블랙 위에서는 밝은 톤으로 (대비 9.4:1) */
+.dark-ch .accent {
+  color: var(--color-accent-on-dark);
+}
+
+.soft-ch {
+  background: var(--color-soft);
+}
+
+/* 컨테이너 */
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* ========================  타이포  ======================== */
+
+/* 초대형 디스플레이 — UC 스타일 2톤 헤드라인 */
+.d1 {
+  font-weight: 800;
+  font-size: clamp(2.4rem, 6.6vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.d2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4.6vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+.d3 {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+.h4 {
+  font-weight: 700;
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+/* 본문 */
+.p-lg {
+  font-size: clamp(1rem, 1.25vw, 1.1875rem);
+  line-height: 1.75;
+  font-weight: 400;
+}
+.p-md {
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 400;
+}
+.p-sm {
+  font-size: 13.5px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* 대문자 캡션 (eyebrow) */
+.cap {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cap-xs {
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* 숫자 */
+.num {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+/* ====================  리빌 모션  ==================== */
+
+.mask-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.mask-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1s var(--ease-expo);
+  transition-delay: var(--d, 0ms);
+  will-change: transform;
+}
+.mask-line.is-in > span,
+.is-in .mask-line > span {
+  transform: translateY(0);
+}
+
+.rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s var(--ease-expo),
+    transform 0.9s var(--ease-expo);
+  transition-delay: var(--d, 0ms);
+}
+.rv.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.rv-rule {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s var(--ease-expo);
+  transition-delay: var(--d, 0ms);
+}
+.rv-rule.is-in {
+  transform: scaleX(1);
+}
+
+/* ====================  모션 유틸  ==================== */
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.mq {
+  animation: marquee-x var(--dur, 30s) linear infinite;
+  will-change: transform;
+}
+.mq-rev {
+  animation-direction: reverse;
+}
+.mq-pause:hover .mq {
+  animation-play-state: paused;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+.blink {
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.float-y {
+  animation: float-y 3s ease-in-out infinite;
+}
+
+/* ==================  컴포넌트 프리미티브  ================== */
+
+/* 버튼 — 2px, 44px 높이 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 44px;
+  padding: 0.6875rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition:
+    background-color 0.28s ease,
+    color 0.28s ease,
+    border-color 0.28s ease;
+}
+.btn-sm {
+  min-height: 40px;
+  padding: 0.5rem 1.125rem;
+  font-size: 14.4px;
+  letter-spacing: 0.01em;
+}
+
+/* 1차 — 그린 필 */
+.btn-primary {
+  background: var(--color-primary);
+  color: #000;
+}
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+/* 2차 (라이트) — 그린 2px 보더 */
+.btn-outline {
+  background: transparent;
+  color: var(--color-ink);
+  border: 2px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #000;
+}
+
+/* 2차 (다크) — 화이트 1px 보더 */
+.btn-on-dark {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.btn-on-dark:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* 고스트 링크 (Learn more →) */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-accent);
+  transition: gap 0.35s var(--ease-expo);
+}
+.dark-ch .btn-ghost {
+  color: var(--color-accent-on-dark);
+}
+.btn-ghost:hover {
+  gap: 0.9375rem;
+}
+
+/* 코너 스퀘어 — 카드 시그니처 모티프 */
+.corner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--color-primary);
+  z-index: 2;
+  transition:
+    width 0.4s var(--ease-expo),
+    height 0.4s var(--ease-expo);
+}
+.corner:hover::before {
+  width: 18px;
+  height: 18px;
+}
+
+/* 헤어라인 카드 — 그림자 없음 */
+.card {
+  position: relative;
+  background: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+.card:hover {
+  border-color: var(--color-primary);
+}
+.dark-ch .card {
+  background: var(--color-elevated);
+  border-color: var(--color-hairline-strong);
+}
+
+/* 배지 */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-soft);
+  color: var(--color-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dark-ch .badge {
+  background: var(--color-elevated-2);
+  color: #fff;
+}
+
+/* 입력 */
+.field {
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 16px;
+  background: #fff;
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+}
+.field::placeholder {
+  color: var(--color-stone);
+}
+.field:focus {
+  outline: none;
+  border: 2px solid var(--color-primary);
+}
+
+/* 정사각 아이콘 버튼 */
+.isq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-sm);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* 커스텀 커서 — 커서 아래 배경 밝기에 따라 그린/블루로 전환된다.
+   색상은 Cursor.tsx 가 --c 커스텀 프로퍼티로 주입한다. */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: var(--c, var(--color-cursor-light));
+  transition: background-color 0.25s ease;
+  will-change: transform;
+}
+.cursor-ring {
+  background: transparent;
+  border: 1px solid var(--c, var(--color-cursor-light));
+  transition: border-color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hide-cursor,
+  .hide-cursor * {
+    cursor: none;
+  }
+}
+
+.stack-card {
+  position: sticky;
+  top: var(--st, 12vh);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .rv,
+  .rv-rule {
+    opacity: 1;
+    transform: none;
+  }
+  .mask-line > span {
+    transform: none;
+  }
+}

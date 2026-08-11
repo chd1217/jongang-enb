@@ -1,0 +1,14 @@
+{
+  "name": "중앙이앤비 | Jungang Environment Co., Ltd.",
+  "short_name": "중앙이앤비",
+  "description": "건설폐기물 중간처리 · 순환골재 생산 · 폐기물 수집운반",
+  "lang": "ko",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#40a030",
+  "icons": [
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/logo-square.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
+  ]
+}

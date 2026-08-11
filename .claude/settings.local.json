@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:wik.co.kr)",
+      "PowerShell(node -v)",
+      "PowerShell(npm -v)",
+      "WebFetch(domain:unitedcarriers.com)",
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(Get-ChildItem C:\\\\Users\\\\leesa\\\\Downloads\\\\1x -Force | Select-Object Name,Length; Write-Output \"--- siblings ---\"; Get-ChildItem C:\\\\Users\\\\leesa\\\\Downloads -Directory | Where-Object { $_.Name -match '^\\\\d+x$|svg|logo|로고' } | Select-Object Name)",
+      "PowerShell(& \"C:\\\\Users\\\\leesa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-leesa-Downloads-hd\\\\1648ce3d-f526-4127-9ecd-4c2c56a10c3e\\\\scratchpad\\\\make-assets.ps1\")",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
