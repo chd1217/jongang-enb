@@ -117,7 +117,7 @@ export default function HeroRing() {
           fontWeight="800"
           letterSpacing="-0.04em"
         >
-          60톤
+          100%
         </text>
         <text
           x={cx}
@@ -128,7 +128,7 @@ export default function HeroRing() {
           fontWeight="700"
           letterSpacing="0.14em"
         >
-          DAILY CAPACITY
+          ALLBARO SYNC
         </text>
       </svg>
 

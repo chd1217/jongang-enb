@@ -42,24 +42,25 @@ export default function Home() {
               className="d2 mt-7 text-ink"
               lines={[
                 <>
-                  <span className="text-stone">누구나 치웁니다.</span>
+                  <span className="text-stone">말보다 공정으로,</span>
                 </>,
-                <>저희는 되돌립니다.</>,
+                <>현장에서 다져온 확실한 처리의 정석.</>,
               ]}
             />
           </div>
 
           <div className="lg:pt-16">
             <p className="p-lg text-body">
-              계근대를 지난 폐기물은 1차 파쇄기로 들어갑니다. 반입 시 눈으로 먼저 걸러내고,
-              파쇄 후에는 다시 한번 정밀 선별로 불순물을 골라냅니다. 남은 파쇄품은 수요처가
-              요구하는 규격에 맞춰 출하됩니다.
+              반입 계근대 진입부터 최종 규격 출하까지, 중앙이엔비의 모든 라인은 타협 없는
+              원칙으로 움직입니다.
             </p>
             <p className="p-lg mt-5 text-body">
+              철저한 2단계 불순물 선별과 고성능 파쇄 시스템,{" "}
               <strong className="font-bold text-ink">
-                반입부터 출하까지, 정식 허가 범위 안에서 전 과정을 기록합니다.
-              </strong>{" "}
-              {company.founded}년 설립 이후 지금까지, 이 한 가지만 해왔습니다.
+                올바로 100% 실시간 전산 연동으로 배출처의 법적 리스크를 완벽히 해결
+              </strong>
+              하고 수요처가 신뢰하는 고순도 순환 자원을 완성합니다. 오랜 시간 현장을 지켜온
+              묵직한 책임감으로 끝까지 함께합니다.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
               <GhostLink href="/about">회사소개</GhostLink>
@@ -71,8 +72,8 @@ export default function Home() {
         {/* 처리 규모 — 큰 숫자 2열 */}
         <div className="mt-16 grid gap-px border border-hairline bg-hairline md:grid-cols-3">
           {[
-            { v: 60, unit: "톤/일", label: "일일 처리능력", desc: "폐기물 중간재활용업 허가 기준 처리량" },
             { v: 26, unit: "년", label: "업력", desc: "1999년 설립 이후 수집·운반 및 원료재생업 운영" },
+            { v: 100, unit: "%", label: "올바로 적법 연동율", desc: "반입부터 출하까지 전 처리 이력을 실시간 등록" },
             { v: 24, unit: "시간", label: "견적 회신", desc: "문의 접수부터 단가 회신까지" },
           ].map((s, i) => (
             <div key={s.label} className="rv bg-white p-7 md:p-9" data-d={i * 80}>

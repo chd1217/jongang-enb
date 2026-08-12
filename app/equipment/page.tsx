@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { IconCrusher, IconScreen, IconScale, IconTruck } from "@/components/Icons";
-import { equipment, stats } from "@/lib/site";
+import { equipment } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "보유 시설 · 장비",
@@ -28,21 +28,6 @@ export default function EquipmentPage() {
         desc="대형 산업용 파쇄기와 정밀 선별 설비를 운영합니다. 반입부터 출하까지 자체 시설에서 처리합니다."
         crumbs={[{ label: "보유 시설·장비", href: "/equipment" }]}
       />
-
-      {/* 요약 지표 */}
-      <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-20">
-        <ul className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <li key={s.label} className="rv bg-white p-7" data-d={i * 70}>
-              <p className="num text-[clamp(2rem,4vw,3rem)] text-ink">
-                {s.value}
-                <span className="text-[0.4em] font-bold accent">{s.suffix}</span>
-              </p>
-              <p className="cap-xs mt-4 text-mute">{s.label}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       {/* 장비 목록 */}
       <section className="soft-ch border-y border-hairline">

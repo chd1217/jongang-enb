@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     siteName: company.nameKo,
     title: `${company.nameKo} | 폐기물 수집·운반 · 중간재활용`,
-    description: "수집·운반부터 파쇄·선별, 맞춤형 파쇄품 출하까지. 일일 60톤 처리 능력의 폐기물 중간재활용 전문기업.",
+    description: "수집·운반부터 파쇄·선별, 맞춤형 파쇄품 출하까지. 1999년부터 이어온 폐기물 중간재활용 전문기업.",
     images: [{ url: "/logo-square.png", width: 1024, height: 1024, alt: company.nameKoFull }],
   },
   robots: { index: true, follow: true },
