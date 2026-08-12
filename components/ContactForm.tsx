@@ -28,59 +28,16 @@ const EMPTY: Form = {
   message: "",
 };
 
-/**
- * 견적 문의 폼.
- * ⚠️ 현재는 메일 클라이언트로 내용을 전달합니다.
- *    실제 운영 시 /api/contact 라우트나 폼 서비스(Formspree 등) 연동이 필요합니다.
- */
-export default function ContactForm() {
-  const [f, setF] = useState<Form>(EMPTY);
-  const [sent, setSent] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
-
-  const set = (k: keyof Form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setF((v) => ({ ...v, [k]: e.target.value }));
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!f.name.trim() || !f.tel.trim() || !f.site.trim()) {
-      setErr("이름, 연락처, 현장 주소는 필수 항목입니다.");
-      return;
-    }
-    setErr(null);
-
-    const body = [
-      `[견적 문의]`,
-      ``,
-      `담당자   : ${f.name}`,
-      `회사명   : ${f.company || "-"}`,
-      `연락처   : ${f.tel}`,
-      `이메일   : ${f.email || "-"}`,
-      ``,
-      `현장 주소 : ${f.site}`,
-      `폐기물 품목: ${f.waste}`,
-      `예상 물량 : ${f.volume || "-"}`,
-      `반출 희망일: ${f.date || "-"}`,
-      ``,
-      `문의 내용`,
-      f.message || "-",
-    ].join("\n");
-
-    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(
-      `[견적문의] ${f.company || f.name} - ${f.waste}`,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
-  };
-
-  const Field = ({
-    label,
-    required,
-    children,
-  }: {
-    label: string;
-    required?: boolean;
-    children: React.ReactNode;
-  }) => (
+function Field({
+  label,
+  required,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
     <label className="block">
       <span className="cap-xs text-mute">
         {label}
@@ -89,6 +46,47 @@ export default function ContactForm() {
       <div className="mt-2">{children}</div>
     </label>
   );
+}
+
+/** 견적 문의 폼. 제출 시 서버(/api/contact)가 이메일 발송과 DB 저장을 모두 처리한다. */
+export default function ContactForm() {
+  const [f, setF] = useState<Form>(EMPTY);
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  const set = (k: keyof Form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setF((v) => ({ ...v, [k]: e.target.value }));
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!f.name.trim() || !f.tel.trim() || !f.site.trim()) {
+      setErr("이름, 연락처, 현장 주소는 필수 항목입니다.");
+      return;
+    }
+    setErr(null);
+    setSending(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(f),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        setErr(data.error || "문의 접수 중 오류가 발생했습니다. 전화로 문의해 주세요.");
+        setSending(false);
+        return;
+      }
+      setSent(true);
+      setF(EMPTY);
+    } catch {
+      setErr("네트워크 오류로 접수하지 못했습니다. 전화로 문의해 주세요.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <form onSubmit={submit} className="corner card p-7 md:p-9">
@@ -179,7 +177,7 @@ export default function ContactForm() {
 
       {sent && (
         <p className="mt-6 border-l-2 border-primary bg-soft px-4 py-3 text-[14px] text-body">
-          메일 작성 창이 열렸습니다. 전송이 되지 않으면{" "}
+          문의가 정상적으로 접수됐습니다. 확인이 늦어지면{" "}
           <a href={`tel:${company.tel.replace(/-/g, "")}`} className="font-bold accent">
             {company.tel}
           </a>{" "}
@@ -188,8 +186,8 @@ export default function ContactForm() {
       )}
 
       <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-hairline pt-7">
-        <button type="submit" className="btn btn-primary">
-          문의 보내기
+        <button type="submit" disabled={sending} className="btn btn-primary">
+          {sending ? "접수 중..." : "문의 보내기"}
           <Arrow />
         </button>
         <p className="p-sm text-mute">영업일 기준 24시간 이내에 회신드립니다.</p>
