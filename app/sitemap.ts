@@ -7,12 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     { path: "/", priority: 1, freq: "weekly" as const },
     { path: "/about", priority: 0.8, freq: "monthly" as const },
-    { path: "/about/history", priority: 0.5, freq: "yearly" as const },
     { path: "/about/certificates", priority: 0.6, freq: "yearly" as const },
     { path: "/about/location", priority: 0.6, freq: "yearly" as const },
     { path: "/business", priority: 0.9, freq: "monthly" as const },
     { path: "/business/waste", priority: 0.9, freq: "monthly" as const },
-    { path: "/business/aggregate", priority: 0.9, freq: "monthly" as const },
+    { path: "/business/product", priority: 0.9, freq: "monthly" as const },
     { path: "/business/transport", priority: 0.8, freq: "monthly" as const },
     { path: "/process", priority: 0.7, freq: "monthly" as const },
     { path: "/equipment", priority: 0.6, freq: "monthly" as const },

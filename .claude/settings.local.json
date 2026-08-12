@@ -1,14 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:wik.co.kr)",
-      "PowerShell(node -v)",
-      "PowerShell(npm -v)",
-      "WebFetch(domain:unitedcarriers.com)",
-      "PowerShell(npm run build 2>&1)",
-      "PowerShell(Get-ChildItem C:\\\\Users\\\\leesa\\\\Downloads\\\\1x -Force | Select-Object Name,Length; Write-Output \"--- siblings ---\"; Get-ChildItem C:\\\\Users\\\\leesa\\\\Downloads -Directory | Where-Object { $_.Name -match '^\\\\d+x$|svg|logo|로고' } | Select-Object Name)",
-      "PowerShell(& \"C:\\\\Users\\\\leesa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-leesa-Downloads-hd\\\\1648ce3d-f526-4127-9ecd-4c2c56a10c3e\\\\scratchpad\\\\make-assets.ps1\")",
-      "Bash(git init *)",
+      "Bash(git merge *)",
+      "Bash(rm -rf .claude && git merge master --allow-unrelated-histories -m \"Merge branch 'master' into main\")",
+      "Bash(git stash *)",
+      "Bash(git push *)",
+      "Bash(git branch *)",
+      "Bash(command -v vercel)",
+      "Bash(vercel --version)",
+      "Bash(npm --version)",
+      "PowerShell(Get-Command node -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command npm -ErrorAction SilentlyContinue)",
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(winget install --id OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements)",
+      "Bash(cmd.exe /c \"set PATH=C:\\\\Program Files\\\\nodejs;%PATH% && npx tsc --noEmit\")",
       "Bash(git add *)"
     ]
   }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import HeroRing from "./HeroRing";
 import Marquee from "./Marquee";
 import { Arrow } from "./ui";
-import { company, stats, news } from "@/lib/site";
+import { company, impactStats, news } from "@/lib/site";
 
 /** 히어로 — 블랙 챕터. 좌: 클레임 카피 / 우: 공정 링 그래픽. */
 export default function Hero() {
@@ -33,47 +33,47 @@ export default function Hero() {
           <div className="rv flex items-center gap-3" data-d="60">
             <span className="block h-3 w-3 bg-primary" />
             <span className="cap accent">
-              건설폐기물 중간처리 · 순환골재 · EST. {company.founded}
+              폐기물 수집·운반 · 중간재활용 · EST. {company.founded}
             </span>
           </div>
 
           <h1 className="d1 mt-7 text-white">
             <span className="mask-line" data-d="120">
-              <span className="block text-white/35">폐기물을 옮깁니다.</span>
+              <span className="block text-white/35">정식 허가,</span>
             </span>
             <span className="mask-line" data-d="240">
-              <span className="block">자원으로</span>
+              <span className="block">투명한 기록,</span>
             </span>
             <span className="mask-line" data-d="340">
-              <span className="block">되돌립니다.</span>
+              <span className="block">확실한 처리</span>
             </span>
           </h1>
 
-          <p className="rv p-lg mt-8 max-w-xl text-white/70" data-d="480">
-            수집·운반부터 파쇄·선별, 순환골재 출하까지 저희 시설에서 끝냅니다.{" "}
-            <strong className="font-bold text-white">
-              중간에 다른 업체가 끼지 않으니, 떠넘길 책임도 없습니다.
-            </strong>
-          </p>
-
-          <div className="rv mt-9 flex flex-wrap gap-3" data-d="560">
-            <Link href="/contact" className="btn btn-primary">
-              견적 문의하기
-              <Arrow />
-            </Link>
-            <Link href="/business" className="btn btn-on-dark">
-              사업영역 보기
-            </Link>
-          </div>
-
-          <ul className="rv mt-10 flex flex-wrap gap-x-8 gap-y-3" data-d="640">
-            {["허가 " + company.permitNo, "ISO 9001 / 14001", "KS F 2573 순환골재"].map((t) => (
+          <ul className="rv mt-8 flex flex-wrap gap-x-8 gap-y-3" data-d="420">
+            {["정식 허가 2종 보유", "올바로시스템 연동", "수요처 맞춤 규격 파쇄"].map((t) => (
               <li key={t} className="flex items-center gap-2 text-[13.5px] text-white/60">
                 <span className="block h-1.5 w-1.5 bg-primary" />
                 {t}
               </li>
             ))}
           </ul>
+
+          <p className="rv p-lg mt-6 max-w-xl text-white/70" data-d="480">
+            수집·운반업·중간재활용업 허가를 모두 보유했습니다.{" "}
+            <strong className="font-bold text-white">
+              반입부터 출하까지 올바로시스템으로 전 과정을 기록합니다.
+            </strong>
+          </p>
+
+          <div className="rv mt-9 flex flex-wrap gap-3" data-d="560">
+            <Link href="/contact" className="btn btn-primary">
+              간편 반입·견적 문의
+              <Arrow />
+            </Link>
+            <Link href="/business" className="btn btn-on-dark">
+              사업영역 보기
+            </Link>
+          </div>
         </div>
 
         {/* 그래픽 */}
@@ -82,25 +82,37 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* 지표 밴드 */}
+      {/* 지표 밴드 — 환경 기여 추정치 */}
       <div className="border-t border-hairline-strong/60">
-        <ul className="mx-auto grid max-w-[var(--maxw)] grid-cols-2 px-[var(--pad)] md:grid-cols-4">
-          {stats.map((s, i) => (
-            <li
-              key={s.label}
-              className={`rv py-6 md:py-7 ${i > 0 ? "border-l border-hairline-strong/60 pl-5 md:pl-7" : ""} ${
-                i === 2 ? "border-l-0 pl-0 md:border-l md:pl-7" : ""
-              }`}
-              data-d={i * 70}
-            >
-              <p className="num text-[clamp(1.75rem,3.4vw,2.75rem)] text-white">
-                {s.value.toLocaleString("ko-KR")}
-                <span className="text-[0.45em] accent">{s.suffix}</span>
-              </p>
-              <p className="cap-xs mt-3 text-white/55">{s.label}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-7 md:py-8">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
+            <p className="cap-xs shrink-0 text-white/45">
+              CARBON IMPACT
+              <br />
+              (추정)
+            </p>
+            <ul className="grid flex-1 grid-cols-2 gap-6 sm:gap-10">
+              {impactStats.map((s, i) => (
+                <li
+                  key={s.label}
+                  className={`rv ${i > 0 ? "border-l border-hairline-strong/60 pl-6 sm:pl-10" : ""}`}
+                  data-d={i * 70}
+                >
+                  <p className="num text-[clamp(1.75rem,3.4vw,2.75rem)] text-white">
+                    {s.value.toLocaleString("ko-KR")}
+                    <span className="text-[0.45em] accent">{s.suffix}</span>
+                  </p>
+                  <p className="cap-xs mt-3 text-white/55">{s.label}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="rv mt-6 text-[12px] text-white/35" data-d="140">
+            ※ 허가 기준 일일 처리능력(60톤)에 재활용 시 매립·소각 대비 온실가스 절감
+            참고계수(약 1.5tCO₂e/톤)를 적용한 추정치입니다. 실제 절감량은 처리 품목과 가동률에
+            따라 달라질 수 있습니다.
+          </p>
+        </div>
       </div>
     </section>
   );

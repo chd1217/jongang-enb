@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { ceoMessage, values, overview, company, definition } from "@/lib/site";
+import { teamMessage, values, overview, definition } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "회사소개 · CEO 인사말",
+  title: "회사소개 · 인사말",
   description:
-    "중앙이앤비는 2004년 설립 이후 건설폐기물 중간처리 한 분야에 집중해 온 자원순환 기업입니다. 대표 인사말과 회사 개요를 확인하세요.",
+    "중앙이엔비는 1999년 설립 이후 폐기물 수집·운반과 중간재활용 한 분야에 집중해 온 자원순환 기업입니다. 인사말과 회사 개요를 확인하세요.",
 };
 
 export default function AboutPage() {
@@ -17,33 +17,36 @@ export default function AboutPage() {
 
       <PageHero
         eyebrow="About us"
-        title="21년, 한 가지만 해왔습니다"
+        title="26년, 한 가지만 해왔습니다"
         desc={definition}
         crumbs={[{ label: "회사소개", href: "/about" }]}
       />
 
-      {/* CEO 인사말 */}
-      <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <div className="grid gap-12 lg:grid-cols-[20rem_1fr] lg:gap-16">
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <Eyebrow>CEO message</Eyebrow>
-            <MaskHeading className="d3 mt-6 text-ink" lines={[<>대표 인사말</>]} />
-            <div className="mt-8 border-t border-hairline pt-6">
-              <p className="p-sm text-mute">{ceoMessage.sign}</p>
-              <p className="h4 mt-1 text-ink">{company.ceo}</p>
-            </div>
-          </div>
+      {/* 인사말 — 임직원 일동, 배경 배너형 */}
+      <section className="relative isolate overflow-hidden bg-ink">
+        <div
+          className="absolute inset-0 -z-20 bg-cover bg-center"
+          style={{ backgroundImage: "url(/about/team-hero.jpg)" }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/65 to-black/85"
+          aria-hidden
+        />
 
-          <div>
-            <p className="rv d3 text-ink">{ceoMessage.lead}</p>
-            <div className="mt-8 space-y-5">
-              {ceoMessage.paragraphs.map((p, i) => (
-                <p key={i} className="rv p-lg text-body" data-d={i * 90}>
-                  {p}
-                </p>
-              ))}
-            </div>
+        <div className="mx-auto max-w-3xl px-[var(--pad)] py-24 text-center md:py-32">
+          <Eyebrow className="justify-center">Our promise</Eyebrow>
+          <MaskHeading className="d2 mt-6 text-white" lines={[<>{teamMessage.headline}</>]} />
+          <div className="mt-8 space-y-5">
+            {teamMessage.paragraphs.map((p, i) => (
+              <p key={i} className="rv p-lg text-white/80" data-d={i * 90}>
+                {p}
+              </p>
+            ))}
           </div>
+          <p className="rv mt-10 text-[15px] font-bold tracking-wide text-white" data-d="360">
+            {teamMessage.sign}
+          </p>
         </div>
       </section>
 
@@ -91,7 +94,7 @@ export default function AboutPage() {
         cta="견적 문의하기"
       />
 
-      <NextLink href="/about/history" label="Next" title="연혁 보기" />
+      <NextLink href="/about/certificates" label="Next" title="인증·허가 보기" />
     </>
   );
 }

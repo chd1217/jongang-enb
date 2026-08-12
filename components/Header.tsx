@@ -41,7 +41,7 @@ export default function Header() {
           <div className="mx-auto flex h-full max-w-[var(--maxw)] items-center justify-between px-[var(--pad)] text-[12px] text-white/70">
             <p>{company.hours}</p>
             <div className="flex items-center gap-6">
-              <span>허가번호 {company.permitNo}</span>
+              <span>{company.permitNo} 정식 허가업체</span>
               <a href={`mailto:${company.email}`} className="hover:text-primary">
                 {company.email}
               </a>
@@ -68,7 +68,7 @@ export default function Header() {
               <Logo size={36} priority className="h-9 w-9" />
               <span className="flex flex-col leading-none">
                 <span className="text-[17px] font-bold tracking-[-0.045em] text-ink">
-                  중앙이앤비
+                  중앙이엔비
                 </span>
                 <span className="cap-xs mt-1 text-[8.5px] tracking-[0.1em] text-mute">
                   {company.nameEnShort}

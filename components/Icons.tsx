@@ -41,7 +41,7 @@ export function IconTruck({ className = base }: P) {
   );
 }
 
-/** 골재 — 입도별 골재 더미 */
+/** 파쇄품 — 규격별 파쇄품 더미 */
 export function IconAggregate({ className = base }: P) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>

@@ -9,7 +9,7 @@ import { Eyebrow, MaskHeading, GhostLink, Arrow, ArrowNE, CtaStrip } from "@/com
 import { IconTruck, IconDoc, IconCert, IconCrusher, IconAggregate, IconScreen } from "@/components/Icons";
 import {
   services,
-  aggregateProducts,
+  offtakes,
   certificates,
   news,
   company,
@@ -17,7 +17,7 @@ import {
   capabilities,
   industries,
   serviceAreas,
-  testimonials,
+  coreStrengths,
   wasteTypes,
   definition,
 } from "@/lib/site";
@@ -51,15 +51,15 @@ export default function Home() {
 
           <div className="lg:pt-16">
             <p className="p-lg text-body">
-              계량대를 지난 폐콘크리트는 파쇄기로 들어갑니다. 철근은 자석이 걷어내고, 목재와
-              비닐은 바람이 골라냅니다. 남은 골재는 입도별로 나뉘어 다시 도로가 되고 기초가
-              됩니다.
+              계근대를 지난 폐기물은 1차 파쇄기로 들어갑니다. 반입 시 눈으로 먼저 걸러내고,
+              파쇄 후에는 다시 한번 정밀 선별로 불순물을 골라냅니다. 남은 파쇄품은 수요처가
+              요구하는 규격에 맞춰 출하됩니다.
             </p>
             <p className="p-lg mt-5 text-body">
               <strong className="font-bold text-ink">
-                반입된 물량의 98.2%가 순환골재로 현장에 되돌아갑니다.
+                반입부터 출하까지, 정식 허가 범위 안에서 전 과정을 기록합니다.
               </strong>{" "}
-              {company.founded}년 허가 취득 이후 21년, 이 한 가지만 해왔습니다.
+              {company.founded}년 설립 이후 지금까지, 이 한 가지만 해왔습니다.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
               <GhostLink href="/about">회사소개</GhostLink>
@@ -71,9 +71,9 @@ export default function Home() {
         {/* 처리 규모 — 큰 숫자 2열 */}
         <div className="mt-16 grid gap-px border border-hairline bg-hairline md:grid-cols-3">
           {[
-            { v: 1050, unit: "만 톤", label: "누적 처리량", desc: "2004년 설립 이후 반입·처리한 건설폐기물 총량" },
-            { v: 40, unit: "대", label: "보유 장비", desc: "파쇄·선별 설비와 수집운반 차량 보유 대수" },
-            { v: 24, unit: "시간", label: "견적 회신", desc: "영업일 기준 문의 접수부터 단가 회신까지" },
+            { v: 60, unit: "톤/일", label: "일일 처리능력", desc: "폐기물 중간재활용업 허가 기준 처리량" },
+            { v: 26, unit: "년", label: "업력", desc: "1999년 설립 이후 수집·운반 및 원료재생업 운영" },
+            { v: 24, unit: "시간", label: "견적 회신", desc: "문의 접수부터 단가 회신까지" },
           ].map((s, i) => (
             <div key={s.label} className="rv bg-white p-7 md:p-9" data-d={i * 80}>
               <p className="num text-[clamp(2.5rem,5vw,3.75rem)] text-ink">
@@ -99,8 +99,8 @@ export default function Home() {
               />
             </div>
             <p className="rv p-md max-w-sm text-body" data-d="200">
-              배차업체 따로, 처리업체 따로 부를 필요가 없습니다. 계약 하나로 수집·운반부터
-              순환골재 공급까지 끝납니다.
+              수집·운반업과 중간재활용업 허가를 함께 보유해, 반입 상담부터 파쇄·재활용,
+              맞춤형 파쇄품 공급까지 한 창구에서 조율합니다.
             </p>
           </div>
 
@@ -174,14 +174,14 @@ export default function Home() {
               className="d2 mt-6 text-ink"
               lines={[
                 <>
-                  6단계 <span className="accent">일괄 처리</span> 라인
+                  5단계 <span className="accent">일괄 처리</span> 라인
                 </>,
               ]}
             />
           </div>
           <p className="rv p-md max-w-sm text-body" data-d="180">
-            계량 · 선별 · 1차 파쇄 · 2차 파쇄 · 입도 분리 · 품질시험. 모든 단계의 기록이
-            처리확인서로 남습니다.
+            수집·운반 · 반입 선별 · 파쇄 · 정밀 검수 · 출하. 모든 단계의 기록이 재활용확인서로
+            남습니다.
           </p>
         </div>
 
@@ -194,7 +194,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ 05. 왜 중앙이앤비인가 — 블랙 챕터 ═══ */}
+      {/* ═══ 05. 왜 중앙이엔비인가 — 블랙 챕터 ═══ */}
       <section className="dark-ch">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
           <div className="grid gap-12 lg:grid-cols-[24rem_1fr] lg:gap-16">
@@ -209,7 +209,7 @@ export default function Home() {
               />
               <p className="rv p-md mt-7 text-white/70" data-d="240">
                 서류가 늦고, 배차가 밀리고, 문제가 생기면 서로를 가리킵니다. 저희는 그 세 가지를
-                없애는 데 21년을 썼습니다.
+                없애는 데 집중해 왔습니다.
               </p>
               <Link href="/contact" className="btn btn-primary mt-8">
                 견적 문의하기
@@ -236,31 +236,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ 06. 순환골재 ═══ */}
+      {/* ═══ 06. 맞춤형 파쇄품 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
           <div>
-            <Eyebrow>Recycled aggregate</Eyebrow>
+            <Eyebrow>Shredded material</Eyebrow>
             <MaskHeading
               className="d2 mt-6 text-ink"
-              lines={[<>성적서 없는 골재는</>, <>출하하지 않습니다</>]}
+              lines={[<>규격 없는 파쇄품은</>, <>출하하지 않습니다</>]}
             />
             <p className="rv p-md mt-7 max-w-md text-body" data-d="240">
-              생산 로트마다 입도·마모감량·이물질 함유량을 시험합니다. 도로 보조기층부터
-              되메우기까지, 용도에 맞는 입도로 25톤 덤프 1대 분량부터 현장 직송합니다.
+              반입 시 1차 선별, 파쇄 후 2차 정밀 불순물 검출을 거칩니다. 시멘트 소성로부터
+              재생원료 가공까지, 수요처 규격에 맞춰 공급합니다.
             </p>
             <div className="rv mt-8" data-d="320">
-              <Link href="/business/aggregate" className="btn btn-outline">
+              <Link href="/business/product" className="btn btn-outline">
                 제품 및 단가 문의
               </Link>
             </div>
           </div>
 
           <ul className="grid gap-5 sm:grid-cols-2">
-            {aggregateProducts.map((p, i) => (
+            {offtakes.map((p, i) => (
               <li key={p.grade} className="corner card rv p-7" data-d={i * 80}>
                 <div className="flex items-baseline justify-between pt-3">
-                  <span className="num text-[2.5rem] text-ink">{p.grade}</span>
+                  <span className="num text-[1.75rem] text-ink">{p.grade}</span>
                   <IconScreen className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="h4 mt-6 text-ink">{p.name}</h3>
@@ -287,26 +287,23 @@ export default function Home() {
             items={certificates.map((c) => (
               <span key={c.name} className="flex items-baseline gap-3">
                 <span className="text-[clamp(1rem,1.9vw,1.4rem)] font-bold text-ink">{c.name}</span>
-                <span className="text-[13px] font-bold accent">{c.year}</span>
               </span>
             ))}
           />
         </div>
       </section>
 
-      {/* ═══ 08. 고객 후기 ═══ */}
+      {/* ═══ 08. 핵심 강점 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <Eyebrow>Clients</Eyebrow>
-        <MaskHeading className="d2 mt-6 max-w-3xl text-ink" lines={[<>현장 담당자들이 남긴 말</>]} />
+        <Eyebrow>Why us</Eyebrow>
+        <MaskHeading className="d2 mt-6 max-w-3xl text-ink" lines={[<>세 가지만 지킵니다</>]} />
 
         <ul className="mt-12 grid gap-5 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <li key={t.name} className="corner card rv flex flex-col p-7 md:p-8" data-d={i * 90}>
-              <p className="p-md mt-4 flex-1 text-body">“{t.quote}”</p>
-              <footer className="mt-7 border-t border-hairline pt-5">
-                <p className="text-[15px] font-bold text-ink">{t.name}</p>
-                <p className="p-sm mt-1 text-mute">{t.role}</p>
-              </footer>
+          {coreStrengths.map((t, i) => (
+            <li key={t.no} className="corner card rv flex flex-col p-7 md:p-8" data-d={i * 90}>
+              <span className="num text-[1.5rem] text-hairline">{t.no}</span>
+              <h3 className="h4 mt-6 text-ink">{t.title}</h3>
+              <p className="p-md mt-3 flex-1 text-body">{t.body}</p>
             </li>
           ))}
         </ul>
@@ -411,13 +408,12 @@ export default function Home() {
       <section className="border-t border-hairline bg-white">
         <div className="mx-auto grid max-w-[var(--maxw)] gap-10 px-[var(--pad)] py-12 lg:grid-cols-2">
           <div>
-            <h2 className="cap-xs text-mute">중앙이앤비 안내</h2>
+            <h2 className="cap-xs text-mute">중앙이엔비 안내</h2>
             <p className="p-sm mt-4 max-w-2xl text-body">{definition}</p>
             <p className="p-sm mt-4 max-w-2xl text-body">
-              처리 가능 품목은 {wasteTypes.slice(0, 6).join(", ")} 등이며, 생산 품목은{" "}
-              {aggregateProducts.map((p) => p.grade).join(" · ")} 순환골재입니다. 반입 즉시
-              계량증명서를, 처리 완료 후 처리확인서를 발급하며 올바로시스템 인계서 처리도 함께
-              진행합니다.
+              처리 가능 품목은 {wasteTypes.slice(0, 6).join(", ")} 등이며, 수요처 규격에 맞춘
+              맞춤형 파쇄품을 생산·공급합니다. 반입 즉시 계량증명서를, 처리 완료 후
+              재활용확인서를 발급하며 올바로시스템 인계서 처리도 함께 진행합니다.
             </p>
           </div>
 
@@ -429,7 +425,7 @@ export default function Home() {
                   key={a}
                   className="rounded-xs border border-hairline px-3 py-1.5 text-[12.5px] text-body"
                 >
-                  {a} 건설폐기물 처리
+                  {a} 폐기물 수집·운반
                 </li>
               ))}
             </ul>

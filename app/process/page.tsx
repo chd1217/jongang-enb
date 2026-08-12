@@ -8,26 +8,25 @@ import { processSteps } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "처리 공정",
-  description:
-    "반입·계량부터 선별, 1차·2차 파쇄, 입도 분리, 품질시험·출하까지 중앙이앤비의 건설폐기물 6단계 처리 공정을 안내합니다.",
+  description: "수집·운반부터 반입 선별, 1차·2차 파쇄, 정밀 검수, 출하까지 중앙이엔비의 5단계 처리 공정을 안내합니다.",
 };
 
 const env = [
   {
     t: "비산먼지 저감",
-    d: "고정식·이동식 살수 설비를 상시 가동하고, 하절기에는 살수 주기를 단축합니다. 야적장 둘레에는 방진벽을 설치했습니다.",
-  },
-  {
-    t: "세륜 · 세척",
-    d: "출차 전 모든 차량이 세륜시설을 통과합니다. 도로 오염과 인근 민원을 사전에 차단합니다.",
+    d: "야적·파쇄 구간에 살수 설비를 운영해 비산먼지 발생을 관리합니다.",
   },
   {
     t: "소음 관리",
-    d: "파쇄 설비 주변에 방음벽을 설치하고, 작업 시간을 법정 기준 내로 운영합니다.",
+    d: "파쇄 설비 운영 시간을 법정 기준 내로 관리합니다.",
   },
   {
-    t: "이물질 분리 처리",
-    d: "선별된 폐목재·폐합성수지 등은 성상별로 분리해 적법한 최종 처리 경로로 위탁합니다.",
+    t: "적법 처리",
+    d: "지정폐기물은 취급하지 않으며, 지정 외 폐기물만 정식 허가 범위 안에서 처리합니다.",
+  },
+  {
+    t: "이력 관리",
+    d: "반입부터 출하까지 전 단계를 올바로시스템으로 기록해 감사·실사에 즉시 대응합니다.",
   },
 ];
 
@@ -38,8 +37,8 @@ export default function ProcessPage() {
 
       <PageHero
         eyebrow="Process"
-        title="6단계 일괄 처리 라인"
-        desc="계량 · 선별 · 1차 파쇄 · 2차 파쇄 · 입도 분리 · 품질시험. 모든 단계의 기록이 처리확인서로 남습니다."
+        title="5단계 일괄 처리 라인"
+        desc="수집·운반 · 반입 선별 · 파쇄 · 정밀 검수 · 출하. 모든 단계의 기록이 재활용확인서로 남습니다."
         crumbs={[{ label: "처리 공정", href: "/process" }]}
       />
 
@@ -70,7 +69,7 @@ export default function ProcessPage() {
               >
                 <span className="num text-[1.75rem] text-hairline">{s.no}</span>
                 <h3 className="h4 pt-1 text-ink">{s.title}</h3>
-                <p className="p-md text-body">{s.desc}</p>
+                <p className="p-md text-body">{s.detail}</p>
               </li>
             ))}
           </ol>
@@ -85,7 +84,7 @@ export default function ProcessPage() {
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>환경 관리</>]} />
           </div>
           <p className="rv p-md max-w-md text-body" data-d="160">
-            2021년 환경부 녹색기업으로 지정되었으며, 법정 기준을 초과한 사례가 없습니다.
+            정식 허가 범위 안에서 법정 기준을 지키며 운영합니다.
           </p>
         </div>
 

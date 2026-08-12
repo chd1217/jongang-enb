@@ -6,7 +6,7 @@ import { company, directions, serviceAreas } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "오시는 길",
-  description: `중앙이앤비 오시는 길 안내. ${company.address}. 25톤 덤프·암롤 차량 진출입이 가능하며, 정문 계량대에서 반입 검수를 진행합니다.`,
+  description: `중앙이엔비 오시는 길 안내. ${company.address}. 덤프·암롤 차량 진출입이 가능하며, 정문 계근대에서 반입 검수를 진행합니다.`,
 };
 
 export default function LocationPage() {

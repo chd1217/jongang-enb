@@ -8,7 +8,7 @@ import { news } from "@/lib/site";
 export const metadata: Metadata = {
   title: "회사소식",
   description:
-    "중앙이앤비의 공지사항, 설비 증설 소식, 채용 공고 등 회사 소식을 확인하세요.",
+    "중앙이엔비의 공지사항과 회사 소식을 확인하세요.",
 };
 
 export default function NewsPage() {

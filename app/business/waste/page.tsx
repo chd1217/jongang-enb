@@ -6,15 +6,15 @@ import { IconDoc } from "@/components/Icons";
 import { wasteTypes, processSteps } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "건설폐기물 중간처리",
+  title: "폐기물 중간재활용",
   description:
-    "폐콘크리트·폐아스콘·혼합건설폐기물 등 건설폐기물을 반입 검수부터 파쇄·선별, 이물질 제거까지 일괄 처리합니다. 일일 1,200톤 처리 능력.",
+    "건설현장·사업장·제조공장에서 발생하는 폐합성수지류 등 가연성·재활용 폐기물을 반입 검수부터 파쇄·선별까지 일괄 처리합니다. 폐기물 중간재활용업 정식 허가.",
 };
 
 const documents = [
   { name: "계량증명서", when: "반입 즉시", desc: "차량별 총중량·공차중량·순중량을 기록해 발행합니다." },
   { name: "폐기물 인계서", when: "반입 당일", desc: "올바로시스템에 인계·인수 내역을 등록합니다." },
-  { name: "처리확인서", when: "처리 완료 후", desc: "발주처·감독기관 제출용으로 사용하실 수 있습니다." },
+  { name: "재활용확인서", when: "처리 완료 후", desc: "발주처·감독기관 제출용으로 사용하실 수 있습니다." },
   { name: "정산 명세서", when: "월 마감 시", desc: "현장별·품목별 반입 내역을 정리해 발송합니다." },
 ];
 
@@ -24,22 +24,22 @@ export default function WastePage() {
       <BreadcrumbJsonLd
         items={[
           { name: "사업영역", href: "/business" },
-          { name: "건설폐기물 중간처리", href: "/business/waste" },
+          { name: "폐기물 중간재활용", href: "/business/waste" },
         ]}
       />
       <ServiceJsonLd
-        name="건설폐기물 중간처리"
-        description="폐콘크리트, 폐아스팔트콘크리트, 혼합건설폐기물 등을 반입 검수부터 파쇄·선별까지 일괄 처리하는 건설폐기물 중간처리 서비스."
+        name="폐기물 중간재활용"
+        description="건설폐기물, 배출시설계·비배출시설계 폐기물 등을 반입 검수부터 파쇄·선별까지 일괄 처리하는 폐기물 중간재활용 서비스."
         href="/business/waste"
       />
 
       <PageHero
-        eyebrow="Waste treatment"
-        title="건설폐기물 중간처리"
-        desc="반입 검수부터 파쇄·선별, 이물질 제거까지 자체 시설에서 처리합니다. 일일 처리 능력 1,200톤 규모의 라인을 상시 가동합니다."
+        eyebrow="Intermediate recycling"
+        title="폐기물 중간재활용"
+        desc="반입 검수부터 파쇄·선별까지 자체 시설에서 처리합니다. 폐기물 수집·운반업, 중간재활용업 정식 허가를 보유하고 있습니다."
         crumbs={[
           { label: "사업영역", href: "/business" },
-          { label: "건설폐기물 중간처리", href: "/business/waste" },
+          { label: "폐기물 중간재활용", href: "/business/waste" },
         ]}
       />
 
@@ -55,16 +55,16 @@ export default function WastePage() {
           </div>
           <div>
             <p className="p-lg text-body">
-              건설폐기물 처리에서 현장이 겪는 문제는 대개 두 가지입니다. 차가 도착했는데 반입이
+              폐기물 처리에서 현장이 겪는 문제는 대개 두 가지입니다. 차가 도착했는데 반입이
               밀리는 것, 그리고 정산 시점에 서류가 없는 것입니다.
             </p>
             <p className="p-lg mt-5 text-body">
               <strong className="font-bold text-ink">
-                저희는 일일 1,200톤 라인을 상시 가동해 대기 시간을 없앴고, 계량증명서부터
-                처리확인서까지 요청 전에 준비합니다.
+                저희는 계량증명서부터 재활용확인서까지 요청 전에 준비하고, 올바로시스템으로 전
+                과정을 실시간 기록합니다.
               </strong>{" "}
-              반입된 물량은 성상별로 분리되어 파쇄·선별 라인을 거치고, 회수된 골재는 품질시험 후
-              순환골재로 출하됩니다.
+              반입된 물량은 1차 선별을 거쳐 파쇄 라인으로 들어가고, 파쇄 후 2차 정밀 선별로
+              불순물을 제거한 뒤 수요처 규격에 맞춰 출하됩니다.
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function WastePage() {
           ))}
         </ul>
         <p className="p-sm mt-5 text-mute">
-          ※ 석면 함유 폐기물, 지정폐기물은 취급하지 않습니다.
+          ※ 지정폐기물은 취급하지 않습니다. 난처리성 품목도 단가 협의를 통해 반입 문의 가능합니다.
         </p>
       </section>
 
@@ -132,12 +132,12 @@ export default function WastePage() {
 
       <CtaStrip
         eyebrow="Contact"
-        title="품목과 예상 물량을 알려주시면 반입 단가와 배차 일정을 회신드립니다."
+        title="품목과 예상 물량을 알려주시면 반입 단가와 일정을 회신드립니다."
         href="/contact"
         cta="반입 문의"
       />
 
-      <NextLink href="/business/aggregate" label="Next" title="순환골재 생산·판매" />
+      <NextLink href="/business/product" label="Next" title="맞춤형 파쇄품 생산·공급" />
     </>
   );
 }

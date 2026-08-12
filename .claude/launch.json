@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "jungang-dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", "C:\\Users\\raink\\OneDrive\\바탕 화면\\중앙 사이트 제작\\.claude\\dev-wrapper.cmd"],
       "port": 3000,
       "autoPort": true
     }

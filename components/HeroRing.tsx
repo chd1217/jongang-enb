@@ -3,12 +3,11 @@
 import { useEffect, useState } from "react";
 
 const NODES = [
-  { label: "반입 · 계량", short: "01" },
-  { label: "선별 야적", short: "02" },
-  { label: "1차 파쇄", short: "03" },
-  { label: "2차 파쇄", short: "04" },
-  { label: "입도 분리", short: "05" },
-  { label: "품질 · 출하", short: "06" },
+  { label: "수집 · 운반", short: "01" },
+  { label: "반입 선별", short: "02" },
+  { label: "고효율 파쇄", short: "03" },
+  { label: "정밀 검수", short: "04" },
+  { label: "출하", short: "05" },
 ];
 
 /** 히어로 그래픽 — 자원순환 공정 링. 노드가 순차적으로 점등된다. */
@@ -118,7 +117,7 @@ export default function HeroRing() {
           fontWeight="800"
           letterSpacing="-0.04em"
         >
-          98.2%
+          60톤
         </text>
         <text
           x={cx}
@@ -129,7 +128,7 @@ export default function HeroRing() {
           fontWeight="700"
           letterSpacing="0.14em"
         >
-          RECOVERY RATE
+          DAILY CAPACITY
         </text>
       </svg>
 

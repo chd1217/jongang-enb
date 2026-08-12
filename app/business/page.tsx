@@ -8,8 +8,7 @@ import { services, wasteTypes, industries } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "사업영역",
-  description:
-    "건설폐기물 중간처리, 순환골재 생산·판매, 폐기물 수집·운반. 계약 하나로 반입부터 출하까지 처리합니다.",
+  description: "폐기물 중간재활용, 맞춤형 파쇄품 생산·공급, 폐기물 수집·운반. 계약 하나로 반입부터 출하까지 처리합니다.",
 };
 
 const ICONS = [IconCrusher, IconAggregate, IconTruck];
@@ -22,7 +21,7 @@ export default function BusinessPage() {
       <PageHero
         eyebrow="Business"
         title="현장에 필요한 전부를, 한 회사에서"
-        desc="배차업체 따로, 처리업체 따로 부를 필요가 없습니다. 수집·운반부터 중간처리, 순환골재 공급까지 하나의 계약으로 처리합니다."
+        desc="수집·운반업과 중간재활용업 허가를 함께 보유해, 반입 상담부터 중간재활용, 맞춤형 파쇄품 공급까지 한 창구에서 조율합니다."
         crumbs={[{ label: "사업영역", href: "/business" }]}
       />
 

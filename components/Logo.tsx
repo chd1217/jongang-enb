@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { company } from "@/lib/site";
 
-/** 중앙이앤비 심볼 마크. */
+/** 중앙이엔비 심볼 마크. */
 export default function Logo({
   className = "",
   size = 40,

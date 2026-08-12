@@ -129,7 +129,7 @@ export default function ContactForm() {
               className="field"
               value={f.site}
               onChange={set("site")}
-              placeholder="경기도 화성시 ○○동 000-0"
+              placeholder="충청남도 공주시 ○○면 000-0"
             />
           </Field>
         </div>

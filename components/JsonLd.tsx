@@ -39,10 +39,10 @@ export function OrganizationJsonLd() {
           areaServed: serviceAreas.map((a) => ({ "@type": "Place", name: a })),
           openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-13:00"],
           knowsAbout: [
-            "건설폐기물 중간처리",
-            "순환골재 생산",
-            "폐기물 수집운반",
-            "폐콘크리트 재활용",
+            "폐기물 수집·운반",
+            "폐기물 중간재활용",
+            "폐합성수지류 파쇄·선별",
+            "맞춤형 파쇄품 생산",
           ],
           makesOffer: services.map((s) => ({
             "@type": "Offer",

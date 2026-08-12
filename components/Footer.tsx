@@ -19,7 +19,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="p-md mt-6 max-w-lg text-white/70">
-              건설폐기물 중간처리 · 순환골재 생산 · 폐기물 수집운반.
+              폐기물 수집·운반 · 중간재활용 · 맞춤형 파쇄품 공급.
               <br />
               반입 검수부터 출하까지 한 회사에서 처리합니다.
             </p>
@@ -106,7 +106,7 @@ export default function Footer() {
           <ul className="flex flex-wrap gap-x-6 gap-y-1 text-[12px] text-white/60">
             <li>대표 {company.ceo}</li>
             <li>사업자등록번호 {company.bizNo}</li>
-            <li>허가번호 {company.permitNo}</li>
+            <li>{company.permitNo} 정식 허가업체</li>
           </ul>
         </div>
       </div>
