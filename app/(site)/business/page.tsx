@@ -104,7 +104,7 @@ export default function BusinessPage() {
         cta="견적 문의하기"
       />
 
-      <NextLink href="/business/waste" label="Next" title="건설폐기물 중간처리" />
+      <NextLink href="/business/waste" label="Next" title="폐기물 중간재활용" />
     </>
   );
 }

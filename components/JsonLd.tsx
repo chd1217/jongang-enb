@@ -1,6 +1,6 @@
 import { company, faqs, services, serviceAreas, definition } from "@/lib/site";
 
-const SITE = "https://jungangenb.co.kr";
+const SITE = "https://jungangenb.com";
 
 function Ld({ data }: { data: object }) {
   return (

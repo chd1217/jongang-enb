@@ -36,9 +36,6 @@ export default function LocationPage() {
             <span className="mx-auto block h-3 w-3 bg-primary" />
             <p className="h4 mt-5 text-ink">{company.nameKoFull}</p>
             <p className="p-md mt-2 text-body">{company.address}</p>
-            <p className="cap-xs mt-6 text-mute">
-              ※ 이 영역에 카카오맵 / 네이버지도 임베드를 삽입하세요
-            </p>
           </div>
         </div>
 

@@ -4,7 +4,7 @@ import "./globals.css";
 import { company } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jungangenb.co.kr"),
+  metadataBase: new URL("https://jungangenb.com"),
   title: {
     default: `${company.nameKo} | 폐기물 수집·운반 · 중간재활용`,
     template: `%s | ${company.nameKo}`,

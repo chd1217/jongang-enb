@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { news } from "@/lib/site";
 
-const SITE = "https://jungangenb.co.kr";
+const SITE = "https://jungangenb.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
