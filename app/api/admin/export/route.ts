@@ -7,7 +7,14 @@ function csvCell(v: unknown) {
 }
 
 export async function GET() {
-  const items = await listInquiries();
+  let items;
+  try {
+    items = await listInquiries();
+  } catch (e) {
+    console.error("[admin/export] error:", e);
+    const msg = e instanceof Error ? e.message : "알 수 없는 오류";
+    return NextResponse.json({ ok: false, error: `서버 오류: ${msg}` }, { status: 500 });
+  }
 
   const header = [
     "접수일시",
