@@ -1,0 +1,56 @@
+import { NextResponse } from "next/server";
+import { listInquiries } from "@/lib/db";
+
+function csvCell(v: unknown) {
+  const s = String(v ?? "").replace(/"/g, '""');
+  return `"${s}"`;
+}
+
+export async function GET() {
+  const items = await listInquiries();
+
+  const header = [
+    "접수일시",
+    "담당자",
+    "회사명",
+    "연락처",
+    "이메일",
+    "현장 주소",
+    "품목",
+    "물량",
+    "희망일",
+    "상태",
+    "문의 내용",
+  ];
+
+  const lines = [
+    header.map(csvCell).join(","),
+    ...items.map((it) =>
+      [
+        new Date(it.created_at).toLocaleString("ko-KR"),
+        it.name,
+        it.company || "",
+        it.tel,
+        it.email || "",
+        it.site,
+        it.waste,
+        it.volume || "",
+        it.date || "",
+        it.status,
+        it.message || "",
+      ]
+        .map(csvCell)
+        .join(","),
+    ),
+  ];
+
+  // UTF-8 BOM을 붙여야 윈도우 엑셀에서 한글이 깨지지 않는다.
+  const csv = "﻿" + lines.join("\r\n");
+
+  return new NextResponse(csv, {
+    headers: {
+      "Content-Type": "text/csv; charset=utf-8",
+      "Content-Disposition": `attachment; filename="inquiries_${Date.now()}.csv"`,
+    },
+  });
+}

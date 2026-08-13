@@ -18,6 +18,9 @@ function getPool() {
   return pool;
 }
 
+export const STATUSES = ["접수완료", "상담중", "처리완료"] as const;
+export type Status = (typeof STATUSES)[number];
+
 export type Inquiry = {
   id: number;
   name: string;
@@ -29,25 +32,36 @@ export type Inquiry = {
   volume: string | null;
   date: string | null;
   message: string | null;
+  status: Status;
   created_at: string;
 };
 
-export async function ensureSchema() {
-  await getPool().query(`
-    CREATE TABLE IF NOT EXISTS inquiries (
-      id SERIAL PRIMARY KEY,
-      name TEXT NOT NULL,
-      company TEXT,
-      tel TEXT NOT NULL,
-      email TEXT,
-      site TEXT NOT NULL,
-      waste TEXT NOT NULL,
-      volume TEXT,
-      date TEXT,
-      message TEXT,
-      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-    );
-  `);
+let schemaReady: Promise<void> | null = null;
+
+export function ensureSchema() {
+  if (!schemaReady) {
+    schemaReady = (async () => {
+      await getPool().query(`
+        CREATE TABLE IF NOT EXISTS inquiries (
+          id SERIAL PRIMARY KEY,
+          name TEXT NOT NULL,
+          company TEXT,
+          tel TEXT NOT NULL,
+          email TEXT,
+          site TEXT NOT NULL,
+          waste TEXT NOT NULL,
+          volume TEXT,
+          date TEXT,
+          message TEXT,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        );
+      `);
+      await getPool().query(
+        `ALTER TABLE inquiries ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT '접수완료'`,
+      );
+    })();
+  }
+  return schemaReady;
 }
 
 export async function insertInquiry(input: {
@@ -82,7 +96,23 @@ export async function insertInquiry(input: {
 export async function listInquiries(): Promise<Inquiry[]> {
   await ensureSchema();
   const { rows } = await getPool().query<Inquiry>(
-    `SELECT * FROM inquiries ORDER BY created_at DESC LIMIT 200`,
+    `SELECT * FROM inquiries ORDER BY created_at DESC LIMIT 500`,
   );
   return rows;
+}
+
+export async function getInquiry(id: number): Promise<Inquiry | null> {
+  await ensureSchema();
+  const { rows } = await getPool().query<Inquiry>(`SELECT * FROM inquiries WHERE id = $1`, [id]);
+  return rows[0] ?? null;
+}
+
+export async function updateInquiryStatus(id: number, status: Status) {
+  await ensureSchema();
+  await getPool().query(`UPDATE inquiries SET status = $1 WHERE id = $2`, [status, id]);
+}
+
+export async function deleteInquiry(id: number) {
+  await ensureSchema();
+  await getPool().query(`DELETE FROM inquiries WHERE id = $1`, [id]);
 }
