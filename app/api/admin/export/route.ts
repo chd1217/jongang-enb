@@ -34,7 +34,7 @@ export async function GET() {
     header.map(csvCell).join(","),
     ...items.map((it) =>
       [
-        new Date(it.created_at).toLocaleString("ko-KR"),
+        new Date(it.created_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }),
         it.name,
         it.company || "",
         it.tel,

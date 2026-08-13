@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 function fmt(d: string) {
-  return new Date(d).toLocaleString("ko-KR", { dateStyle: "medium", timeStyle: "short" });
+  return new Date(d).toLocaleString("ko-KR", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Seoul",
+  });
 }
 
 const STATUS_STYLE: Record<Status, string> = {
