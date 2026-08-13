@@ -107,6 +107,11 @@ export default function Footer() {
             <li>대표 {company.ceo}</li>
             <li>사업자등록번호 {company.bizNo}</li>
             <li>{company.permitNo} 정식 허가업체</li>
+            <li>
+              <Link href="/admin" className="hover:text-primary">
+                관리자
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
