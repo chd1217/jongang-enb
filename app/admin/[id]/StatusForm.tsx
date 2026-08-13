@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { STATUSES, type Status } from "@/lib/db";
+import { STATUSES, type Status } from "@/lib/inquiry-status";
 
 export default function StatusForm({ id, status }: { id: number; status: Status }) {
   const router = useRouter();

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { STATUSES, deleteInquiry, updateInquiryStatus } from "@/lib/db";
+import { deleteInquiry, updateInquiryStatus } from "@/lib/db";
+import { STATUSES } from "@/lib/inquiry-status";
 
 export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

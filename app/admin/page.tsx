@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { listInquiries, type Status } from "@/lib/db";
+import { listInquiries } from "@/lib/db";
+import type { Status } from "@/lib/inquiry-status";
 import LogoutButton from "./LogoutButton";
 
 export const metadata: Metadata = {

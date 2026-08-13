@@ -1,4 +1,5 @@
 import { Pool } from "pg";
+import type { Status } from "./inquiry-status";
 
 let pool: Pool | null = null;
 
@@ -17,9 +18,6 @@ function getPool() {
   }
   return pool;
 }
-
-export const STATUSES = ["접수완료", "상담중", "처리완료"] as const;
-export type Status = (typeof STATUSES)[number];
 
 export type Inquiry = {
   id: number;
