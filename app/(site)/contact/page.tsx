@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import Faq from "@/components/Faq";
 import { Eyebrow, MaskHeading } from "@/components/ui";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/JsonLd";
-import { company, serviceAreas } from "@/lib/site";
+import { company, serviceAreas, telDial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "문의하기",
@@ -38,7 +38,7 @@ export default function ContactPage() {
             <Eyebrow>Direct</Eyebrow>
             <p className="cap-xs mt-6 text-mute">대표전화</p>
             <a
-              href={`tel:${company.tel.replace(/-/g, "")}`}
+              href={`tel:${telDial}`}
               className="num mt-2 block text-[clamp(1.75rem,3.4vw,2.5rem)] text-ink hover:text-accent"
             >
               {company.tel}

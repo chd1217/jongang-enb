@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { processSteps } from "@/lib/site";
+import { IconTruck, IconScreen, IconCrusher, IconCert, IconScale } from "./Icons";
+
+const STEP_ICONS = [IconTruck, IconScreen, IconCrusher, IconCert, IconScale];
 
 /** 세로 스크롤로 구동되는 가로 핀 섹션 (처리 공정 6단계). */
 export default function HorizontalProcess() {
@@ -54,27 +57,33 @@ export default function HorizontalProcess() {
     };
   }, [mobile]);
 
-  const cards = processSteps.map((s, i) => (
-    <article
-      key={s.no}
-      className="corner card flex h-full w-[82vw] shrink-0 flex-col justify-between p-7 sm:w-[400px] md:p-9 lg:w-[26vw] lg:min-w-[320px]"
-    >
-      <div className="flex items-start justify-between pt-3">
-        <span className="num text-[3.5rem] text-hairline">{s.no}</span>
-        <span className="cap-xs text-mute">STEP</span>
-      </div>
-      <div className="mt-10">
-        <h3 className="d3 text-ink">{s.title}</h3>
-        <p className="p-md mt-4 text-body">{s.desc}</p>
-        <div className="mt-7 h-[3px] w-full bg-soft">
-          <div
-            className="h-[3px] bg-primary"
-            style={{ width: `${((i + 1) / processSteps.length) * 100}%` }}
-          />
+  const cards = processSteps.map((s, i) => {
+    const Icon = STEP_ICONS[i] ?? IconCrusher;
+    return (
+      <article
+        key={s.no}
+        className="corner card flex h-full w-[82vw] shrink-0 flex-col p-7 sm:w-[400px] md:p-9 lg:w-[26vw] lg:min-w-[320px]"
+      >
+        <div className="flex items-start justify-between pt-3">
+          <span className="num text-[3.5rem] text-hairline">{s.no}</span>
+          <span className="cap-xs text-mute">STEP</span>
         </div>
-      </div>
-    </article>
-  ));
+        <div className="flex flex-1 items-center justify-center">
+          <Icon className="h-16 w-16 text-primary/15 md:h-20 md:w-20" />
+        </div>
+        <div>
+          <h3 className="d3 text-ink">{s.title}</h3>
+          <p className="p-md mt-4 text-body">{s.desc}</p>
+          <div className="mt-7 h-[3px] w-full bg-soft">
+            <div
+              className="h-[3px] bg-primary"
+              style={{ width: `${((i + 1) / processSteps.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      </article>
+    );
+  });
 
   if (mobile) {
     return (
@@ -88,9 +97,44 @@ export default function HorizontalProcess() {
     );
   }
 
+  const active = Math.min(processSteps.length - 1, Math.floor(p * processSteps.length));
+
   return (
     <div ref={wrap} style={{ height: `${processSteps.length * 56}vh` }} className="relative">
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        {/* 5단계 연결 타임라인 */}
+        <div className="mx-auto mb-10 hidden w-full max-w-[var(--maxw)] px-[var(--pad)] lg:block">
+          <div className="relative flex items-start justify-between">
+            <div className="absolute inset-x-0 top-[6px] h-px bg-hairline" aria-hidden />
+            <div
+              className="absolute inset-y-0 top-[6px] left-0 h-px bg-primary transition-[width] duration-500 ease-out"
+              style={{ width: `${(active / (processSteps.length - 1)) * 100}%` }}
+              aria-hidden
+            />
+            {processSteps.map((s, i) => {
+              const on = i <= active;
+              return (
+                <div
+                  key={s.no}
+                  className="relative flex flex-col items-center gap-3 px-2 text-center"
+                  style={{ width: `${100 / processSteps.length}%` }}
+                >
+                  <span
+                    className={`block h-3 w-3 shrink-0 border transition-colors duration-300 ${
+                      on ? "border-primary bg-primary" : "border-hairline bg-white"
+                    }`}
+                  />
+                  <span
+                    className={`cap-xs transition-colors duration-300 ${on ? "text-ink" : "text-mute"}`}
+                  >
+                    {s.title}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         <div
           ref={track}
           className="flex gap-5 pl-[max(var(--pad),calc((100vw-var(--maxw))/2+var(--pad)))]"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { company, nav, serviceAreas, wasteTypes } from "@/lib/site";
+import { company, nav, serviceAreas, telDial, wasteTypes } from "@/lib/site";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -32,7 +32,7 @@ export default function Footer() {
             <div>
               <dt className="cap-xs text-white/50">Tel</dt>
               <dd className="num mt-2 text-2xl text-white">
-                <a href={`tel:${company.tel.replace(/-/g, "")}`} className="hover:text-primary">
+                <a href={`tel:${telDial}`} className="hover:text-primary">
                   {company.tel}
                 </a>
               </dd>

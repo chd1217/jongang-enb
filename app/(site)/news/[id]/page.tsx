@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import { CtaStrip, Arrow } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { news, newsBody, company } from "@/lib/site";
+import { news, newsBody, company, telDial } from "@/lib/site";
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -85,7 +85,7 @@ export default async function NewsDetailPage({ params }: Params) {
           <div className="mt-14 border-t border-hairline pt-8">
             <p className="p-sm text-mute">
               본 내용에 대한 문의는 대표번호{" "}
-              <a href={`tel:${company.tel.replace(/-/g, "")}`} className="font-bold accent">
+              <a href={`tel:${telDial}`} className="font-bold accent">
                 {company.tel}
               </a>{" "}
               또는{" "}

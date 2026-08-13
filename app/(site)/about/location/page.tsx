@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink, Arrow } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { company, directions, serviceAreas } from "@/lib/site";
+import { company, directions, serviceAreas, telDial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "오시는 길",
@@ -58,7 +58,7 @@ export default function LocationPage() {
             </dl>
 
             <a
-              href={`tel:${company.tel.replace(/-/g, "")}`}
+              href={`tel:${telDial}`}
               className="btn btn-outline mt-8"
             >
               전화 연결

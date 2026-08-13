@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { company, wasteTypes } from "@/lib/site";
+import { company, telDial, wasteTypes } from "@/lib/site";
 import { Arrow } from "./ui";
 
 type Form = {
@@ -178,7 +178,7 @@ export default function ContactForm() {
       {sent && (
         <p className="mt-6 border-l-2 border-primary bg-soft px-4 py-3 text-[14px] text-body">
           문의가 정상적으로 접수됐습니다. 확인이 늦어지면{" "}
-          <a href={`tel:${company.tel.replace(/-/g, "")}`} className="font-bold accent">
+          <a href={`tel:${telDial}`} className="font-bold accent">
             {company.tel}
           </a>{" "}
           로 연락 주세요.

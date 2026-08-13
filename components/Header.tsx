@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { company, nav } from "@/lib/site";
+import { company, nav, telDial } from "@/lib/site";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -42,11 +42,11 @@ export default function Header() {
             <p>{company.hours}</p>
             <div className="flex items-center gap-6">
               <span>{company.permitNo} 정식 허가업체</span>
-              <a href={`mailto:${company.email}`} className="hover:text-primary">
-                {company.email}
+              <a href={`mailto:${company.headerEmail}`} className="hover:text-primary">
+                {company.headerEmail}
               </a>
               <a
-                href={`tel:${company.tel.replace(/-/g, "")}`}
+                href={`tel:${telDial}`}
                 className="flex items-center gap-2 font-bold text-white hover:text-primary"
               >
                 <span className="h-1.5 w-1.5 bg-primary blink" />
@@ -182,7 +182,7 @@ export default function Header() {
           </nav>
 
           <div className="mt-8 space-y-4">
-            <a href={`tel:${company.tel.replace(/-/g, "")}`} className="block">
+            <a href={`tel:${telDial}`} className="block">
               <span className="cap text-mute">TEL</span>
               <p className="num mt-2 text-3xl text-ink">{company.tel}</p>
             </a>

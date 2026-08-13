@@ -20,6 +20,7 @@ import {
   coreStrengths,
   wasteTypes,
   definition,
+  telDial,
 } from "@/lib/site";
 
 const ICONS = { truck: IconTruck, doc: IconDoc, cert: IconCert } as const;
@@ -350,7 +351,7 @@ export default function Home() {
               여기에 없는 질문은 전화 주시면 바로 답해 드립니다.
             </p>
             <a
-              href={`tel:${company.tel.replace(/-/g, "")}`}
+              href={`tel:${telDial}`}
               className="num mt-5 block text-2xl text-ink hover:text-accent"
             >
               {company.tel}
@@ -402,7 +403,7 @@ export default function Home() {
         title="물량과 품목만 알려주시면, 24시간 내에 단가와 배차 일정을 회신드립니다."
         href="/contact"
         cta="온라인 견적 문의"
-        secondary={{ label: company.tel, href: `tel:${company.tel.replace(/-/g, "")}` }}
+        secondary={{ label: company.tel, href: `tel:${telDial}` }}
       />
 
       {/* ═══ SEO / 요약 ═══ */}

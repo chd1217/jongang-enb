@@ -74,7 +74,7 @@ export default function NewsPage() {
 
       <CtaStrip
         eyebrow="Contact"
-        title="궁금한 내용이 있으시면 대표번호로 연락 주세요."
+        title="현장 상황에 맞는 최적의 반입 및 파쇄·처리 솔루션을 안내해 드립니다. 자세한 문의는 대표번호로 연락해 주시기 바랍니다."
         href="/contact"
         cta="문의하기"
       />
