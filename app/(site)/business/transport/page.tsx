@@ -47,6 +47,7 @@ export default function TransportPage() {
           { label: "사업영역", href: "/business" },
           { label: "폐기물 수집·운반", href: "/business/transport" },
         ]}
+        bgImage="/about/hero-transport.png"
       />
 
       {/* 운영 방식 */}
