@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { company, telDial, wasteTypes } from "@/lib/site";
 import { Arrow } from "./ui";
 
@@ -54,6 +54,9 @@ export default function ContactForm() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [agree, setAgree] = useState(false);
+  const [agreeError, setAgreeError] = useState(false);
+  const agreeRef = useRef<HTMLInputElement>(null);
 
   const set = (k: keyof Form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setF((v) => ({ ...v, [k]: e.target.value }));
@@ -64,6 +67,14 @@ export default function ContactForm() {
       setErr("이름, 연락처, 현장 주소는 필수 항목입니다.");
       return;
     }
+    if (!agree) {
+      setErr("개인정보 수집 및 이용에 동의하셔야 견적 문의 제출이 가능합니다.");
+      setAgreeError(true);
+      agreeRef.current?.focus();
+      agreeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    setAgreeError(false);
     setErr(null);
     setSending(true);
 
@@ -81,6 +92,7 @@ export default function ContactForm() {
       }
       setSent(true);
       setF(EMPTY);
+      setAgree(false);
     } catch {
       setErr("네트워크 오류로 접수하지 못했습니다. 전화로 문의해 주세요.");
     } finally {
@@ -185,12 +197,46 @@ export default function ContactForm() {
         </p>
       )}
 
-      <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-hairline pt-7">
-        <button type="submit" disabled={sending} className="btn btn-primary">
-          {sending ? "접수 중..." : "문의 보내기"}
-          <Arrow />
-        </button>
-        <p className="p-sm text-mute">영업일 기준 24시간 이내에 회신드립니다.</p>
+      <div className="mt-8 border-t border-hairline pt-7">
+        <div className="corner max-h-36 overflow-y-auto border border-hairline bg-soft p-4 text-[12.5px] leading-relaxed text-mute">
+          <p className="font-bold text-ink">개인정보 수집 및 이용 안내</p>
+          <ul className="mt-2 list-disc space-y-1 pl-4">
+            <li>수집 항목: 이름/담당자명, 연락처, 이메일, 현장 위치, 물량 정보</li>
+            <li>수집·이용 목적: 견적 산출, 반입 일정 협의, 상담 응대</li>
+            <li>보유 기간: 문의 처리 후 1년간 보관 후 파기</li>
+          </ul>
+          <p className="mt-2">
+            동의를 거부할 권리가 있으나, 미동의 시 온라인 견적 제출이 불가합니다.
+          </p>
+        </div>
+
+        <label
+          className={`mt-4 flex items-start gap-2.5 rounded-xs p-2 text-[13.5px] text-body transition-colors ${
+            agreeError ? "border-2 border-red-500 bg-red-50" : "border-2 border-transparent"
+          }`}
+        >
+          <input
+            ref={agreeRef}
+            type="checkbox"
+            checked={agree}
+            onChange={(e) => {
+              setAgree(e.target.checked);
+              if (e.target.checked) setAgreeError(false);
+            }}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-primary"
+          />
+          <span>
+            <span className="font-bold accent">[필수]</span> 개인정보 수집 및 이용에 동의합니다.
+          </span>
+        </label>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <button type="submit" disabled={sending} className="btn btn-primary">
+            {sending ? "접수 중..." : "문의 보내기"}
+            <Arrow />
+          </button>
+          <p className="p-sm text-mute">영업일 기준 24시간 이내에 회신드립니다.</p>
+        </div>
       </div>
     </form>
   );
