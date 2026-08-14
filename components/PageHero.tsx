@@ -5,13 +5,27 @@ type Props = {
   title: string;
   desc?: string;
   crumbs?: { label: string; href: string }[];
+  /** 지정 시 히어로 배경에 사진을 깔고 70~80% 블랙 오버레이를 덧씌운다. */
+  bgImage?: string;
 };
 
 /** 서브페이지 히어로(블랙 챕터) + 브레드크럼 스트립(soft). */
-export default function PageHero({ eyebrow, title, desc, crumbs = [] }: Props) {
+export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage }: Props) {
   return (
     <>
-      <section className="dark-ch pt-8 md:pt-24">
+      <section
+        className={`dark-ch pt-8 md:pt-24 ${bgImage ? "relative isolate overflow-hidden" : ""}`}
+      >
+        {bgImage && (
+          <>
+            <div
+              className="absolute inset-0 -z-20 bg-cover bg-center"
+              style={{ backgroundImage: `url(${bgImage})` }}
+              aria-hidden
+            />
+            <div className="absolute inset-0 -z-10 bg-black/75" aria-hidden />
+          </>
+        )}
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-14 md:py-20">
           <div className="flex items-center gap-3">
             <span className="block h-3 w-3 bg-primary" />
