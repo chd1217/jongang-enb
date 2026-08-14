@@ -17,7 +17,6 @@ import {
   capabilities,
   industries,
   serviceAreas,
-  serviceHub,
   serviceNationwide,
   coreStrengths,
   wasteTypes,
@@ -423,10 +422,7 @@ export default function Home() {
 
           <div>
             <h2 className="cap-xs text-mute">서비스 지역</h2>
-            <p className="mt-4 inline-block rounded-xs border-2 border-primary px-3 py-1.5 text-[12.5px] font-bold text-ink">
-              {serviceHub}
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-2">
+            <ul className="mt-4 flex flex-wrap gap-2">
               {serviceAreas.slice(0, -1).map((a) => (
                 <li
                   key={a}
