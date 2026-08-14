@@ -24,6 +24,12 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage }:
               aria-hidden
             />
             <div className="absolute inset-0 -z-10 bg-black/75" aria-hidden />
+            <p
+              className="absolute right-3 bottom-2 text-[9px] tracking-wide text-white/20 select-none"
+              aria-hidden
+            >
+              본 이미지는 AI로 연출된 시안입니다.
+            </p>
           </>
         )}
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-14 md:py-20">
