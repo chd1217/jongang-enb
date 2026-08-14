@@ -16,7 +16,14 @@
       "PowerShell(winget install --id OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements)",
       "Bash(cmd.exe /c \"set PATH=C:\\\\Program Files\\\\nodejs;%PATH% && npx tsc --noEmit\")",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(find \"/c/Users/raink/AppData/Local/Temp/claude\" -newermt '-15 minutes' -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) 2>/dev/null)",
+      "Bash(find \"/c/Users/raink\" -newermt '-20 minutes' -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.webp\" \\\\\\) 2>/dev/null | grep -v \"node_modules\" | head -50)",
+      "Bash(xxd)",
+      "Bash(mv \"hero-facility.jpg.png\" \"hero-facility.png\")",
+      "Bash(mv \"team-hero.jpg.png\" \"team-hero.png\")",
+      "Bash(node -e \"console.log\\(require\\('fs'\\).statSync\\('team-hero.png'\\)\\)\")",
+      "Bash(python3 -c \"print\\('n/a'\\)\")"
     ]
   }
 }
