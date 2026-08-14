@@ -23,7 +23,7 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage }:
               style={{ backgroundImage: `url(${bgImage})` }}
               aria-hidden
             />
-            <div className="absolute inset-0 -z-10 bg-black/75" aria-hidden />
+            <div className="absolute inset-0 -z-10 bg-black/45" aria-hidden />
             <p
               className="absolute right-3 bottom-2 text-[9px] tracking-wide text-white/20 select-none"
               aria-hidden

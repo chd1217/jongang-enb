@@ -30,7 +30,7 @@ export default function AboutPage() {
           style={{ backgroundImage: "url(/about/team-hero.png)" }}
           aria-hidden
         />
-        <div className="absolute inset-0 -z-10 bg-black/75" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-black/55" aria-hidden />
 
         <div className="mx-auto max-w-3xl px-[var(--pad)] py-24 text-center md:py-32">
           <Eyebrow className="justify-center">Our promise</Eyebrow>
