@@ -21,7 +21,7 @@ export default function NewsPage() {
       <PageHero
         eyebrow="News"
         title="회사소식"
-        desc="반입 단가 변경, 설비 증설, 운영 일정 등 거래처에서 알아두시면 좋을 소식을 올립니다."
+        desc="현장 운영 일정, 설비 가동 현황 등 거래처 필수 안내 사항을 신속하게 공유합니다."
         crumbs={[{ label: "회사소식", href: "/news" }]}
         bgImage="/about/hero-news.jpg"
       />
