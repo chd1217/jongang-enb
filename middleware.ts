@@ -8,7 +8,16 @@ export async function middleware(req: NextRequest) {
   }
 
   const token = req.cookies.get(ADMIN_COOKIE)?.value;
-  if (!(await isValidSessionToken(token))) {
+  let valid = false;
+  try {
+    valid = await isValidSessionToken(token);
+  } catch (e) {
+    // ADMIN_PASSWORD가 이 실행 환경(Edge)에서 읽히지 않는 등 설정 문제가 있어도
+    // 화면이 멈추지 않고 로그인 화면으로 깔끔하게 돌아가도록 한다.
+    console.error("[middleware] session check failed:", e);
+  }
+
+  if (!valid) {
     if (pathname.startsWith("/api/")) {
       return NextResponse.json({ ok: false, error: "인증이 필요합니다." }, { status: 401 });
     }

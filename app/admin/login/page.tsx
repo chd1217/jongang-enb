@@ -27,6 +27,12 @@ export default function AdminLoginPage() {
       }
       router.push("/admin");
       router.refresh();
+      // 정상적으로 이동하면 이 페이지는 언마운트된다. 몇 초 뒤에도 여전히 이 화면에
+      // 남아있다면(서버 설정 문제 등으로 이동이 막힌 경우) 멈춘 것처럼 보이지 않도록 알린다.
+      setTimeout(() => {
+        setErr("페이지 이동이 지연되고 있습니다. 서버 설정 문제일 수 있습니다. 잠시 후 다시 시도해 주세요.");
+        setLoading(false);
+      }, 4000);
     } catch {
       setErr("네트워크 오류가 발생했습니다.");
       setLoading(false);
