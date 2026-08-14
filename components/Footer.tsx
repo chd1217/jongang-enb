@@ -40,8 +40,8 @@ export default function Footer() {
             <div>
               <dt className="cap-xs text-white/50">E-mail</dt>
               <dd className="mt-2 text-[15px] text-white/80">
-                <a href={`mailto:${company.email}`} className="hover:text-primary">
-                  {company.email}
+                <a href={`mailto:${company.headerEmail}`} className="hover:text-primary">
+                  {company.headerEmail}
                 </a>
               </dd>
             </div>
