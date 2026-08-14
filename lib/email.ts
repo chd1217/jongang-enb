@@ -46,11 +46,17 @@ export async function sendInquiryEmail(input: {
     <p>${(input.message || "-").replace(/\n/g, "<br/>")}</p>
   `;
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "중앙이엔비 웹문의 <onboarding@resend.dev>",
     to: company.email,
     replyTo: input.email || undefined,
     subject: `[견적문의] ${input.company || input.name} - ${input.waste}`,
     html,
   });
+
+  // Resend SDK는 API가 발송을 거부해도 throw하지 않고 error 필드로만 알려주므로,
+  // 직접 확인해서 던지지 않으면 실패가 조용히 성공 처리되어 버린다.
+  if (error) {
+    throw new Error(`Resend 발송 실패: ${error.name} - ${error.message}`);
+  }
 }
