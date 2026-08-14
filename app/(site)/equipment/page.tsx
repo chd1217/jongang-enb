@@ -58,7 +58,7 @@ export default function EquipmentPage() {
 
       <CtaStrip
         eyebrow="Capacity"
-        title="현장 물량과 반입 주기에 맞춘 최적의 파쇄·처리 프로세스를 제공합니다. 물량 규모에 따른 맞춤 견적 및 반입 일정 협의는 상단의 견적 문의를 통해 신속하게 확인하실 수 있습니다."
+        title="현장 물량과 반입 주기에 맞춘 최적의 파쇄·처리 프로세스를 제공합니다. 맞춤 견적 및 일정 협의는 상단 견적 문의를 통해 신속히 확인하실 수 있습니다."
         href="/contact"
         cta="맞춤 견적 신청하기"
       />
