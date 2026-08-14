@@ -41,7 +41,7 @@ export function OrganizationJsonLd() {
           knowsAbout: [
             "폐기물 수집·운반",
             "폐기물 중간재활용",
-            "폐합성수지류 파쇄·선별",
+            "폐합성수지류 파·분쇄·선별",
             "맞춤형 파쇄품 생산",
           ],
           makesOffer: services.map((s) => ({

@@ -7,7 +7,7 @@ import { equipment } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "보유 시설 · 장비",
-  description: "대형 산업용 파쇄기, 정밀 선별 설비, 트럭 계근대 등 중앙이엔비의 처리 라인을 구성하는 핵심 설비를 소개합니다.",
+  description: "대형 산업용 파·분쇄 설비, 정밀 선별 설비, 트럭 계근대 등 중앙이엔비의 처리 라인을 구성하는 핵심 설비를 소개합니다.",
 };
 
 const ROLE_ICONS: Record<string, typeof IconCrusher> = {
@@ -24,8 +24,8 @@ export default function EquipmentPage() {
 
       <PageHero
         eyebrow="Facility"
-        title="2단계 파쇄로 규격을 맞춥니다"
-        desc="대형 산업용 파쇄기와 정밀 선별 설비를 운영합니다. 반입부터 출하까지 자체 시설에서 처리합니다."
+        title="2단계 파·분쇄로 규격을 맞춥니다"
+        desc="대형 산업용 파·분쇄 설비와 정밀 선별 설비를 운영합니다. 반입부터 출하까지 자체 시설에서 처리합니다."
         crumbs={[{ label: "보유 시설·장비", href: "/equipment" }]}
       />
 

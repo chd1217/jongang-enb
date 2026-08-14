@@ -50,7 +50,7 @@ export default function Hero() {
           </h1>
 
           <ul className="rv mt-8 flex flex-wrap gap-x-8 gap-y-3" data-d="420">
-            {["정식 허가 2종 보유", "올바로시스템 연동", "수요처 맞춤 규격 파쇄"].map((t) => (
+            {["정식 허가 2종 보유", "올바로시스템 연동", "수요처 맞춤 규격 파·분쇄"].map((t) => (
               <li key={t} className="flex items-center gap-2 text-[13.5px] text-white/60">
                 <span className="block h-1.5 w-1.5 bg-primary" />
                 {t}
