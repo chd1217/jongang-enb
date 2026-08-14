@@ -23,6 +23,7 @@ export default function NewsPage() {
         title="회사소식"
         desc="반입 단가 변경, 설비 증설, 운영 일정 등 거래처에서 알아두시면 좋을 소식을 올립니다."
         crumbs={[{ label: "회사소식", href: "/news" }]}
+        bgImage="/about/hero-news.png"
       />
 
       {/* 최신 글 */}
