@@ -41,6 +41,7 @@ export default function ProductPage() {
           { label: "사업영역", href: "/business" },
           { label: "맞춤형 파쇄품 생산·공급", href: "/business/product" },
         ]}
+        bgImage="/about/hero-product.png"
       />
 
       {/* 수요처 */}
