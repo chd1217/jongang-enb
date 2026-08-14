@@ -120,12 +120,12 @@ export default function HorizontalProcess() {
                   style={{ width: `${100 / processSteps.length}%` }}
                 >
                   <span
-                    className={`block h-3 w-3 shrink-0 border transition-colors duration-300 ${
+                    className={`block h-3.5 w-3.5 shrink-0 border transition-colors duration-300 ${
                       on ? "border-primary bg-primary" : "border-hairline bg-white"
                     }`}
                   />
                   <span
-                    className={`cap-xs transition-colors duration-300 ${on ? "text-ink" : "text-mute"}`}
+                    className={`text-[15px] leading-snug font-bold transition-colors duration-300 ${on ? "text-ink" : "text-mute"}`}
                   >
                     {s.title}
                   </span>
