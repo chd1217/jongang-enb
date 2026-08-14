@@ -27,7 +27,7 @@ export default function LocationPage() {
           { label: "회사소개", href: "/about" },
           { label: "오시는 길", href: "/about/location" },
         ]}
-        bgImage="/about/hero-location.png"
+        bgImage="/about/hero-location.jpg"
       />
 
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">

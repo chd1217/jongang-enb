@@ -27,7 +27,7 @@ export default function EquipmentPage() {
         title="안정적 처리를 뒷받침하는 자체 설비"
         desc="대형 산업용 파쇄기와 정밀 선별 설비를 운영합니다. 반입부터 출하까지 자체 시설에서 처리합니다."
         crumbs={[{ label: "보유 시설·장비", href: "/equipment" }]}
-        bgImage="/about/hero-equipment.png"
+        bgImage="/about/hero-equipment.jpg"
       />
 
       {/* 장비 목록 */}

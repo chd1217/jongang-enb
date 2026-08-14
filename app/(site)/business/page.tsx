@@ -23,7 +23,7 @@ export default function BusinessPage() {
         title="현장에 필요한 전부를, 한 회사에서"
         desc="수집·운반업과 중간재활용업 허가를 함께 보유해, 반입 상담부터 중간재활용, 맞춤형 파쇄품 공급까지 한 창구에서 조율합니다."
         crumbs={[{ label: "사업영역", href: "/business" }]}
-        bgImage="/about/hero-business.png"
+        bgImage="/about/hero-business.jpg"
       />
 
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">

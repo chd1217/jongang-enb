@@ -28,7 +28,7 @@ export default function CertificatesPage() {
           { label: "회사소개", href: "/about" },
           { label: "인증·허가", href: "/about/certificates" },
         ]}
-        bgImage="/about/hero-certificates.png"
+        bgImage="/about/hero-certificates.jpg"
       />
 
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">

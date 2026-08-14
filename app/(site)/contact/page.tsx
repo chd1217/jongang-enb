@@ -29,7 +29,7 @@ export default function ContactPage() {
         title="물량과 품목만 알려주시면 됩니다"
         desc="현장 주소 · 폐기물 품목 · 예상 물량 · 반출 희망일. 이 네 가지면 영업일 기준 24시간 이내에 단가와 배차 일정을 회신드립니다."
         crumbs={[{ label: "문의하기", href: "/contact" }]}
-        bgImage="/about/hero-contact.png"
+        bgImage="/about/hero-contact.jpg"
       />
 
       {/* 연락처 + 폼 */}
