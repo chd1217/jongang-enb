@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { company, nav, serviceAreas, telDial, wasteTypes } from "@/lib/site";
+import { company, nav, serviceAreas, serviceNationwide, telDial, wasteTypes } from "@/lib/site";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -89,12 +89,15 @@ export default function Footer() {
           <div>
             <p className="cap-xs text-white/50">서비스 지역</p>
             <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
-              {serviceAreas.map((a) => (
+              {serviceAreas.slice(0, -1).map((a) => (
                 <li key={a} className="text-[13px] text-white/60">
                   {a}
                 </li>
               ))}
             </ul>
+            <p className="mt-3 inline-block rounded-xs bg-primary px-3 py-1.5 text-[13px] font-bold text-black">
+              {serviceNationwide}
+            </p>
           </div>
         </div>
 
