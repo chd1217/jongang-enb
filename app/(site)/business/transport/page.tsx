@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 import { IconTruck } from "@/components/Icons";
-import { serviceAreas } from "@/lib/site";
+import { serviceAreas, serviceHub, serviceNationwide } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "폐기물 수집 · 운반",
@@ -104,8 +104,12 @@ export default function TransportPage() {
           관계없이 우선 문의해 주세요.
         </p>
 
-        <ul className="mt-10 flex flex-wrap gap-2">
-          {serviceAreas.map((a) => (
+        <p className="rv mt-8 inline-block rounded-xs border-2 border-primary px-4 py-2.5 text-[14px] font-bold text-ink" data-d="200">
+          {serviceHub}
+        </p>
+
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {serviceAreas.slice(0, -1).map((a) => (
             <li
               key={a}
               className="rounded-xs border border-hairline px-4 py-2.5 text-[14px] font-bold text-ink"
@@ -114,6 +118,10 @@ export default function TransportPage() {
             </li>
           ))}
         </ul>
+
+        <p className="mt-4 inline-block rounded-xs bg-primary px-4 py-2.5 text-[14px] font-bold text-black">
+          {serviceNationwide}
+        </p>
       </section>
 
       <CtaStrip

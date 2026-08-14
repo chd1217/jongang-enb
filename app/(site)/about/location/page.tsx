@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink, Arrow } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { company, directions, serviceAreas, telDial } from "@/lib/site";
+import { company, directions, serviceAreas, serviceHub, serviceNationwide, telDial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "오시는 길",
@@ -85,8 +85,11 @@ export default function LocationPage() {
 
             <div className="mt-10">
               <p className="cap-xs text-mute">서비스 지역</p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {serviceAreas.map((a) => (
+              <p className="mt-4 inline-block rounded-xs border-2 border-primary px-3 py-1.5 text-[13px] font-bold text-ink">
+                {serviceHub}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {serviceAreas.slice(0, -1).map((a) => (
                   <li
                     key={a}
                     className="rounded-xs border border-hairline px-3 py-1.5 text-[13px] text-body"
@@ -95,6 +98,9 @@ export default function LocationPage() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-3 inline-block rounded-xs bg-primary px-3 py-1.5 text-[13px] font-bold text-black">
+                {serviceNationwide}
+              </p>
             </div>
           </div>
         </div>

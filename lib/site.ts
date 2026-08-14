@@ -346,6 +346,10 @@ export const serviceAreas = [
   "충청남도 전역",
 ] as const;
 
+/* 서비스 지역 태그 UI — 상단 거점 강조 / 하단 전국 커버리지 강조 문구 */
+export const serviceHub = "공주 본사 · 충청권 신속 밀착 대응";
+export const serviceNationwide = "전국 권역 사업장 폐기물 수집·운반 및 처리";
+
 /* FAQ — AEO(답변 엔진 최적화)용. JSON-LD FAQPage 로도 출력된다. */
 export const faqs = [
   {

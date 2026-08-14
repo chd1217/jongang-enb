@@ -17,6 +17,8 @@ import {
   capabilities,
   industries,
   serviceAreas,
+  serviceHub,
+  serviceNationwide,
   coreStrengths,
   wasteTypes,
   definition,
@@ -421,8 +423,11 @@ export default function Home() {
 
           <div>
             <h2 className="cap-xs text-mute">서비스 지역</h2>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {serviceAreas.map((a) => (
+            <p className="mt-4 inline-block rounded-xs border-2 border-primary px-3 py-1.5 text-[12.5px] font-bold text-ink">
+              {serviceHub}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {serviceAreas.slice(0, -1).map((a) => (
                 <li
                   key={a}
                   className="rounded-xs border border-hairline px-3 py-1.5 text-[12.5px] text-body"
@@ -431,6 +436,9 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <p className="mt-3 inline-block rounded-xs bg-primary px-3 py-1.5 text-[12.5px] font-bold text-black">
+              {serviceNationwide}
+            </p>
           </div>
         </div>
       </section>
