@@ -56,7 +56,7 @@ export default function Home() {
               원칙으로 움직입니다.
             </p>
             <p className="p-lg mt-5 text-body">
-              철저한 2단계 불순물 선별과 고성능 파·분쇄 시스템,{" "}
+              철저한 2단계 불순물 선별과 고성능 파쇄 시스템,{" "}
               <strong className="font-bold text-ink">
                 올바로 100% 실시간 전산 연동으로 배출처의 법적 리스크를 완벽히 해결
               </strong>
@@ -101,7 +101,7 @@ export default function Home() {
               />
             </div>
             <p className="rv p-md max-w-sm text-body" data-d="200">
-              수집·운반업과 중간재활용업 허가를 함께 보유해, 반입 상담부터 파·분쇄·재활용,
+              수집·운반업과 중간재활용업 허가를 함께 보유해, 반입 상담부터 중간재활용,
               맞춤형 파쇄품 공급까지 한 창구에서 조율합니다.
             </p>
           </div>
@@ -248,7 +248,7 @@ export default function Home() {
               lines={[<>규격 없는 파쇄품은</>, <>출하하지 않습니다</>]}
             />
             <p className="rv p-md mt-7 max-w-md text-body" data-d="240">
-              반입 시 1차 선별, 파·분쇄 후 2차 정밀 불순물 검출을 거칩니다. 시멘트 소성로부터
+              반입 시 1차 선별, 파쇄 후 2차 정밀 불순물 검출을 거칩니다. 시멘트 소성로부터
               재생원료 가공까지, 수요처 규격에 맞춰 공급합니다.
             </p>
             <div className="rv mt-8" data-d="320">

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const qcSteps = [
   { no: "01", title: "반입 1차 선별", note: "중장비와 육안 정밀 선별로 금속·비가연물·불순물을 사전 배제합니다." },
-  { no: "02", title: "고효율 파·분쇄", note: "현장 물량과 규격에 맞춘 최적의 파·분쇄 프로세스로 1차·2차 공정을 진행합니다." },
+  { no: "02", title: "고효율 파쇄", note: "현장 물량과 요구 규격에 맞춘 최적의 파쇄·입도 제어 프로세스로 1차·2차 공정을 진행합니다." },
   { no: "03", title: "2차 정밀 검수", note: "파쇄물을 대상으로 불순물을 재검출해 품질을 안정화합니다." },
   { no: "04", title: "정량 상차 · 출하", note: "수요처별 맞춤 스펙으로 정량 상차해 출하합니다." },
 ];
@@ -36,7 +36,7 @@ export default function ProductPage() {
       <PageHero
         eyebrow="Shredded material"
         title="규격 없는 파쇄품은 출하하지 않습니다"
-        desc="반입 시 1차 선별, 파·분쇄 후 2차 정밀 불순물 검출을 거칩니다. 원료 재활용 및 규격화를 위한 파·분쇄 솔루션으로 파쇄품을 생산·공급합니다."
+        desc="반입 시 1차 선별, 파쇄 후 2차 정밀 불순물 검출을 거칩니다. 수요처가 요구하는 규격에 맞춰 파쇄품을 생산·공급합니다."
         crumbs={[
           { label: "사업영역", href: "/business" },
           { label: "맞춤형 파쇄품 생산·공급", href: "/business/product" },
