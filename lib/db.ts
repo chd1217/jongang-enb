@@ -53,10 +53,8 @@ export function ensureSchema() {
           message TEXT,
           created_at TIMESTAMPTZ NOT NULL DEFAULT now()
         );
+        ALTER TABLE inquiries ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT '접수완료';
       `);
-      await getPool().query(
-        `ALTER TABLE inquiries ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT '접수완료'`,
-      );
     })();
   }
   return schemaReady;
