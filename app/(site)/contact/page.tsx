@@ -69,7 +69,9 @@ export default function ContactPage() {
 
             <div className="mt-8">
               <p className="cap-xs text-mute">배차 가능 지역</p>
-              <p className="p-sm mt-3 text-body">{serviceAreas.join(" · ")}</p>
+              <p className="p-sm mt-3 text-body">
+                {serviceAreas.slice(0, -1).join(" · ")} · 전국 배차 가능
+              </p>
             </div>
           </div>
 
