@@ -6,6 +6,7 @@
 export const company = {
   nameKo: "중앙이엔비",
   nameKoFull: "(주)중앙이엔비",
+  nameKoLegal: "주식회사 중앙이엔비",
   nameEn: "JUNGANG E&B", // [확인 필요] 영문 표기
   nameEnShort: "JUNGANG E&B",
   nameEnTitle: "Jungang E&B Co., Ltd.", // [확인 필요] 영문 표기
@@ -417,7 +418,7 @@ export const values = [
 ] as const;
 
 export const overview = [
-  { k: "회사명", v: "(주)중앙이엔비 (JUNGANG E&B CO., LTD.)" },
+  { k: "회사명", v: "주식회사 중앙이엔비 / (주)중앙이엔비 (JUNGANG E&B CO., LTD.)" },
   { k: "설립", v: "1999년 11월 28일" },
   { k: "대표이사", v: "최형대" },
   { k: "사업자등록번호", v: "307-81-14118" },
