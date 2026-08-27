@@ -37,22 +37,20 @@ export default function Home() {
 
       {/* ═══ 01. 선언 — 화이트 캔버스 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
-          <div>
-            <Eyebrow>About us</Eyebrow>
-            <MaskHeading
-              className="d2 mt-7 text-ink"
-              lines={[
-                <>
-                  <span className="accent">말</span>
-                  <span className="text-stone">보다 </span>
-                  <span className="accent">공정</span>
-                  <span className="text-stone">으로,</span>
-                </>,
-                <>현장에서 다져온 확실한 처리의 정석.</>,
-              ]}
-            />
-          </div>
+        <Eyebrow>About us</Eyebrow>
+        <div className="mt-7 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+          <MaskHeading
+            className="d2 text-ink"
+            lines={[
+              <>
+                <span className="accent">말</span>
+                <span className="text-stone">보다 </span>
+                <span className="accent">공정</span>
+                <span className="text-stone">으로,</span>
+              </>,
+              <>현장에서 다져온 확실한 처리의 정석.</>,
+            ]}
+          />
 
           <div
             className="border-l-2 pl-6"
@@ -99,14 +97,12 @@ export default function Home() {
       {/* ═══ 02. 사업영역 ═══ */}
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div>
-              <Eyebrow>Business</Eyebrow>
-              <MaskHeading
-                className="d2 mt-6 text-ink"
-                lines={[<>현장에 필요한 전부를,</>, <>한 회사에서.</>]}
-              />
-            </div>
+          <Eyebrow>Business</Eyebrow>
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <MaskHeading
+              className="d2 text-ink"
+              lines={[<>현장에 필요한 전부를,</>, <>한 회사에서.</>]}
+            />
             <p
               className="rv p-md max-w-md border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
@@ -154,11 +150,9 @@ export default function Home() {
 
       {/* ═══ 03. 운영 역량 3종 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <div>
-            <Eyebrow>Reliability</Eyebrow>
-            <MaskHeading className="d2 mt-6 text-ink" lines={[<>모든 단계에서 같은 기준</>]} />
-          </div>
+        <Eyebrow>Reliability</Eyebrow>
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <MaskHeading className="d2 text-ink" lines={[<>모든 단계에서 같은 기준</>]} />
           <p
             className="rv p-md max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
@@ -184,18 +178,18 @@ export default function Home() {
 
       {/* ═══ 04. 처리 공정 (가로 스크롤) ═══ */}
       <section className="border-t border-hairline pt-16 md:pt-24">
-        <div className="mx-auto flex max-w-[var(--maxw)] flex-col gap-6 px-[var(--pad)] md:flex-row md:items-start md:justify-between">
-          <div>
-            <Eyebrow>Process</Eyebrow>
-            <MaskHeading
-              className="d2 mt-6 text-ink"
-              lines={[
-                <>
-                  5단계 <span className="accent">일괄 처리</span> 라인
-                </>,
-              ]}
-            />
-          </div>
+        <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)]">
+          <Eyebrow>Process</Eyebrow>
+        </div>
+        <div className="mx-auto mt-6 flex max-w-[var(--maxw)] flex-col gap-6 px-[var(--pad)] md:flex-row md:items-start md:justify-between">
+          <MaskHeading
+            className="d2 text-ink"
+            lines={[
+              <>
+                5단계 <span className="accent">일괄 처리</span> 라인
+              </>,
+            ]}
+          />
           <p
             className="rv p-md max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
@@ -333,11 +327,9 @@ export default function Home() {
       {/* ═══ 09. 고객 유형 ═══ */}
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div>
-              <Eyebrow>Industries</Eyebrow>
-              <MaskHeading className="d2 mt-6 text-ink" lines={[<>어떤 현장이든</>]} />
-            </div>
+          <Eyebrow>Industries</Eyebrow>
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+            <MaskHeading className="d2 text-ink" lines={[<>어떤 현장이든</>]} />
             <p
               className="rv p-md max-w-lg border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
