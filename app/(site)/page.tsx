@@ -101,7 +101,11 @@ export default function Home() {
                 lines={[<>현장에 필요한 전부를,</>, <>한 회사에서.</>]}
               />
             </div>
-            <p className="rv p-md max-w-sm text-body" data-d="200">
+            <p
+              className="rv p-md max-w-sm border-l-2 pl-4 text-body"
+              style={{ borderLeftColor: "var(--color-primary)" }}
+              data-d="200"
+            >
               수집·운반업과 중간재활용업 허가를 함께 보유해, 반입 상담부터 중간재활용,
               맞춤형 파쇄품 공급까지 한 창구에서 조율합니다.
             </p>
