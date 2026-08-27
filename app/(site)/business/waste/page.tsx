@@ -112,7 +112,11 @@ export default function WastePage() {
             <Eyebrow>Documents</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>발급 서류</>]} />
           </div>
-          <p className="rv p-md max-w-md text-body" data-d="160">
+          <p
+            className="rv p-md max-w-md border-l-2 pl-4 text-body"
+            style={{ borderLeftColor: "var(--color-primary)" }}
+            data-d="160"
+          >
             배출자께서 따로 챙기실 서류는 없습니다. 발급 시점에 맞춰 담당자가 먼저 발송합니다.
           </p>
         </div>

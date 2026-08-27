@@ -153,7 +153,11 @@ export default function Home() {
             <Eyebrow>Reliability</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>모든 단계에서 같은 기준</>]} />
           </div>
-          <p className="rv p-md max-w-sm text-body" data-d="180">
+          <p
+            className="rv p-md max-w-sm border-l-2 pl-4 text-body"
+            style={{ borderLeftColor: "var(--color-primary)" }}
+            data-d="180"
+          >
             현장이 바뀌어도, 물량이 늘어도 처리 방식과 서류 발급 시점은 동일합니다.
           </p>
         </div>
@@ -186,7 +190,11 @@ export default function Home() {
               ]}
             />
           </div>
-          <p className="rv p-md max-w-sm text-body" data-d="180">
+          <p
+            className="rv p-md max-w-sm border-l-2 pl-4 text-body"
+            style={{ borderLeftColor: "var(--color-primary)" }}
+            data-d="180"
+          >
             수집·운반 · 반입 선별 · 파쇄 · 정밀 검수 · 출하. 모든 단계의 기록이 재활용확인서로
             남습니다.
           </p>
@@ -324,7 +332,11 @@ export default function Home() {
               <Eyebrow>Industries</Eyebrow>
               <MaskHeading className="d2 mt-6 text-ink" lines={[<>어떤 현장이든</>]} />
             </div>
-            <p className="rv p-md max-w-md text-body" data-d="160">
+            <p
+              className="rv p-md max-w-md border-l-2 pl-4 text-body"
+              style={{ borderLeftColor: "var(--color-primary)" }}
+              data-d="160"
+            >
               소량 다빈도 인테리어 철거부터 단지 단위 재건축까지, 현장 성격에 맞춰 배차와 반입
               스케줄을 설계합니다.
             </p>

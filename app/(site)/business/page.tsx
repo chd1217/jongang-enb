@@ -66,7 +66,11 @@ export default function BusinessPage() {
               <Eyebrow>Accepted waste</Eyebrow>
               <MaskHeading className="d2 mt-6 text-ink" lines={[<>처리 가능 품목</>]} />
             </div>
-            <p className="rv p-md max-w-md text-body" data-d="160">
+            <p
+              className="rv p-md max-w-md border-l-2 pl-4 text-body"
+              style={{ borderLeftColor: "var(--color-primary)" }}
+              data-d="160"
+            >
               석면 함유 폐기물과 지정폐기물은 취급하지 않습니다. 해당 품목은 문의 주시면 처리
               가능한 전문업체를 안내해 드립니다.
             </p>

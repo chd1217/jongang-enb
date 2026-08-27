@@ -84,7 +84,11 @@ export default function ProcessPage() {
             <Eyebrow>Environment</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>환경 관리</>]} />
           </div>
-          <p className="rv p-md max-w-md text-body" data-d="160">
+          <p
+            className="rv p-md max-w-md border-l-2 pl-4 text-body"
+            style={{ borderLeftColor: "var(--color-primary)" }}
+            data-d="160"
+          >
             정식 허가 범위 안에서 법정 기준을 지키며 운영합니다.
           </p>
         </div>

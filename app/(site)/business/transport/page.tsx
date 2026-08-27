@@ -57,7 +57,11 @@ export default function TransportPage() {
             <Eyebrow>How we operate</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>운영 방식</>]} />
           </div>
-          <p className="rv p-md max-w-md text-body" data-d="160">
+          <p
+            className="rv p-md max-w-md border-l-2 pl-4 text-body"
+            style={{ borderLeftColor: "var(--color-primary)" }}
+            data-d="160"
+          >
             자체 차량과 협력 운송 네트워크를 함께 운영합니다. 어떤 경로든 반입부터 출하까지 이력은
             저희가 관리합니다.
           </p>
