@@ -44,14 +44,20 @@ export default function Home() {
               className="d2 mt-7 text-ink"
               lines={[
                 <>
-                  <span className="text-stone">말보다 공정으로,</span>
+                  <span className="accent">말</span>
+                  <span className="text-stone">보다 </span>
+                  <span className="accent">공정</span>
+                  <span className="text-stone">으로,</span>
                 </>,
                 <>현장에서 다져온 확실한 처리의 정석.</>,
               ]}
             />
           </div>
 
-          <div className="lg:pt-16">
+          <div
+            className="border-l-2 pl-6"
+            style={{ borderLeftColor: "var(--color-primary)" }}
+          >
             <p className="p-lg text-body">
               반입 계근대 진입부터 최종 규격 출하까지, 중앙이엔비의 모든 라인은 타협 없는
               원칙으로 움직입니다.
@@ -93,7 +99,7 @@ export default function Home() {
       {/* ═══ 02. 사업영역 ═══ */}
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
               <Eyebrow>Business</Eyebrow>
               <MaskHeading
@@ -102,7 +108,7 @@ export default function Home() {
               />
             </div>
             <p
-              className="rv p-md max-w-sm border-l-2 pl-4 text-body"
+              className="rv p-md max-w-md border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
               data-d="200"
             >
@@ -148,13 +154,13 @@ export default function Home() {
 
       {/* ═══ 03. 운영 역량 3종 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
             <Eyebrow>Reliability</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>모든 단계에서 같은 기준</>]} />
           </div>
           <p
-            className="rv p-md max-w-sm border-l-2 pl-4 text-body"
+            className="rv p-md max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="180"
           >
@@ -178,7 +184,7 @@ export default function Home() {
 
       {/* ═══ 04. 처리 공정 (가로 스크롤) ═══ */}
       <section className="border-t border-hairline pt-16 md:pt-24">
-        <div className="mx-auto flex max-w-[var(--maxw)] flex-col gap-6 px-[var(--pad)] md:flex-row md:items-end md:justify-between">
+        <div className="mx-auto flex max-w-[var(--maxw)] flex-col gap-6 px-[var(--pad)] md:flex-row md:items-start md:justify-between">
           <div>
             <Eyebrow>Process</Eyebrow>
             <MaskHeading
@@ -191,7 +197,7 @@ export default function Home() {
             />
           </div>
           <p
-            className="rv p-md max-w-sm border-l-2 pl-4 text-body"
+            className="rv p-md max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="180"
           >
@@ -327,13 +333,13 @@ export default function Home() {
       {/* ═══ 09. 고객 유형 ═══ */}
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
               <Eyebrow>Industries</Eyebrow>
               <MaskHeading className="d2 mt-6 text-ink" lines={[<>어떤 현장이든</>]} />
             </div>
             <p
-              className="rv p-md max-w-md border-l-2 pl-4 text-body"
+              className="rv p-md max-w-lg border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
               data-d="160"
             >

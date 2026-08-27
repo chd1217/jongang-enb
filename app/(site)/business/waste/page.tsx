@@ -54,7 +54,7 @@ export default function WastePage() {
               lines={[<>대기 없이 받고,</>, <>기록으로 돌려드립니다</>]}
             />
           </div>
-          <div>
+          <div className="border-l-2 pl-6" style={{ borderLeftColor: "var(--color-primary)" }}>
             <p className="p-lg text-body">
               폐기물 처리에서 현장이 겪는 문제는 대개 두 가지입니다. 차가 도착했는데 반입이
               밀리는 것, 그리고 정산 시점에 서류가 없는 것입니다.
@@ -107,13 +107,13 @@ export default function WastePage() {
 
       {/* 발급 서류 */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div>
             <Eyebrow>Documents</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>발급 서류</>]} />
           </div>
           <p
-            className="rv p-md max-w-md border-l-2 pl-4 text-body"
+            className="rv p-md max-w-lg border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="160"
           >
