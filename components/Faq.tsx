@@ -13,7 +13,7 @@ export default function Faq({ limit }: { limit?: number }) {
       {list.map((f, i) => {
         const isOpen = open === i;
         return (
-          <div key={f.q} className="border-b border-hairline">
+          <div key={f.q} className="rv border-b border-hairline" data-d={i * 70}>
             <h3>
               <button
                 onClick={() => setOpen(isOpen ? null : i)}

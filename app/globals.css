@@ -214,7 +214,7 @@ body {
 .mask-line > span {
   display: block;
   transform: translateY(110%);
-  transition: transform 1s var(--ease-expo);
+  transition: transform 1.2s var(--ease-expo);
   transition-delay: var(--d, 0ms);
   will-change: transform;
 }
@@ -225,10 +225,10 @@ body {
 
 .rv {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(28px);
   transition:
-    opacity 0.9s var(--ease-expo),
-    transform 0.9s var(--ease-expo);
+    opacity 1.15s var(--ease-expo),
+    transform 1.15s var(--ease-expo);
   transition-delay: var(--d, 0ms);
 }
 .rv.is-in {
@@ -239,7 +239,7 @@ body {
 .rv-rule {
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 1s var(--ease-expo);
+  transition: transform 1.2s var(--ease-expo);
   transition-delay: var(--d, 0ms);
 }
 .rv-rule.is-in {
@@ -393,14 +393,20 @@ body {
   background: var(--color-canvas);
   border: 1px solid var(--color-hairline);
   border-radius: var(--radius-sm);
+  /* opacity/transform 지속시간을 .rv 리빌과 맞춰야 한다 — .card와 .rv가 같은
+     요소에 함께 붙는 카드형 리스트(예: corner card rv)에서, 동일 우선순위일 때
+     나중에 선언된 이 transition 값이 .rv의 transition을 통째로 덮어써 버리기
+     때문. 호버는 :hover에서 duration만 짧게 override해 반응성을 살린다. */
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease,
-    transform 0.35s var(--ease-expo);
+    opacity 1.15s var(--ease-expo),
+    transform 1.15s var(--ease-expo);
 }
 .card:hover {
   border-color: var(--color-primary);
   transform: translateY(-4px);
+  transition-duration: 0.3s;
 }
 .dark-ch .card {
   background: var(--color-elevated);

@@ -60,13 +60,15 @@ export function GhostLink({
   href,
   children,
   className = "",
+  "data-d": dataD,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  "data-d"?: string | number;
 }) {
   return (
-    <Link href={href} className={`btn-ghost ${className}`}>
+    <Link href={href} className={`btn-ghost ${className}`} data-d={dataD}>
       {children}
       <Arrow className="h-4 w-4" />
     </Link>

@@ -56,11 +56,11 @@ export default function Home() {
             className="border-l-2 pl-6"
             style={{ borderLeftColor: "var(--color-primary)" }}
           >
-            <p className="p-lg text-body">
+            <p className="rv p-lg text-body" data-d="0">
               반입 계근대 진입부터 최종 규격 출하까지, 중앙이엔비의 모든 라인은 타협 없는
               원칙으로 움직입니다.
             </p>
-            <p className="p-lg mt-5 text-body">
+            <p className="rv p-lg mt-5 text-body" data-d="140">
               철저한 2단계 불순물 선별과 고성능 파쇄 시스템,{" "}
               <strong className="font-bold text-ink">
                 올바로 100% 실시간 전산 연동으로 배출처의 법적 리스크를 완벽히 해결
@@ -68,7 +68,7 @@ export default function Home() {
               하고 수요처가 신뢰하는 고순도 순환 자원을 완성합니다. 오랜 시간 현장을 지켜온
               묵직한 책임감으로 끝까지 함께합니다.
             </p>
-            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+            <div className="rv mt-8 flex flex-wrap gap-x-8 gap-y-3" data-d="260">
               <GhostLink href="/about">회사소개</GhostLink>
               <GhostLink href="/process">처리공정</GhostLink>
             </div>
@@ -217,7 +217,9 @@ export default function Home() {
         </div>
 
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] pt-8 pb-16 md:pb-20">
-          <GhostLink href="/process">공정 상세보기</GhostLink>
+          <GhostLink href="/process" className="rv" data-d="80">
+            공정 상세보기
+          </GhostLink>
         </div>
       </section>
 
@@ -238,7 +240,7 @@ export default function Home() {
                 서류가 늦고, 배차가 밀리고, 문제가 생기면 서로를 가리킵니다. 저희는 그 세 가지를
                 없애는 데 집중해 왔습니다.
               </p>
-              <Link href="/contact" className="btn btn-primary mt-8">
+              <Link href="/contact" className="rv btn btn-primary mt-8" data-d="320">
                 견적 문의하기
                 <Arrow />
               </Link>
@@ -304,7 +306,9 @@ export default function Home() {
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)]">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <Eyebrow>Certified</Eyebrow>
-            <GhostLink href="/about/certificates">인증·허가 현황 전체보기</GhostLink>
+            <GhostLink href="/about/certificates" className="rv" data-d="80">
+              인증·허가 현황 전체보기
+            </GhostLink>
           </div>
         </div>
 
@@ -377,7 +381,7 @@ export default function Home() {
             <p className="rv p-md mt-6 text-body" data-d="220">
               추가 문의 사항은 전화 상담을 통해 언제든 친절하게 안내받으실 수 있습니다.
             </p>
-            <a href={`tel:${telDial}`} className="btn btn-outline mt-6">
+            <a href={`tel:${telDial}`} className="rv btn btn-outline mt-6" data-d="260">
               전화 연결
               <Arrow />
             </a>
@@ -395,7 +399,9 @@ export default function Home() {
               <Eyebrow>News</Eyebrow>
               <MaskHeading className="d2 mt-6 text-ink" lines={[<>회사소식</>]} />
             </div>
-            <GhostLink href="/news">전체보기</GhostLink>
+            <GhostLink href="/news" className="rv" data-d="80">
+              전체보기
+            </GhostLink>
           </div>
 
           <ul className="mt-12 border-t border-hairline">
