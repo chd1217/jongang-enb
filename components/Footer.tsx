@@ -3,8 +3,6 @@ import { company, nav, serviceAreas, serviceNationwide, telDial, wasteTypes } fr
 import Logo from "./Logo";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="dark-ch">
       <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-14 md:py-16">
@@ -104,7 +102,7 @@ export default function Footer() {
         {/* 법적 표기 */}
         <div className="flex flex-col-reverse gap-4 pt-8 md:flex-row md:items-center md:justify-between">
           <p className="cap-xs text-white/45">
-            © {year} {company.nameKoFull}
+            © {company.nameKoFull}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-1 text-[12px] text-white/60">
             <li>대표 {company.ceo}</li>
