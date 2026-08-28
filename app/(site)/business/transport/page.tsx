@@ -118,7 +118,7 @@ export default function TransportPage() {
         <MaskHeading className="d2 mt-6 text-ink" lines={[<>서비스 지역</>]} />
         <p className="rv p-md mt-6 max-w-2xl text-body" data-d="160">
           충청남도 공주시를 거점으로 폭넓은 권역에서 반입·수거 상담이 가능합니다. 지역에
-          관계없이 우선 문의해 주세요.
+          관계없이 우선 문의해 주십시오.
         </p>
 
         <ul className="mt-8 flex flex-wrap gap-2">

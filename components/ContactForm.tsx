@@ -86,7 +86,7 @@ export default function ContactForm() {
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
-        setErr(data.error || "문의 접수 중 오류가 발생했습니다. 전화로 문의해 주세요.");
+        setErr(data.error || "문의 접수 중 오류가 발생했습니다. 전화로 문의해 주십시오.");
         setSending(false);
         return;
       }
@@ -94,7 +94,7 @@ export default function ContactForm() {
       setF(EMPTY);
       setAgree(false);
     } catch {
-      setErr("네트워크 오류로 접수하지 못했습니다. 전화로 문의해 주세요.");
+      setErr("네트워크 오류로 접수하지 못했습니다. 전화로 문의해 주십시오.");
     } finally {
       setSending(false);
     }
@@ -193,7 +193,7 @@ export default function ContactForm() {
           <a href={`tel:${telDial}`} className="font-bold accent">
             {company.tel}
           </a>{" "}
-          로 연락 주세요.
+          로 연락 주십시오.
         </p>
       )}
 

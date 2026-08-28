@@ -129,7 +129,7 @@ export default async function NewsDetailPage({ params }: Params) {
 
       <CtaStrip
         eyebrow="Contact"
-        title="반입 단가나 배차 일정은 언제든 문의해 주세요."
+        title="반입 단가나 배차 일정은 언제든 문의해 주십시오."
         href="/contact"
         cta="견적 문의하기"
       />

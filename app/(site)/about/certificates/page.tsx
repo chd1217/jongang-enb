@@ -54,7 +54,7 @@ export default function CertificatesPage() {
 
       <CtaStrip
         eyebrow="Documents"
-        title="허가증·인증서 사본이 필요하시면 요청해 주세요. 당일 발송해 드립니다."
+        title="허가증·인증서 사본이 필요하시면 요청해 주십시오. 당일 발송해 드립니다."
         href="/contact"
         cta="서류 요청하기"
       />

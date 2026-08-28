@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
 
   if (dbFailed && mailFailed) {
     return NextResponse.json(
-      { ok: false, error: "문의 접수 중 오류가 발생했습니다. 전화로 문의해 주세요." },
+      { ok: false, error: "문의 접수 중 오류가 발생했습니다. 전화로 문의해 주십시오." },
       { status: 500 },
     );
   }

@@ -119,7 +119,7 @@ export default function LocationPage() {
 
       <CtaStrip
         eyebrow="Visit"
-        title="방문 예정이시면 미리 연락 주세요. 담당자가 안내해 드립니다."
+        title="방문 예정이시면 미리 연락 주십시오. 담당자가 안내해 드립니다."
         href="/contact"
         cta="방문 문의"
       />
