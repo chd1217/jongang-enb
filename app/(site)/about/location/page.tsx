@@ -31,14 +31,27 @@ export default function LocationPage() {
       />
 
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        {/* 지도 자리 */}
-        <div className="rv relative flex aspect-[16/8] w-full items-center justify-center border border-hairline bg-soft">
-          <div className="text-center">
-            <span className="mx-auto block h-3 w-3 bg-primary" />
-            <p className="h4 mt-5 text-ink">{company.nameKoFull}</p>
-            <p className="p-md mt-2 text-body">{company.address}</p>
+        {/* 지도 */}
+        <div className="rv relative aspect-[16/8] w-full overflow-hidden border border-hairline">
+          <iframe
+            title="중앙이엔비 위치 지도"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=127.0053035%2C36.2990188%2C127.0553035%2C36.3390188&layer=mapnik&marker=36.3190188%2C127.0303035"
+            className="h-full w-full grayscale-[15%]"
+            loading="lazy"
+          />
+          <div className="pointer-events-none absolute top-3 left-3 border border-hairline bg-white px-3 py-2">
+            <p className="h4 text-[14px] text-ink">{company.nameKoFull}</p>
+            <p className="p-sm mt-0.5 text-mute">{company.address}</p>
           </div>
         </div>
+        <a
+          href="https://map.kakao.com/link/search/충청남도 공주시 탄천면 차돌배기길 72-14"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-bold text-body hover:text-accent"
+        >
+          카카오맵에서 크게 보기 ↗
+        </a>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
           <div>

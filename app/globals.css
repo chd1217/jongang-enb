@@ -108,7 +108,7 @@ body {
 /* ────────  다크 챕터 (히어로 · CTA 스트립 · 푸터)  ──────── */
 
 .dark-ch {
-  background: var(--color-dark);
+  background: radial-gradient(120% 140% at 12% -10%, #1c1c1c 0%, #000000 55%);
   color: var(--color-on-dark);
   --line: #5e5e5e;
 }
@@ -395,10 +395,12 @@ body {
   border-radius: var(--radius-sm);
   transition:
     border-color 0.3s ease,
-    background-color 0.3s ease;
+    background-color 0.3s ease,
+    transform 0.35s var(--ease-expo);
 }
 .card:hover {
   border-color: var(--color-primary);
+  transform: translateY(-4px);
 }
 .dark-ch .card {
   background: var(--color-elevated);

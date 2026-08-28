@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
-import { IconTruck } from "@/components/Icons";
+import { IconTruck, IconDoc, IconScale, IconCert } from "@/components/Icons";
 import { serviceAreas, serviceNationwide } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,6 +23,8 @@ const flow = [
   { no: "03", t: "계근 · 검수", d: "반입 시 전용 계근대에서 정량 측정과 검수를 진행합니다." },
   { no: "04", t: "인계서 처리", d: "올바로시스템에 인계·인수 내역을 등록하고 서류를 발송합니다." },
 ];
+
+const FLOW_ICONS = [IconDoc, IconTruck, IconScale, IconCert];
 
 export default function TransportPage() {
   return (
@@ -82,18 +84,30 @@ export default function TransportPage() {
           <Eyebrow>Flow</Eyebrow>
           <MaskHeading className="d2 mt-6 text-ink" lines={[<>진행 절차</>]} />
 
-          <ol className="mt-12 border-t border-hairline">
-            {flow.map((f, i) => (
-              <li
-                key={f.no}
-                className="rv grid gap-3 border-b border-hairline py-7 md:grid-cols-[5rem_14rem_1fr] md:gap-8"
-                data-d={i * 70}
-              >
-                <span className="num text-[1.75rem] text-hairline">{f.no}</span>
-                <h3 className="h4 pt-1 text-ink">{f.t}</h3>
-                <p className="p-md text-body">{f.d}</p>
-              </li>
-            ))}
+          <ol className="relative mt-12 border-t border-hairline">
+            <div
+              className="absolute top-12 bottom-12 left-6 hidden w-px bg-hairline-strong md:block"
+              aria-hidden
+            />
+            {flow.map((f, i) => {
+              const Icon = FLOW_ICONS[i] ?? IconTruck;
+              return (
+                <li
+                  key={f.no}
+                  className="rv grid gap-3 border-b border-hairline py-7 md:grid-cols-[5rem_14rem_1fr] md:items-center md:gap-8"
+                  data-d={i * 70}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center border-2 border-primary bg-white">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </span>
+                    <span className="num text-[1.1rem] text-hairline md:hidden">{f.no}</span>
+                  </div>
+                  <h3 className="h4 text-ink">{f.t}</h3>
+                  <p className="p-md text-body">{f.d}</p>
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>

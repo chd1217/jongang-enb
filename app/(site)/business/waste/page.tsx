@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
-import { IconDoc } from "@/components/Icons";
+import { IconDoc, IconTruck, IconScreen, IconCrusher, IconCert, IconScale } from "@/components/Icons";
 import { wasteTypes, processSteps } from "@/lib/site";
+
+const STEP_ICONS = [IconTruck, IconScreen, IconCrusher, IconCert, IconScale];
 
 export const metadata: Metadata = {
   title: "폐기물 중간재활용",
@@ -87,18 +89,30 @@ export default function WastePage() {
           <Eyebrow>Steps</Eyebrow>
           <MaskHeading className="d2 mt-6 text-ink" lines={[<>처리 절차</>]} />
 
-          <ol className="mt-12 border-t border-hairline">
-            {processSteps.map((s, i) => (
-              <li
-                key={s.no}
-                className="rv grid gap-3 border-b border-hairline py-7 md:grid-cols-[5rem_16rem_1fr] md:gap-8"
-                data-d={i * 60}
-              >
-                <span className="num text-[1.75rem] text-hairline">{s.no}</span>
-                <h3 className="h4 pt-1 text-ink">{s.title}</h3>
-                <p className="p-md text-body">{s.desc}</p>
-              </li>
-            ))}
+          <ol className="relative mt-12 border-t border-hairline">
+            <div
+              className="absolute top-12 bottom-12 left-6 hidden w-px bg-hairline-strong md:block"
+              aria-hidden
+            />
+            {processSteps.map((s, i) => {
+              const Icon = STEP_ICONS[i] ?? IconCrusher;
+              return (
+                <li
+                  key={s.no}
+                  className="rv grid gap-3 border-b border-hairline py-7 md:grid-cols-[5rem_16rem_1fr] md:items-center md:gap-8"
+                  data-d={i * 60}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center border-2 border-primary bg-white">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </span>
+                    <span className="num text-[1.1rem] text-hairline md:hidden">{s.no}</span>
+                  </div>
+                  <h3 className="h4 text-ink">{s.title}</h3>
+                  <p className="p-md text-body">{s.desc}</p>
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>

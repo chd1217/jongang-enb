@@ -83,8 +83,11 @@ export default function Home() {
             { v: 24, unit: "시간", label: "견적 회신", desc: "문의 접수부터 단가 회신까지" },
           ].map((s, i) => (
             <div key={s.label} className="rv bg-white p-7 md:p-9" data-d={i * 80}>
-              <p className="num text-[clamp(2.5rem,5vw,3.75rem)] text-ink">
-                <Counter to={s.v} />
+              <p className="num text-[clamp(2.5rem,5vw,3.75rem)]">
+                <Counter
+                  to={s.v}
+                  className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent"
+                />
                 <span className="text-[0.36em] font-bold accent">{s.unit}</span>
               </p>
               <p className="h4 mt-5 text-ink">{s.label}</p>
