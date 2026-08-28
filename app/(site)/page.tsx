@@ -377,11 +377,9 @@ export default function Home() {
             <p className="rv p-md mt-6 text-body" data-d="220">
               여기에 없는 질문은 전화 주시면 바로 답해 드립니다.
             </p>
-            <a
-              href={`tel:${telDial}`}
-              className="num mt-5 block text-2xl text-ink hover:text-accent"
-            >
-              {company.tel}
+            <a href={`tel:${telDial}`} className="btn btn-outline mt-6">
+              전화 연결
+              <Arrow />
             </a>
           </div>
 
