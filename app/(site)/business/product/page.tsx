@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
-import { IconScreen } from "@/components/Icons";
+import { IconScreen, IconCrusher, IconCert, IconScale } from "@/components/Icons";
 import { offtakes } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,6 +17,8 @@ const qcSteps = [
   { no: "03", title: "2차 정밀 검수", note: "파쇄물을 대상으로 불순물을 재검출해 품질을 안정화합니다." },
   { no: "04", title: "정량 상차 · 출하", note: "수요처별 맞춤 스펙으로 정량 상차해 출하합니다." },
 ];
+
+const QC_ICONS = [IconScreen, IconCrusher, IconCert, IconScale];
 
 export default function ProductPage() {
   return (
@@ -77,18 +79,30 @@ export default function ProductPage() {
               </p>
             </div>
 
-            <ol className="border-t border-hairline">
-              {qcSteps.map((q, i) => (
-                <li
-                  key={q.no}
-                  className="rv grid gap-2 border-b border-hairline py-6 md:grid-cols-[4rem_10rem_1fr] md:gap-6"
-                  data-d={i * 70}
-                >
-                  <span className="num text-[1.5rem] text-hairline">{q.no}</span>
-                  <h3 className="h4 pt-1 text-ink">{q.title}</h3>
-                  <p className="p-sm text-body">{q.note}</p>
-                </li>
-              ))}
+            <ol className="relative border-t border-hairline">
+              <div
+                className="absolute top-10 bottom-10 left-6 hidden w-px bg-hairline-strong md:block"
+                aria-hidden
+              />
+              {qcSteps.map((q, i) => {
+                const Icon = QC_ICONS[i] ?? IconCrusher;
+                return (
+                  <li
+                    key={q.no}
+                    className="rv grid gap-2 border-b border-hairline py-6 md:grid-cols-[4rem_10rem_1fr] md:items-center md:gap-6"
+                    data-d={i * 70}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center border-2 border-primary bg-white">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </span>
+                      <span className="num text-[1.1rem] text-hairline md:hidden">{q.no}</span>
+                    </div>
+                    <h3 className="h4 text-ink">{q.title}</h3>
+                    <p className="p-sm text-body">{q.note}</p>
+                  </li>
+                );
+              })}
             </ol>
           </div>
         </div>
