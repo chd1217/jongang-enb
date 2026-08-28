@@ -118,7 +118,7 @@ export default function ProcessPage() {
 
       <CtaStrip
         eyebrow="Contact"
-        title="사업장 폐기물 반입 및 처리 절차가 궁금하시면 언제든 문의해 주십시오. 현장 상황에 맞는 최적의 반입·처리 솔루션을 안내해 드립니다."
+        title="사업장 폐기물 반입 및 처리 절차가 궁금하시면 언제든 문의해 주십시오."
         href="/contact"
         cta="온라인 문의하기"
       />
