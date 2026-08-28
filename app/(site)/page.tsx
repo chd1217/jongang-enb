@@ -375,7 +375,7 @@ export default function Home() {
             <Eyebrow>FAQ</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>자주 묻는 질문</>]} />
             <p className="rv p-md mt-6 text-body" data-d="220">
-              여기에 없는 질문은 전화 주시면 바로 답해 드립니다.
+              추가 문의 사항은 전화 상담을 통해 언제든 친절하게 안내받으실 수 있습니다.
             </p>
             <a href={`tel:${telDial}`} className="btn btn-outline mt-6">
               전화 연결
