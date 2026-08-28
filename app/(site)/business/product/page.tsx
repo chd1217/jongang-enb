@@ -73,7 +73,11 @@ export default function ProductPage() {
             <div>
               <Eyebrow>Quality</Eyebrow>
               <MaskHeading className="d2 mt-6 text-ink" lines={[<>2단계로</>, <>검수합니다</>]} />
-              <p className="rv p-md mt-7 max-w-md text-body" data-d="220">
+              <p
+                className="rv p-md mt-7 max-w-md border-l-2 pl-4 text-body"
+                style={{ borderLeftColor: "var(--color-primary)" }}
+                data-d="220"
+              >
                 반입 시 1차 선별로 큰 이물질을 걸러내고, 파쇄 이후 2차 정밀 검수로 불순물을 다시
                 한번 제거합니다. 수요처가 요구하는 스펙에서 벗어난 파쇄품은 출하하지 않습니다.
               </p>
