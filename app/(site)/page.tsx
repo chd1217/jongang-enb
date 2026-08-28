@@ -84,7 +84,7 @@ export default function Home() {
               unit: "%",
               label: "올바로 적법 연동율",
               desc: "반입부터 출하까지 전 처리 이력을 실시간 등록",
-              pause: 650,
+              pause: 450,
             },
             { v: 24, unit: "시간", label: "견적 회신", desc: "문의 접수부터 단가 회신까지", pause: 0 },
           ].map((s, i) => (
