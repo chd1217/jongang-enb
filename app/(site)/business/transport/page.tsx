@@ -116,7 +116,11 @@ export default function TransportPage() {
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Service area</Eyebrow>
         <MaskHeading className="d2 mt-6 text-ink" lines={[<>서비스 지역</>]} />
-        <p className="rv p-md mt-6 max-w-2xl text-body" data-d="160">
+        <p
+          className="rv p-md mt-6 max-w-2xl border-l-2 pl-4 text-body"
+          style={{ borderLeftColor: "var(--color-primary)" }}
+          data-d="160"
+        >
           충청남도 공주시를 거점으로 폭넓은 권역에서 반입·수거 상담이 가능합니다. 지역에
           관계없이 우선 문의해 주십시오.
         </p>

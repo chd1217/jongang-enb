@@ -236,7 +236,11 @@ export default function Home() {
                 className="d2 mt-6 text-white"
                 lines={[<>업체를 바꾸는</>, <>이유는 대개 같습니다</>]}
               />
-              <p className="rv p-md mt-7 text-white/70" data-d="240">
+              <p
+                className="rv p-md mt-7 border-l-2 pl-4 text-white/70"
+                style={{ borderLeftColor: "var(--color-primary)" }}
+                data-d="240"
+              >
                 서류가 늦고, 배차가 밀리고, 문제가 생기면 서로를 가리킵니다. 저희는 그 세 가지를
                 없애는 데 집중해 왔습니다.
               </p>
@@ -274,7 +278,11 @@ export default function Home() {
               className="d2 mt-6 text-ink"
               lines={[<>규격 없는 파쇄품은</>, <>출하하지 않습니다</>]}
             />
-            <p className="rv p-md mt-7 max-w-md text-body" data-d="240">
+            <p
+              className="rv p-md mt-7 max-w-md border-l-2 pl-4 text-body"
+              style={{ borderLeftColor: "var(--color-primary)" }}
+              data-d="240"
+            >
               반입 시 1차 선별, 파쇄 후 2차 정밀 불순물 검출을 거칩니다. 시멘트 소성로부터
               재생원료 가공까지, 수요처 규격에 맞춰 공급합니다.
             </p>
@@ -378,7 +386,11 @@ export default function Home() {
           <div className="lg:sticky lg:top-32 lg:self-start">
             <Eyebrow>FAQ</Eyebrow>
             <MaskHeading className="d2 mt-6 text-ink" lines={[<>자주 묻는 질문</>]} />
-            <p className="rv p-md mt-6 text-body" data-d="220">
+            <p
+              className="rv p-md mt-6 border-l-2 pl-4 text-body"
+              style={{ borderLeftColor: "var(--color-primary)" }}
+              data-d="220"
+            >
               추가 문의 사항은 전화 상담을 통해 언제든 친절하게 안내받으실 수 있습니다.
             </p>
             <a href={`tel:${telDial}`} className="rv btn btn-outline mt-6" data-d="260">
