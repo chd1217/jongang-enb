@@ -78,21 +78,22 @@ export default function Home() {
         {/* 처리 규모 — 큰 숫자 2열 */}
         <div className="mt-16 grid gap-px border border-hairline bg-hairline md:grid-cols-3">
           {[
-            { v: 26, unit: "년", label: "업력", desc: "1999년 설립 이후 수집·운반 및 원료재생업 운영", pause: 0 },
+            { v: 26, unit: "년", label: "업력", desc: "1999년 설립 이후 수집·운반 및 원료재생업 운영", pause: 0, dur: 2600 },
             {
               v: 100,
               unit: "%",
               label: "올바로 적법 연동율",
               desc: "반입부터 출하까지 전 처리 이력을 실시간 등록",
               pause: 450,
+              dur: 2200,
             },
-            { v: 24, unit: "시간", label: "견적 회신", desc: "문의 접수부터 단가 회신까지", pause: 0 },
+            { v: 24, unit: "시간", label: "견적 회신", desc: "문의 접수부터 단가 회신까지", pause: 0, dur: 2600 },
           ].map((s, i) => (
             <div key={s.label} className="rv bg-white p-7 md:p-9" data-d={i * 80}>
               <p className="num text-[clamp(2.5rem,5vw,3.75rem)]">
                 <Counter
                   to={s.v}
-                  duration={2600}
+                  duration={s.dur}
                   pauseBeforeEnd={s.pause}
                   className="bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent"
                 />
