@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeroRing from "./HeroRing";
 import Marquee from "./Marquee";
+import Counter from "./Counter";
 import { Arrow } from "./ui";
 import { company, impactStats, news } from "@/lib/site";
 
@@ -99,7 +100,7 @@ export default function Hero() {
                   data-d={i * 70}
                 >
                   <p className="num text-[clamp(1.75rem,3.4vw,2.75rem)] text-white">
-                    {s.value.toLocaleString("ko-KR")}
+                    <Counter to={s.value} duration={2600} />
                     <span className="text-[0.45em] accent">{s.suffix}</span>
                   </p>
                   <p className="cap-xs mt-3 text-white/55">{s.label}</p>
