@@ -34,10 +34,16 @@ export default function EquipmentPage() {
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
           <Eyebrow>Core equipment</Eyebrow>
-          <MaskHeading className="d2 mt-6 text-ink" lines={[<>핵심 처리 설비</>]} />
-          <p className="rv p-md mt-6 max-w-2xl text-body" data-d="140">
-            계근 · 선별 · 파쇄 · 검수 · 출하로 이어지는 처리 라인을 구성하는 핵심 설비입니다.
-          </p>
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <MaskHeading className="d2 text-ink" lines={[<>핵심 처리 설비</>]} />
+            <p
+              className="rv p-md mt-1 max-w-lg border-l-2 pl-4 text-body"
+              style={{ borderLeftColor: "var(--color-primary)" }}
+              data-d="140"
+            >
+              계근 · 선별 · 파쇄 · 검수 · 출하로 이어지는 처리 라인을 구성하는 핵심 설비입니다.
+            </p>
+          </div>
 
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {equipment.map((e, i) => {

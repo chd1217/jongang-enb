@@ -47,7 +47,7 @@ export default function WastePage() {
       {/* 개요 */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Overview</Eyebrow>
-        <div className="mt-6 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+        <div className="mt-6 grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-16">
           <MaskHeading
             className="d2 text-ink"
             lines={[<>대기 없이 받고,</>, <>기록으로 돌려드립니다</>]}
@@ -106,10 +106,10 @@ export default function WastePage() {
       {/* 발급 서류 */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Documents</Eyebrow>
-        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <MaskHeading className="d2 text-ink" lines={[<>발급 서류</>]} />
           <p
-            className="rv p-md max-w-lg border-l-2 pl-4 text-body"
+            className="rv p-md mt-1 max-w-lg border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="160"
           >

@@ -62,10 +62,10 @@ export default function BusinessPage() {
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
           <Eyebrow>Accepted waste</Eyebrow>
-          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <MaskHeading className="d2 text-ink" lines={[<>처리 가능 품목</>]} />
             <p
-              className="rv p-md max-w-lg border-l-2 pl-4 text-body"
+              className="rv p-md mt-1 max-w-lg border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
               data-d="160"
             >

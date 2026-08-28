@@ -80,10 +80,10 @@ export default function ProcessPage() {
       {/* 환경 관리 */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Environment</Eyebrow>
-        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <MaskHeading className="d2 text-ink" lines={[<>환경 관리</>]} />
           <p
-            className="rv p-md max-w-lg border-l-2 pl-4 text-body"
+            className="rv p-md mt-1 max-w-lg border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="160"
           >

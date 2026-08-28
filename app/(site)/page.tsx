@@ -38,7 +38,7 @@ export default function Home() {
       {/* ═══ 01. 선언 — 화이트 캔버스 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>About us</Eyebrow>
-        <div className="mt-7 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+        <div className="mt-7 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-20">
           <MaskHeading
             className="d2 text-ink"
             lines={[
@@ -98,13 +98,13 @@ export default function Home() {
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
           <Eyebrow>Business</Eyebrow>
-          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <MaskHeading
               className="d2 text-ink"
               lines={[<>현장에 필요한 전부를,</>, <>한 회사에서.</>]}
             />
             <p
-              className="rv p-md max-w-md border-l-2 pl-4 text-body"
+              className="rv p-md mt-1 max-w-md border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
               data-d="200"
             >
@@ -151,10 +151,10 @@ export default function Home() {
       {/* ═══ 03. 운영 역량 3종 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Reliability</Eyebrow>
-        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <MaskHeading className="d2 text-ink" lines={[<>모든 단계에서 같은 기준</>]} />
           <p
-            className="rv p-md max-w-md border-l-2 pl-4 text-body"
+            className="rv p-md mt-1 max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="180"
           >
@@ -181,7 +181,7 @@ export default function Home() {
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)]">
           <Eyebrow>Process</Eyebrow>
         </div>
-        <div className="mx-auto mt-6 flex max-w-[var(--maxw)] flex-col gap-6 px-[var(--pad)] md:flex-row md:items-start md:justify-between">
+        <div className="mx-auto mt-6 flex max-w-[var(--maxw)] flex-col gap-6 px-[var(--pad)] md:flex-row md:items-center md:justify-between">
           <MaskHeading
             className="d2 text-ink"
             lines={[
@@ -191,7 +191,7 @@ export default function Home() {
             ]}
           />
           <p
-            className="rv p-md max-w-md border-l-2 pl-4 text-body"
+            className="rv p-md mt-1 max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
             data-d="180"
           >
@@ -328,10 +328,10 @@ export default function Home() {
       <section className="soft-ch border-y border-hairline">
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
           <Eyebrow>Industries</Eyebrow>
-          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <MaskHeading className="d2 text-ink" lines={[<>어떤 현장이든</>]} />
             <p
-              className="rv p-md max-w-lg border-l-2 pl-4 text-body"
+              className="rv p-md mt-1 max-w-lg border-l-2 pl-4 text-body"
               style={{ borderLeftColor: "var(--color-primary)" }}
               data-d="160"
             >
