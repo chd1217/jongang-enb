@@ -308,10 +308,15 @@ body {
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
+  /* .rv와 같은 요소에 함께 쓰이는 경우가 많아 opacity/transform도 같은
+     지속시간으로 포함시켜야 한다 — 없으면 .rv의 transition을 덮어써
+     리빌 애니메이션 없이 즉시 나타나 버린다. */
   transition:
     background-color 0.28s ease,
     color 0.28s ease,
-    border-color 0.28s ease;
+    border-color 0.28s ease,
+    opacity 1.15s var(--ease-expo),
+    transform 1.15s var(--ease-expo);
 }
 .btn-sm {
   min-height: 40px;
@@ -359,7 +364,10 @@ body {
   font-weight: 700;
   font-size: 15px;
   color: var(--color-accent);
-  transition: gap 0.35s var(--ease-expo);
+  transition:
+    gap 0.35s var(--ease-expo),
+    opacity 1.15s var(--ease-expo),
+    transform 1.15s var(--ease-expo);
 }
 .dark-ch .btn-ghost {
   color: var(--color-accent-on-dark);
