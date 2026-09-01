@@ -2,7 +2,6 @@ import Link from "next/link";
 import HeroRing from "./HeroRing";
 import Marquee from "./Marquee";
 import Counter from "./Counter";
-import RingFlow from "./RingFlow";
 import { Arrow } from "./ui";
 import { company, impactStats, news } from "@/lib/site";
 
@@ -79,9 +78,8 @@ export default function Hero() {
         </div>
 
         {/* 그래픽 */}
-        <div className="rv relative flex justify-center lg:justify-end" data-d="400">
+        <div className="rv flex justify-center lg:justify-end" data-d="400">
           <HeroRing />
-          <RingFlow />
         </div>
       </div>
 
