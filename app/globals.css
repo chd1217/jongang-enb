@@ -247,30 +247,6 @@ body {
   transform: scaleX(1);
 }
 
-/* 히어로 사이드 장식 — 성장 라인 그래픽 (GrowthLines.tsx) */
-.growth-draw {
-  stroke-dasharray: var(--len, 1000);
-  stroke-dashoffset: var(--len, 1000);
-  opacity: 0.48;
-  transition: stroke-dashoffset 2.2s var(--ease-expo);
-}
-.growth-draw[data-on] {
-  stroke-dashoffset: 0;
-}
-.growth-node {
-  opacity: 0;
-  transform: scale(0.3);
-  transform-box: fill-box;
-  transform-origin: center;
-  transition:
-    opacity 0.6s var(--ease-expo),
-    transform 0.6s var(--ease-expo);
-}
-.growth-node[data-on] {
-  opacity: 0.62;
-  transform: scale(1);
-}
-
 /* ====================  모션 유틸  ==================== */
 
 @keyframes marquee-x {
