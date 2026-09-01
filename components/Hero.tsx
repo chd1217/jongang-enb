@@ -2,6 +2,7 @@ import Link from "next/link";
 import HeroRing from "./HeroRing";
 import Marquee from "./Marquee";
 import Counter from "./Counter";
+import GrowthLines from "./GrowthLines";
 import { Arrow } from "./ui";
 import { company, impactStats, news } from "@/lib/site";
 
@@ -9,6 +10,9 @@ import { company, impactStats, news } from "@/lib/site";
 export default function Hero() {
   return (
     <section className="dark-ch relative overflow-hidden pt-8 md:pt-24">
+      <GrowthLines side="left" />
+      <GrowthLines side="right" />
+
       {/* 뉴스 티커 */}
       <div className="border-y border-hairline-strong/60 bg-elevated py-2.5">
         <Marquee
