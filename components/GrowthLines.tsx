@@ -56,16 +56,16 @@ export default function GrowthLines({ side }: { side: "left" | "right" }) {
         (side === "right" ? " right-0" : " left-0") +
         flip
       }
-      style={{ width: "var(--pad)" }}
+      style={{ width: "calc(var(--pad) * 1.3)" }}
     >
-      <g fill="none" strokeWidth="2.2" strokeLinecap="square">
+      <g fill="none" strokeWidth="3" strokeLinecap="square">
         {paths.map((p, i) => (
           <path
             key={i}
             d={p.d}
             stroke={p.stroke}
             style={{
-              opacity: 0.68,
+              opacity: 1,
               strokeDasharray: p.len,
               strokeDashoffset: on ? 0 : p.len,
               transition: `stroke-dashoffset 2.2s ${ease} ${p.delay}s`,
@@ -77,13 +77,13 @@ export default function GrowthLines({ side }: { side: "left" | "right" }) {
       {nodes.map((n, i) => (
         <rect
           key={i}
-          x={n.x}
-          y={n.y}
-          width="7"
-          height="7"
+          x={n.x - 1}
+          y={n.y - 1}
+          width="9"
+          height="9"
           fill={n.c}
           style={{
-            opacity: on ? 0.78 : 0,
+            opacity: on ? 1 : 0,
             transform: on ? "scale(1)" : "scale(0.3)",
             transformOrigin: "center",
             transformBox: "fill-box",
