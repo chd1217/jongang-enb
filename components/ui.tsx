@@ -84,7 +84,7 @@ export function CtaStrip({
   secondary,
 }: {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   href: string;
   cta?: string;
   secondary?: { label: string; href: string };
