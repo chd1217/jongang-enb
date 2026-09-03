@@ -248,9 +248,7 @@ export default function Home() {
                 className="d2 mt-6 text-white"
                 lines={[
                   <>업체를 바꾸는</>,
-                  <>
-                    <span className="accent">이유</span>는 대개 같습니다
-                  </>,
+                  <>이유는 대개 같습니다</>,
                 ]}
               />
               <p
