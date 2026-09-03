@@ -357,7 +357,14 @@ export default function Home() {
       {/* ═══ 08. 핵심 강점 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Why us</Eyebrow>
-        <MaskHeading className="d2 mt-6 max-w-3xl text-ink" lines={[<>세 가지만 지킵니다</>]} />
+        <MaskHeading
+          className="d2 mt-6 max-w-3xl text-ink"
+          lines={[
+            <>
+              <span className="accent">세 가지</span>만 지킵니다
+            </>,
+          ]}
+        />
 
         <ul className="mt-12 grid gap-5 md:grid-cols-3">
           {coreStrengths.map((t, i) => (
