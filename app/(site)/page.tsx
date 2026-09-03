@@ -246,7 +246,12 @@ export default function Home() {
               </div>
               <MaskHeading
                 className="d2 mt-6 text-white"
-                lines={[<>업체를 바꾸는</>, <>이유는 대개 같습니다</>]}
+                lines={[
+                  <>업체를 바꾸는</>,
+                  <>
+                    <span className="accent">이유</span>는 대개 같습니다
+                  </>,
+                ]}
               />
               <p
                 className="rv p-md mt-7 border-l-2 pl-4 text-white/70"
