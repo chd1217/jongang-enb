@@ -48,7 +48,7 @@ export default function Home() {
                 <span className="accent">공정</span>
                 <span className="text-stone">으로,</span>
               </>,
-              <>현장에서 다져온 확실한 처리의 정석.</>,
+              <>현장에서 다져온 확실한 처리의 정석</>,
             ]}
           />
 
@@ -116,7 +116,7 @@ export default function Home() {
               lines={[
                 <>현장에 필요한 전부를,</>,
                 <>
-                  <span className="accent">한 회사</span>에서.
+                  <span className="accent">한 회사</span>에서
                 </>,
               ]}
             />
