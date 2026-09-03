@@ -169,7 +169,14 @@ export default function Home() {
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
         <Eyebrow>Reliability</Eyebrow>
         <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <MaskHeading className="d2 text-ink" lines={[<>모든 단계에서 같은 기준</>]} />
+          <MaskHeading
+            className="d2 text-ink"
+            lines={[
+              <>
+                모든 단계에서 <span className="accent">같은 기준</span>
+              </>,
+            ]}
+          />
           <p
             className="rv p-md mt-1 max-w-md border-l-2 pl-4 text-body"
             style={{ borderLeftColor: "var(--color-primary)" }}
