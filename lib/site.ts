@@ -215,7 +215,13 @@ export const certificates = [
   { name: "폐기물 중간재활용업 허가", org: "관할 지자체 (충청남도)" },
 ] as const;
 
-export const news = [
+export const news: {
+  id: string;
+  category: string;
+  date: string;
+  title: string;
+  excerpt: string;
+}[] = [
   {
     id: "notice-02",
     category: "안내",
@@ -224,14 +230,7 @@ export const news = [
     excerpt:
       "건설현장, 사업장, 제조공장에서 발생하는 폐기물 반입 상담은 전화 또는 온라인 문의를 통해 진행됩니다.",
   },
-  {
-    id: "notice-01",
-    category: "공지사항",
-    date: "2026-08-12",
-    title: "중앙이엔비 홈페이지를 새롭게 오픈했습니다",
-    excerpt: "폐기물 수집·운반 및 중간재활용 서비스를 더 편리하게 안내해 드리기 위해 홈페이지를 새단장했습니다.",
-  },
-] as const;
+];
 
 /* 수요처(납품처) — 생산물이 공급되는 곳 */
 export const offtakes = [
@@ -448,11 +447,6 @@ export const newsBody: Record<string, string[]> = {
     "건설현장, 사업장, 제조공장에서 발생하는 폐기물 반입 상담은 전화 또는 온라인 문의를 통해 진행됩니다.",
     "현장 주소, 폐기물 품목, 예상 물량, 반출 희망일을 알려주시면 확인 후 회신드립니다.",
     "지정 외 폐기물이라면 품목에 관계없이 우선 문의해 주십시오. 난처리성 품목도 단가 협의를 통해 상담 가능합니다.",
-  ],
-  "notice-01": [
-    "중앙이엔비 홈페이지를 새롭게 오픈했습니다.",
-    "폐기물 반입 문의, 서비스 안내를 온라인으로도 편리하게 이용하실 수 있습니다.",
-    "궁금하신 사항은 대표번호 또는 이메일로 언제든 문의해 주십시오.",
   ],
 };
 
