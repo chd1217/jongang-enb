@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, ArrowNE } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { news } from "@/lib/site";
+import { news, telDial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "회사소식",
@@ -76,8 +76,8 @@ export default function NewsPage() {
       <CtaStrip
         eyebrow="Contact"
         title="현장 상황에 맞는 최적의 반입 및 파쇄·처리 솔루션을 안내해 드립니다. 자세한 문의는 대표번호로 연락해 주시기 바랍니다."
-        href="/contact"
-        cta="문의하기"
+        href={`tel:${telDial}`}
+        cta="전화 문의"
       />
     </>
   );
