@@ -120,8 +120,8 @@ export default function LocationPage() {
       <CtaStrip
         eyebrow="Visit"
         title="방문 예정이시면 미리 연락 주십시오. 담당자가 안내해 드립니다."
-        href="/contact"
-        cta="방문 문의"
+        href={`tel:${telDial}`}
+        cta="전화 문의"
       />
 
       <NextLink href="/business" label="Next" title="사업영역 보기" />
