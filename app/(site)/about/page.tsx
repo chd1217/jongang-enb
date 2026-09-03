@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { teamMessage, values, overview } from "@/lib/site";
+import { teamMessage, values, overview, telDial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "회사소개 · 인사말",
@@ -98,8 +98,8 @@ export default function AboutPage() {
       <CtaStrip
         eyebrow="Contact"
         title="반입 단가나 배차 일정이 궁금하시면 바로 연락 주십시오."
-        href="/contact"
-        cta="견적 문의하기"
+        href={`tel:${telDial}`}
+        cta="전화 연결"
       />
 
       <NextLink href="/about/certificates" label="Next" title="인증·허가 보기" />

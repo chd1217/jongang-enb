@@ -121,7 +121,7 @@ export default function LocationPage() {
         eyebrow="Visit"
         title="방문 예정이시면 미리 연락 주십시오. 담당자가 안내해 드립니다."
         href={`tel:${telDial}`}
-        cta="전화 문의"
+        cta="전화 연결"
       />
 
       <NextLink href="/business" label="Next" title="사업영역 보기" />
