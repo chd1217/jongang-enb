@@ -470,12 +470,7 @@ export default function Home() {
       {/* ═══ 12. CTA ═══ */}
       <CtaStrip
         eyebrow="Contact"
-        title={
-          <>
-            물량과 품목만 알려주시면, <span className="accent">24시간</span> 내에 단가와 배차
-            일정을 회신드립니다.
-          </>
-        }
+        title="물량과 품목만 알려주시면, 24시간 내에 단가와 배차 일정을 회신드립니다."
         href="/contact"
         cta="온라인 견적 문의"
         secondary={{ label: company.tel, href: `tel:${telDial}` }}

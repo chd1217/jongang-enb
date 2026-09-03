@@ -102,12 +102,7 @@ export default function BusinessPage() {
 
       <CtaStrip
         eyebrow="Contact"
-        title={
-          <>
-            현장 주소와 품목, 예상 물량만 알려주시면 <span className="accent">24시간</span> 내
-            회신드립니다.
-          </>
-        }
+        title="현장 주소와 품목, 예상 물량만 알려주시면 24시간 내 회신드립니다."
         href="/contact"
         cta="견적 문의하기"
       />
