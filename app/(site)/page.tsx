@@ -5,13 +5,12 @@ import Counter from "@/components/Counter";
 import Marquee from "@/components/Marquee";
 import Faq from "@/components/Faq";
 import { OrganizationJsonLd, FaqJsonLd } from "@/components/JsonLd";
-import { Eyebrow, MaskHeading, GhostLink, Arrow, ArrowNE, CtaStrip } from "@/components/ui";
+import { Eyebrow, MaskHeading, GhostLink, Arrow, CtaStrip } from "@/components/ui";
 import { IconTruck, IconDoc, IconCert, IconCrusher, IconAggregate, IconScreen } from "@/components/Icons";
 import {
   services,
   offtakes,
   certificates,
-  news,
   company,
   whyUs,
   capabilities,
@@ -427,43 +426,6 @@ export default function Home() {
           </div>
 
           <Faq />
-        </div>
-      </section>
-
-      {/* ═══ 11. 소식 ═══ */}
-      <section className="border-t border-hairline">
-        <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <Eyebrow>News</Eyebrow>
-              <MaskHeading className="d2 mt-6 text-ink" lines={[<>회사소식</>]} />
-            </div>
-            <GhostLink href="/news" className="rv" data-d="80">
-              전체보기
-            </GhostLink>
-          </div>
-
-          <ul className="mt-12 border-t border-hairline">
-            {news.slice(0, 4).map((n, i) => (
-              <li key={n.id} className="rv" data-d={i * 70}>
-                <Link
-                  href={`/news/${n.id}`}
-                  className="group grid gap-3 border-b border-hairline py-6 md:grid-cols-[7rem_1fr_auto] md:items-center md:gap-10"
-                >
-                  <span className="text-[13px] font-bold text-mute">
-                    {n.date.replace(/-/g, ".")}
-                  </span>
-                  <div className="min-w-0">
-                    <span className="badge">{n.category}</span>
-                    <p className="d3 mt-3 truncate text-ink">{n.title}</p>
-                  </div>
-                  <span className="isq hidden border-hairline text-ink group-hover:border-primary group-hover:bg-primary md:inline-flex">
-                    <ArrowNE className="h-4 w-4" />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
