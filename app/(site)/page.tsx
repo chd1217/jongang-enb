@@ -113,7 +113,12 @@ export default function Home() {
           <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <MaskHeading
               className="d2 text-ink"
-              lines={[<>현장에 필요한 전부를,</>, <>한 회사에서.</>]}
+              lines={[
+                <>현장에 필요한 전부를,</>,
+                <>
+                  <span className="accent">한 회사</span>에서.
+                </>,
+              ]}
             />
             <p
               className="rv p-md mt-1 max-w-md border-l-2 pl-4 text-body"
