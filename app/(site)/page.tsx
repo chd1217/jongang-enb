@@ -293,7 +293,12 @@ export default function Home() {
             <Eyebrow>Shredded material</Eyebrow>
             <MaskHeading
               className="d2 mt-6 text-ink"
-              lines={[<>규격 없는 파쇄품은</>, <>출하하지 않습니다</>]}
+              lines={[
+                <>
+                  <span className="accent">규격 없는 파쇄품</span>은
+                </>,
+                <>출하하지 않습니다</>,
+              ]}
             />
             <p
               className="rv p-md mt-7 max-w-md border-l-2 pl-4 text-body"
