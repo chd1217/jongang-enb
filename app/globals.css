@@ -284,13 +284,13 @@ body {
 /* 버튼 위를 슥 스치는 은은한 하이라이트 — 헤더 견적 문의 버튼용 */
 @keyframes cta-sheen-sweep {
   0% {
-    left: -60%;
+    transform: translateX(-220%) skewX(-20deg);
   }
   16% {
-    left: 130%;
+    transform: translateX(280%) skewX(-20deg);
   }
   100% {
-    left: 130%;
+    transform: translateX(280%) skewX(-20deg);
   }
 }
 .cta-sheen {
@@ -301,11 +301,11 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: -60%;
+  left: 0;
   width: 45%;
   height: 100%;
   background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-  transform: skewX(-20deg);
+  transform: translateX(-220%) skewX(-20deg);
   animation: cta-sheen-sweep 3.6s ease-in-out infinite;
   pointer-events: none;
 }
