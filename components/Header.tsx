@@ -95,7 +95,10 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <Link href="/contact" className="btn btn-primary btn-sm hidden md:inline-flex">
+              <Link
+                href="/contact"
+                className="btn btn-primary btn-sm cta-sheen hidden md:inline-flex"
+              >
                 견적 문의
               </Link>
 

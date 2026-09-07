@@ -307,7 +307,8 @@ export default function Home() {
             </p>
             <div className="rv mt-8" data-d="320">
               <Link href="/business/product" className="btn btn-outline">
-                제품 및 단가 문의
+                자세히 보기
+                <Arrow />
               </Link>
             </div>
           </div>
