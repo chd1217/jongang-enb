@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import Faq from "@/components/Faq";
 import { Eyebrow, MaskHeading } from "@/components/ui";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/JsonLd";
-import { company, serviceAreas, telDial } from "@/lib/site";
+import { company, serviceAreas, serviceNationwide, telDial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "문의하기",
@@ -69,8 +69,9 @@ export default function ContactPage() {
 
             <div className="mt-8">
               <p className="cap-xs text-mute">배차 가능 지역</p>
-              <p className="p-sm mt-3 text-body">
-                {serviceAreas.slice(0, -1).join(" · ")} · 전국 배차 가능
+              <p className="p-sm mt-3 text-body">{serviceAreas.slice(0, -1).join(" · ")}</p>
+              <p className="mt-2 inline-block rounded-xs bg-primary px-3 py-1.5 text-[13px] font-bold text-black">
+                {serviceNationwide}
               </p>
             </div>
           </div>
