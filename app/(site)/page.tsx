@@ -354,7 +354,7 @@ export default function Home() {
 
       {/* ═══ 08. 핵심 강점 ═══ */}
       <section className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-16 md:py-24">
-        <Eyebrow>Why us</Eyebrow>
+        <Eyebrow>Principles</Eyebrow>
         <MaskHeading
           className="d2 mt-6 max-w-3xl text-ink"
           lines={[
@@ -367,7 +367,7 @@ export default function Home() {
         <ul className="mt-12 grid gap-5 md:grid-cols-3">
           {coreStrengths.map((t, i) => (
             <li key={t.no} className="corner card rv flex flex-col p-7 md:p-8" data-d={i * 90}>
-              <span className="num text-[1.5rem] text-hairline">{t.no}</span>
+              <span className="num point-num text-[1.5rem]">{t.no}</span>
               <h3 className="h4 mt-6 text-ink">{t.title}</h3>
               <p className="p-md mt-3 flex-1 text-body">{t.body}</p>
             </li>

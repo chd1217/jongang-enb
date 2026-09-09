@@ -247,6 +247,18 @@ body {
   transform: scaleX(1);
 }
 
+/* 카드 진입 후 번호가 순서대로 브랜드 그린으로 켜지는 포인트 모션.
+   부모 .rv 요소의 --d(스태거 딜레이)를 그대로 물려받아, 카드가 뜨는 순서 그대로
+   숫자도 딱딱딱 순차 점등된다. */
+.point-num {
+  color: var(--color-hairline);
+  transition: color 0.5s var(--ease-expo);
+  transition-delay: calc(var(--d, 0ms) + 280ms);
+}
+.is-in .point-num {
+  color: var(--color-primary);
+}
+
 /* ====================  모션 유틸  ==================== */
 
 @keyframes marquee-x {
