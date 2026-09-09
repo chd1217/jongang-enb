@@ -143,7 +143,7 @@ export default function TransportPage() {
 
       <CtaStrip
         eyebrow="Contact"
-        title="반입 및 처리 절차가 궁금하시면 언제든 문의해 주십시오. 현장 상황에 맞는 최적의 반입·처리 솔루션을 안내해 드립니다."
+        title="반입 및 처리 절차가 궁금하시면 언제든 문의해 주십시오."
         href="/contact"
         cta="수거 문의"
       />
