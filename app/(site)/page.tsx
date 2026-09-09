@@ -81,7 +81,7 @@ export default function Home() {
             {
               v: 100,
               unit: "%",
-              label: "올바로 적법 연동율",
+              label: "올바로시스템 연동률",
               desc: "반입부터 출하까지 전 처리 이력을 실시간 등록",
               pause: 450,
               dur: 2200,
