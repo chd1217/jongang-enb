@@ -14,10 +14,19 @@ export async function POST(req: NextRequest) {
   const tel = String(body.tel || "").trim();
   const site = String(body.site || "").trim();
   const waste = String(body.waste || "").trim();
+  const agree = body.agree === true;
 
   if (!name || !tel || !site) {
     return NextResponse.json(
       { ok: false, error: "이름, 연락처, 현장 주소는 필수 항목입니다." },
+      { status: 400 },
+    );
+  }
+
+  // 클라이언트 검증을 우회해 직접 API를 호출하는 경우까지 방어한다.
+  if (!agree) {
+    return NextResponse.json(
+      { ok: false, error: "개인정보 수집 및 이용에 동의하셔야 접수가 가능합니다." },
       { status: 400 },
     );
   }
@@ -32,6 +41,7 @@ export async function POST(req: NextRequest) {
     volume: body.volume ? String(body.volume) : undefined,
     date: body.date ? String(body.date) : undefined,
     message: body.message ? String(body.message) : undefined,
+    agree,
   };
 
   const results = await Promise.allSettled([insertInquiry(input), sendInquiryEmail(input)]);

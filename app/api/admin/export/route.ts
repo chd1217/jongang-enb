@@ -28,6 +28,7 @@ export async function GET() {
     "희망일",
     "상태",
     "문의 내용",
+    "개인정보 동의",
   ];
 
   const lines = [
@@ -45,6 +46,7 @@ export async function GET() {
         it.date || "",
         it.status,
         it.message || "",
+        it.agree ? "동의함" : "미동의",
       ]
         .map(csvCell)
         .join(","),

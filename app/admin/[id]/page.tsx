@@ -42,6 +42,7 @@ export default async function AdminInquiryPage({
     ["폐기물 품목", item.waste],
     ["예상 물량", item.volume || "-"],
     ["반출 희망일", item.date || "-"],
+    ["개인정보 동의", item.agree ? "동의함" : "미동의"],
   ];
 
   return (

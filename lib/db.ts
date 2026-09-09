@@ -31,6 +31,7 @@ export type Inquiry = {
   date: string | null;
   message: string | null;
   status: Status;
+  agree: boolean;
   created_at: string;
 };
 
@@ -54,6 +55,7 @@ export function ensureSchema() {
           created_at TIMESTAMPTZ NOT NULL DEFAULT now()
         );
         ALTER TABLE inquiries ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT '접수완료';
+        ALTER TABLE inquiries ADD COLUMN IF NOT EXISTS agree BOOLEAN NOT NULL DEFAULT false;
       `);
     })();
   }
@@ -70,11 +72,12 @@ export async function insertInquiry(input: {
   volume?: string;
   date?: string;
   message?: string;
+  agree: boolean;
 }) {
   await ensureSchema();
   await getPool().query(
-    `INSERT INTO inquiries (name, company, tel, email, site, waste, volume, date, message)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+    `INSERT INTO inquiries (name, company, tel, email, site, waste, volume, date, message, agree)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
     [
       input.name,
       input.company || null,
@@ -85,6 +88,7 @@ export async function insertInquiry(input: {
       input.volume || null,
       input.date || null,
       input.message || null,
+      input.agree,
     ],
   );
 }

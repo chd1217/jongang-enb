@@ -18,6 +18,7 @@ export async function sendInquiryEmail(input: {
   volume?: string;
   date?: string;
   message?: string;
+  agree?: boolean;
 }) {
   const resend = getResend();
 
@@ -30,6 +31,7 @@ export async function sendInquiryEmail(input: {
     ["폐기물 품목", input.waste],
     ["예상 물량", input.volume || "-"],
     ["반출 희망일", input.date || "-"],
+    ["개인정보 동의", input.agree ? "동의함" : "미동의"],
   ];
 
   const html = `
