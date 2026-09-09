@@ -60,12 +60,12 @@ export default function Home() {
               원칙으로 움직입니다.
             </p>
             <p className="rv p-lg mt-5 text-body" data-d="140">
-              철저한 2단계 불순물 선별과 고성능 파쇄 시스템,{" "}
+              철저한 2단계 불순물 선별과 고성능 파쇄 시스템, 올바로 100% 실시간 전산 연동으로{" "}
               <strong className="font-bold text-ink">
-                올바로 100% 실시간 전산 연동으로 배출처의 법적 리스크를 완벽히 해결
+                처리 이력과 관련 서류를 체계적으로 관리합니다
               </strong>
-              하고 수요처가 신뢰하는 고순도 순환 자원을 완성합니다. 오랜 시간 현장을 지켜온
-              묵직한 책임감으로 끝까지 함께합니다.
+              . 수요처가 신뢰하는 고순도 순환 자원을 완성합니다. 오랜 시간 현장을 지켜온 묵직한
+              책임감으로 끝까지 함께합니다.
             </p>
             <div className="rv mt-8 flex flex-wrap gap-x-8 gap-y-3" data-d="260">
               <GhostLink href="/about">회사소개</GhostLink>
