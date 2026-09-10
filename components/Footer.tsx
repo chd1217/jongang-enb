@@ -105,7 +105,7 @@ export default function Footer() {
             © {company.nameKoFull}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-1 text-[12px] text-white/60">
-            <li>대표이사 {company.ceo}</li>
+            <li>대표자 {company.ceo}</li>
             <li>사업자등록번호 {company.bizNo}</li>
             <li>{company.permitNo} 정식 허가업체</li>
             <li>
