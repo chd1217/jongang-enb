@@ -364,7 +364,7 @@ export default function Home() {
           ]}
         />
 
-        <ul className="mt-12 grid gap-5 md:grid-cols-3">
+        <ul className="principle-grid mt-12 grid gap-5 md:grid-cols-3">
           {coreStrengths.map((t, i) => (
             <li key={t.no} className="corner card rv flex flex-col p-7 md:p-8" data-d={i * 90}>
               <span className="num point-num text-[1.5rem]">{t.no}</span>
