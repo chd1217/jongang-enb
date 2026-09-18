@@ -1,5 +1,10 @@
 import { Resend } from "resend";
 import { company } from "./site";
+import type { InquiryPhoto } from "./inquiry-photos";
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+}
 
 function getResend() {
   if (!process.env.RESEND_API_KEY) {
@@ -19,6 +24,7 @@ export async function sendInquiryEmail(input: {
   date?: string;
   message?: string;
   agree?: boolean;
+  photos?: InquiryPhoto[];
 }) {
   const resend = getResend();
 
@@ -32,6 +38,7 @@ export async function sendInquiryEmail(input: {
     ["예상 물량", input.volume || "-"],
     ["반출 희망일", input.date || "-"],
     ["개인정보 동의", input.agree ? "동의함" : "미동의"],
+    ["첨부 사진", `${input.photos?.length || 0}장`],
   ];
 
   const html = `
@@ -40,12 +47,12 @@ export async function sendInquiryEmail(input: {
       ${rows
         .map(
           ([k, v]) =>
-            `<tr><td style="color:#666;white-space:nowrap">${k}</td><td><b>${v}</b></td></tr>`,
+            `<tr><td style="color:#666;white-space:nowrap">${k}</td><td><b>${escapeHtml(v)}</b></td></tr>`,
         )
         .join("")}
     </table>
     <p><b>문의 내용</b></p>
-    <p>${(input.message || "-").replace(/\n/g, "<br/>")}</p>
+    <p>${escapeHtml(input.message || "-").replace(/\n/g, "<br/>")}</p>
   `;
 
   const { error } = await resend.emails.send({
@@ -54,6 +61,11 @@ export async function sendInquiryEmail(input: {
     replyTo: input.email || undefined,
     subject: `[견적문의] ${input.company || input.name} - ${input.waste}`,
     html,
+    attachments: input.photos?.map((photo) => ({
+      filename: photo.filename,
+      content: photo.content,
+      contentType: photo.contentType,
+    })),
   });
 
   // Resend SDK는 API가 발송을 거부해도 throw하지 않고 error 필드로만 알려주므로,

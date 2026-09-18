@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import shreddedMaterial from "@/public/about/hero-product.jpg";
 import Hero from "@/components/Hero";
 import HorizontalProcess from "@/components/HorizontalProcess";
 import Counter from "@/components/Counter";
@@ -303,8 +305,17 @@ export default function Home() {
               data-d="240"
             >
               반입 시 1차 선별, 파쇄 후 2차 정밀 불순물 검출을 거칩니다. 시멘트 소성로부터
-              재생원료 가공까지, 수요처 규격에 맞춰 공급합니다.
-            </p>
+                재생원료 가공까지, 수요처 규격에 맞춰 공급합니다.
+              </p>
+              <div className="rv mt-6 overflow-hidden rounded-xs border border-hairline" data-d="280">
+                <Image
+                  src={shreddedMaterial}
+                  alt="선별된 파쇄품과 규격별 샘플 트레이"
+                  sizes="(min-width: 1280px) 460px, (min-width: 1024px) 40vw, 100vw"
+                  placeholder="blur"
+                  className="aspect-[16/9] w-full object-cover"
+                />
+              </div>
             <div className="rv mt-8" data-d="320">
               <Link href="/business/product" className="btn btn-outline">
                 자세히 보기

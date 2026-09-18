@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getInquiry } from "@/lib/db";
+import { getInquiry, listInquiryPhotos } from "@/lib/db";
 import StatusForm from "./StatusForm";
 import DeleteButton from "./DeleteButton";
 
@@ -31,6 +32,7 @@ export default async function AdminInquiryPage({
 
   const item = await getInquiry(numId);
   if (!item) notFound();
+  const photos = await listInquiryPhotos(numId);
 
   const rows: [string, string][] = [
     ["접수일시", fmt(item.created_at)],
@@ -76,6 +78,24 @@ export default async function AdminInquiryPage({
         <p className="cap-xs text-mute">문의 내용</p>
         <p className="p-md mt-2 whitespace-pre-wrap text-body">{item.message || "-"}</p>
       </div>
+      {photos.length > 0 && (
+        <section className="mt-8 border-t border-hairline pt-6" aria-label="첨부 사진">
+          <h2 className="h4 text-ink">첨부 사진 <span className="accent">{photos.length}장</span></h2>
+          <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {photos.map((photo, i) => {
+              const src = `/api/admin/inquiries/${item.id}/photos/${photo.id}`;
+              return (
+                <li key={photo.id} className="overflow-hidden rounded-xs border border-hairline">
+                  <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`첨부 사진 ${i + 1} 크게 보기 (새 창)`}>
+                    <Image src={src} alt={`고객 첨부 사진 ${i + 1}`} width={320} height={240} unoptimized className="aspect-[4/3] w-full object-cover" />
+                  </a>
+                  <a href={`${src}?download=1`} className="block px-3 py-3 text-[13px] font-bold text-accent">사진 {i + 1} 다운로드 ↓</a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }

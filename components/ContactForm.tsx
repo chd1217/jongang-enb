@@ -1,6 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { preparePhoto } from "@/lib/prepare-photo";
+import { MAX_PHOTOS } from "@/lib/photo-limits";
 import { company, telDial, wasteTypes } from "@/lib/site";
 import { Arrow } from "./ui";
 
@@ -57,12 +60,61 @@ export default function ContactForm() {
   const [agree, setAgree] = useState(false);
   const [agreeError, setAgreeError] = useState(false);
   const agreeRef = useRef<HTMLInputElement>(null);
+  const photoInputRef = useRef<HTMLInputElement>(null);
+  const [photos, setPhotos] = useState<{ id: string; file: File; url: string }[]>([]);
+  const photoUrls = useRef(new Set<string>());
+  const mounted = useRef(true);
+  const [preparing, setPreparing] = useState(false);
+  const busyRef = useRef(false);
+  const [photoError, setPhotoError] = useState<string | null>(null);
+
+  useEffect(() => {
+    mounted.current = true;
+    const urls = photoUrls.current;
+    return () => { mounted.current = false; urls.forEach((url) => URL.revokeObjectURL(url)); urls.clear(); };
+  }, []);
+
+  const clearPhotos = () => {
+    photoUrls.current.forEach((url) => URL.revokeObjectURL(url));
+    photoUrls.current.clear();
+    setPhotos([]);
+  };
+
+  const selectPhotos = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    e.target.value = "";
+    if (!files.length || busyRef.current) return;
+    setPhotoError(null);
+    if (photos.length + files.length > MAX_PHOTOS) {
+      setPhotoError(`사진은 최대 ${MAX_PHOTOS}장까지 첨부할 수 있습니다.`);
+      return;
+    }
+    busyRef.current = true;
+    setPreparing(true);
+    try {
+      const prepared: File[] = [];
+      for (const file of files) prepared.push(await preparePhoto(file));
+      if (!mounted.current) return;
+      const additions = prepared.map((file) => {
+        const url = URL.createObjectURL(file);
+        photoUrls.current.add(url);
+        return { id: crypto.randomUUID(), file, url };
+      });
+      setPhotos((current) => [...current, ...additions]);
+    } catch (error) {
+      setPhotoError(error instanceof Error && !(error instanceof DOMException) ? error.message : "사진을 읽지 못했습니다. 다른 사진을 선택해 주십시오.");
+    } finally {
+      busyRef.current = false;
+      setPreparing(false);
+    }
+  };
 
   const set = (k: keyof Form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setF((v) => ({ ...v, [k]: e.target.value }));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (busyRef.current) return;
     if (!f.name.trim() || !f.tel.trim() || !f.site.trim()) {
       setErr("이름, 연락처, 현장 주소는 필수 항목입니다.");
       return;
@@ -76,13 +128,18 @@ export default function ContactForm() {
     }
     setAgreeError(false);
     setErr(null);
+    setSent(false);
     setSending(true);
+    busyRef.current = true;
 
     try {
+      const payload = new FormData();
+      Object.entries(f).forEach(([key, value]) => payload.append(key, value));
+      payload.append("agree", String(agree));
+      photos.forEach(({ file }) => payload.append("photos", file));
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...f, agree }),
+        body: payload,
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
@@ -93,15 +150,18 @@ export default function ContactForm() {
       setSent(true);
       setF(EMPTY);
       setAgree(false);
+      clearPhotos();
+      setPhotoError(null);
     } catch {
       setErr("네트워크 오류로 접수하지 못했습니다. 전화로 문의해 주십시오.");
     } finally {
       setSending(false);
+      busyRef.current = false;
     }
   };
 
   return (
-    <form onSubmit={submit} className="corner card p-7 md:p-9">
+    <form onSubmit={submit} className="corner card p-7 md:p-9" aria-label="온라인 견적 문의">
       <div className="grid gap-5 pt-4 sm:grid-cols-2">
         <Field label="담당자 성함" required>
           <input className="field" value={f.name} onChange={set("name")} placeholder="홍길동" />
@@ -181,14 +241,57 @@ export default function ContactForm() {
         </div>
       </div>
 
+      <fieldset className="mt-6 border-t border-hairline pt-6" disabled={sending || preparing}>
+        <legend className="cap-xs pr-3 text-mute">현장·폐기물 사진 <span className="font-normal">(선택)</span></legend>
+        <p id="photo-help" className="p-sm text-mute">품목과 성상을 확인할 수 있는 사진을 첨부해 주십시오.</p>
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          <input
+            ref={photoInputRef}
+            id="inquiry-photos"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            multiple
+            onChange={selectPhotos}
+            className="sr-only"
+            tabIndex={-1}
+            aria-label="현장 사진 선택"
+            aria-describedby="photo-help photo-limit"
+          />
+          <button type="button" className="btn btn-outline btn-sm disabled:cursor-not-allowed disabled:opacity-50" disabled={photos.length >= MAX_PHOTOS || sending || preparing} onClick={() => photoInputRef.current?.click()}>
+            {preparing ? "사진 준비 중…" : "사진 추가"}
+            <span className="text-[12px] font-normal">{photos.length}/{MAX_PHOTOS}</span>
+          </button>
+          <p id="photo-limit" className="text-[12px] leading-relaxed text-mute">최대 3장 · JPG / PNG / WEBP · 원본 장당 10MB 이하<br />전송 시 사진 용량이 자동으로 조정됩니다.</p>
+        </div>
+        {photos.length > 0 && (
+          <ul className="mt-4 grid grid-cols-3 gap-2 sm:gap-3" aria-label="첨부할 사진">
+            {photos.map((photo, index) => (
+              <li key={photo.id} className="min-w-0 overflow-hidden rounded-xs border border-hairline bg-soft">
+                <Image src={photo.url} alt={`첨부 사진 ${index + 1} 미리보기`} width={240} height={180} unoptimized className="aspect-[4/3] w-full object-cover" />
+                <div className="p-2">
+                  <p className="truncate text-[11px] text-mute" title={photo.file.name}>{photo.file.name}</p>
+                  <button type="button" className="mt-1 min-h-11 w-full text-[12px] font-bold text-body underline underline-offset-4" aria-label={`사진 ${index + 1} 삭제`} onClick={() => {
+                    URL.revokeObjectURL(photo.url);
+                    photoUrls.current.delete(photo.url);
+                    setPhotoError(null);
+                    setPhotos((current) => current.filter((p) => p.id !== photo.id));
+                  }}>삭제</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+        {photoError && <p role="alert" className="mt-3 text-[13px] text-red-700">{photoError}</p>}
+      </fieldset>
+
       {err && (
-        <p className="mt-6 border-l-2 border-primary bg-soft px-4 py-3 text-[14px] font-bold text-ink">
+        <p role="alert" className="mt-6 border-l-2 border-primary bg-soft px-4 py-3 text-[14px] font-bold text-ink">
           {err}
         </p>
       )}
 
       {sent && (
-        <p className="mt-6 border-l-2 border-primary bg-soft px-4 py-3 text-[14px] text-body">
+        <p role="status" className="mt-6 border-l-2 border-primary bg-soft px-4 py-3 text-[14px] text-body">
           문의가 정상적으로 접수됐습니다. 확인이 늦어지면{" "}
           <a href={`tel:${telDial}`} className="font-bold accent">
             {company.tel}
@@ -201,7 +304,7 @@ export default function ContactForm() {
         <div className="corner max-h-36 overflow-y-auto border border-hairline bg-soft p-4 text-[12.5px] leading-relaxed text-mute">
           <p className="font-bold text-ink">개인정보 수집 및 이용 안내</p>
           <ul className="mt-2 list-disc space-y-1 pl-4">
-            <li>수집 항목: 이름/담당자명, 연락처, 이메일, 현장 위치, 물량 정보</li>
+            <li>수집 항목: 이름/담당자명, 연락처, 이메일, 현장 위치, 물량 정보, 첨부 사진(선택)</li>
             <li>수집·이용 목적: 견적 산출, 반입 일정 협의, 상담 응대</li>
             <li>보유 기간: 문의 처리 후 1년간 보관 후 파기</li>
           </ul>
@@ -231,8 +334,8 @@ export default function ContactForm() {
         </label>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
-          <button type="submit" disabled={sending} className="btn btn-primary">
-            {sending ? "접수 중..." : "문의 보내기"}
+          <button type="submit" disabled={sending || preparing} className="btn btn-primary">
+            {preparing ? "사진 준비 중…" : sending ? "접수 중..." : "문의 보내기"}
             <Arrow />
           </button>
           <p className="p-sm text-mute">영업일 기준 24시간 이내에 회신드립니다.</p>

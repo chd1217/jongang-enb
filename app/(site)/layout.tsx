@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import RevealProvider from "@/components/RevealProvider";
 import Cursor from "@/components/Cursor";
+import MobileContactBar from "@/components/MobileContactBar";
 
 /** 공개 마케팅 사이트 전용 레이아웃 — 헤더/푸터/부드러운 스크롤/커스텀 커서. 관리자 페이지에는 적용되지 않는다. */
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -22,6 +23,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Header />
       <main id="main">{children}</main>
       <Footer />
+      <MobileContactBar />
     </>
   );
 }
