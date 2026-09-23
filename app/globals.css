@@ -607,15 +607,6 @@ body {
   background: linear-gradient(90deg, rgba(12,18,24,.82), rgba(12,18,24,.52) 55%, rgba(12,18,24,.12));
 }
 
-.ai-image-caption {
-  font-size: 11px;
-  line-height: 1.5;
-  color: #d1d5db;
-  background: rgba(12,18,24,.78);
-  padding: 2px 6px;
-  border-radius: 2px;
-}
-
 @media (max-width: 767px) {
   .photo-hero-overlay {
     background: linear-gradient(90deg, rgba(12,18,24,.82), rgba(12,18,24,.57));

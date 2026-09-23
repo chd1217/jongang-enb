@@ -50,11 +50,6 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <p
-          className="ai-image-caption absolute right-3 bottom-2"
-        >
-          AI 연출 이미지
-        </p>
       </section>
 
       {/* 핵심 원칙 */}
