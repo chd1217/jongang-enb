@@ -43,7 +43,7 @@ export default function WastePage() {
           { label: "사업영역", href: "/business" },
           { label: "폐기물 중간재활용", href: "/business/waste" },
         ]}
-        bgImage="/about/hero-waste.jpg"
+        bgImage="/about/waste-detail.jpg"
       />
 
       {/* 개요 */}

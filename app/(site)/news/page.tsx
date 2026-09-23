@@ -23,7 +23,8 @@ export default function NewsPage() {
         title="회사소식"
         desc="현장 운영 일정, 설비 가동 현황 등 거래처 필수 안내 사항을 신속하게 공유합니다."
         crumbs={[{ label: "회사소식", href: "/news" }]}
-        bgImage="/about/hero-news.jpg"
+        bgImage="/about/news-detail.jpg"
+        bgPosition="center 20%"
       />
 
       {/* 최신 글 */}

@@ -7,10 +7,11 @@ type Props = {
   crumbs?: { label: string; href: string }[];
   /** 공통 슬레이트 톤 및 글자 영역의 그라데이션을 적용할 배경. */
   bgImage?: string;
+  bgPosition?: string;
 };
 
 /** 서브페이지 히어로(블랙 챕터) + 브레드크럼 스트립(soft). */
-export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage }: Props) {
+export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, bgPosition = "center" }: Props) {
   return (
     <>
       <section
@@ -20,7 +21,7 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage }:
           <>
             <div
               className="photo-hero-image absolute inset-0 -z-20 bg-cover bg-center"
-              style={{ backgroundImage: `url(${bgImage})`, filter: `saturate(0.3) brightness(${bgImage.includes('-detail') ? 1 : bgImage.includes('transport') || bgImage.includes('process') ? 1.8 : 1.6})` }}
+              style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: bgPosition, filter: `saturate(0.3) brightness(${bgImage.includes('-detail') ? 1 : bgImage.includes('transport') || bgImage.includes('process') ? 1.8 : 1.6})` }}
               aria-hidden
             />
             <div
