@@ -315,7 +315,7 @@ export default function Home() {
                   placeholder="blur"
                   className="aspect-[16/9] w-full object-cover"
                 />
-                <span className="ai-image-note">AI 연출 이미지</span>
+                <span className="ai-image-note">이해를 돕기 위한 AI 연출 이미지입니다.</span>
               </div>
             <div className="rv mt-8" data-d="320">
               <Link href="/business/product" className="btn btn-outline">

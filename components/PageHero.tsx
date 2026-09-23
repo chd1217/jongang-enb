@@ -28,7 +28,7 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, b
               className="photo-hero-overlay absolute inset-0 -z-10"
               aria-hidden
             />
-            <span className="ai-image-note">AI 연출 이미지</span>
+            <span className="ai-image-note">이해를 돕기 위한 AI 연출 이미지입니다.</span>
           </>
         )}
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-14 md:py-20">
