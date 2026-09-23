@@ -5,7 +5,7 @@ type Props = {
   title: string;
   desc?: string;
   crumbs?: { label: string; href: string }[];
-  /** 지정 시 히어로 배경에 사진을 깔고 70~80% 블랙 오버레이를 덧씌운다. */
+  /** 공통 슬레이트 톤 및 글자 영역의 그라데이션을 적용할 배경. */
   bgImage?: string;
 };
 
@@ -19,19 +19,18 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage }:
         {bgImage && (
           <>
             <div
-              className="absolute inset-0 -z-20 bg-cover bg-center"
-              style={{ backgroundImage: `url(${bgImage})` }}
+              className="photo-hero-image absolute inset-0 -z-20 bg-cover bg-center"
+              style={{ backgroundImage: `url(${bgImage})`, filter: `saturate(0.3) brightness(${bgImage.includes('-detail') ? 1 : bgImage.includes('transport') || bgImage.includes('process') ? 1.8 : 1.6})` }}
               aria-hidden
             />
             <div
-              className="absolute inset-0 -z-10 bg-gradient-to-r from-black/75 via-black/40 to-black/10"
+              className="photo-hero-overlay absolute inset-0 -z-10"
               aria-hidden
             />
             <p
-              className="absolute right-3 bottom-2 text-[9px] tracking-wide text-white/20 select-none"
-              aria-hidden
+              className="ai-image-caption absolute right-3 bottom-2"
             >
-              본 이미지는 AI로 연출된 시안입니다.
+              AI 연출 이미지
             </p>
           </>
         )}

@@ -27,11 +27,11 @@ export default function AboutPage() {
       <section className="relative isolate overflow-hidden bg-ink">
         <div
           className="absolute inset-0 -z-20 bg-cover bg-bottom"
-          style={{ backgroundImage: "url(/about/team-hero.jpg)" }}
+          style={{ backgroundImage: "url(/about/team-detail.jpg)", filter: "saturate(0.3)" }}
           aria-hidden
         />
         <div
-          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.32)_0%,rgba(0,0,0,0.62)_100%)]"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(12,18,24,0.72)_0%,rgba(12,18,24,0.35)_100%)]"
           aria-hidden
         />
 
@@ -51,10 +51,9 @@ export default function AboutPage() {
         </div>
 
         <p
-          className="absolute right-3 bottom-2 text-[9px] tracking-wide text-white/20 select-none"
-          aria-hidden
+          className="ai-image-caption absolute right-3 bottom-2"
         >
-          본 이미지는 AI로 연출된 시안입니다.
+          AI 연출 이미지
         </p>
       </section>
 

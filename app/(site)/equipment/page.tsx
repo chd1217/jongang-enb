@@ -27,7 +27,7 @@ export default function EquipmentPage() {
         title="안정적 처리를 뒷받침하는 자체 설비"
         desc="대형 산업용 파쇄 설비와 단계별 선별 공정으로 품질을 관리합니다. 반입부터 출하까지 자체 시설에서 처리합니다."
         crumbs={[{ label: "보유 시설·장비", href: "/equipment" }]}
-        bgImage="/about/hero-equipment.jpg"
+        bgImage="/about/facility-detail.jpg"
       />
 
       {/* 장비 목록 */}
