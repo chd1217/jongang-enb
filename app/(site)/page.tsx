@@ -307,7 +307,7 @@ export default function Home() {
               반입 시 1차 선별, 파쇄 후 2차 정밀 불순물 검출을 거칩니다. 시멘트 소성로부터
                 재생원료 가공까지, 수요처 규격에 맞춰 공급합니다.
               </p>
-              <div className="rv mt-6 overflow-hidden rounded-xs border border-hairline" data-d="280">
+              <div className="rv relative mt-6 overflow-hidden rounded-xs border border-hairline" data-d="280">
                 <Image
                   src={shreddedMaterial}
                   alt="금속 샘플 트레이에 담긴 파쇄품 근접 이미지"
@@ -315,6 +315,7 @@ export default function Home() {
                   placeholder="blur"
                   className="aspect-[16/9] w-full object-cover"
                 />
+                <span className="ai-image-note">AI 연출 이미지</span>
               </div>
             <div className="rv mt-8" data-d="320">
               <Link href="/business/product" className="btn btn-outline">

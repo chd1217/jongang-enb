@@ -50,6 +50,7 @@ export default function AboutPage() {
           </p>
         </div>
 
+        <span className="ai-image-note">AI 연출 이미지</span>
       </section>
 
       {/* 핵심 원칙 */}

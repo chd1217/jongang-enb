@@ -607,6 +607,18 @@ body {
   background: linear-gradient(90deg, rgba(12,18,24,.82), rgba(12,18,24,.52) 55%, rgba(12,18,24,.12));
 }
 
+.ai-image-note {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  z-index: 1;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #c2c7cc;
+  text-shadow: 0 1px 3px #111820, 0 0 2px #111820;
+}
+
 @media (max-width: 767px) {
   .photo-hero-overlay {
     background: linear-gradient(90deg, rgba(12,18,24,.82), rgba(12,18,24,.57));
