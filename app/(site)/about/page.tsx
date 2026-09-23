@@ -17,7 +17,7 @@ export default function AboutPage() {
 
       <PageHero
         eyebrow="About us"
-        title="26년, 한 가지만 해왔습니다"
+        title="1999년부터, 현장의 원칙을 지켜왔습니다"
         desc="중앙이엔비(JUNGANG E&B)는 충청남도 공주시에 위치한 폐기물 수집·운반 및 중간재활용 전문기업으로, 건설현장과 사업장에서 발생하는 가연성·재활용 폐기물을 반입해 파쇄·선별한 뒤 수요처 규격에 맞춘 파쇄품으로 생산·공급합니다."
         crumbs={[{ label: "회사소개", href: "/about" }]}
         bgImage="/about/hero-facility.jpg"
