@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import shreddedMaterial from "@/public/about/hero-product.jpg";
+import shreddedMaterial from "@/public/about/shredded-material-sample.jpg";
 import Hero from "@/components/Hero";
 import HorizontalProcess from "@/components/HorizontalProcess";
 import Counter from "@/components/Counter";
@@ -310,7 +310,7 @@ export default function Home() {
               <div className="rv mt-6 overflow-hidden rounded-xs border border-hairline" data-d="280">
                 <Image
                   src={shreddedMaterial}
-                  alt="선별된 파쇄품과 규격별 샘플 트레이"
+                  alt="금속 샘플 트레이에 담긴 파쇄품 근접 이미지"
                   sizes="(min-width: 1280px) 460px, (min-width: 1024px) 40vw, 100vw"
                   placeholder="blur"
                   className="aspect-[16/9] w-full object-cover"
