@@ -8,10 +8,12 @@ type Props = {
   /** 공통 슬레이트 톤 및 글자 영역의 그라데이션을 적용할 배경. */
   bgImage?: string;
   bgPosition?: string;
+  /** 원본이 어두운 사진의 오른쪽만 보정할 밝기 배율. */
+  rightBrightness?: number;
 };
 
 /** 서브페이지 히어로(블랙 챕터) + 브레드크럼 스트립(soft). */
-export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, bgPosition = "center" }: Props) {
+export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, bgPosition = "center", rightBrightness }: Props) {
   return (
     <>
       <section
@@ -24,6 +26,13 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, b
               style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: bgPosition, filter: `saturate(0.3) brightness(${bgImage.includes('-detail') ? 1 : bgImage.includes('transport') || bgImage.includes('process') ? 1.8 : 1.6})` }}
               aria-hidden
             />
+            {rightBrightness && (
+              <div
+                className="photo-hero-right-light absolute inset-0 -z-20 bg-cover bg-center"
+                style={{ backgroundImage: `url(${bgImage})`, backgroundPosition: bgPosition, filter: `saturate(0.3) brightness(${rightBrightness})` }}
+                aria-hidden
+              />
+            )}
             <div
               className="photo-hero-overlay absolute inset-0 -z-10"
               aria-hidden

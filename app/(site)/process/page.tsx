@@ -43,6 +43,7 @@ export default function ProcessPage() {
         desc="수집·운반 · 반입 선별 · 파쇄 · 정밀 검수 · 출하. 모든 단계의 기록이 재활용확인서로 남습니다."
         crumbs={[{ label: "처리 공정", href: "/process" }]}
         bgImage="/about/process-detail.jpg"
+        rightBrightness={1.35}
       />
 
       {/* 가로 스크롤 공정 */}
