@@ -256,7 +256,7 @@ body {
 
 .rv {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(var(--reveal-distance, 28px));
   transition:
     opacity 1.15s var(--ease-expo),
     transform 1.15s var(--ease-expo);
@@ -476,7 +476,8 @@ body {
     width 0.4s var(--ease-expo),
     height 0.4s var(--ease-expo);
 }
-.corner:hover::before {
+a.corner:hover::before,
+button.corner:hover::before {
   width: 18px;
   height: 18px;
 }
@@ -499,6 +500,11 @@ body {
 }
 .card:hover {
   border-color: var(--color-primary);
+}
+a.card:hover,
+a.card:focus-visible,
+button.card:hover,
+button.card:focus-visible {
   transform: translateY(-4px);
   transition-duration: 0.3s;
 }
@@ -623,6 +629,42 @@ body {
   .photo-hero-overlay {
     background: linear-gradient(90deg, rgba(12,18,24,.82), rgba(12,18,24,.57));
   }
+}
+
+p.rv {
+  --reveal-distance: 14px;
+}
+
+.rv.rv-action {
+  --reveal-distance: 12px;
+  transition-property: background-color, color, border-color, opacity, transform;
+  transition-duration: .28s, .28s, .28s, .75s, .75s;
+}
+
+a.card .btn-ghost svg {
+  transition: transform .3s ease;
+}
+a.card:hover .btn-ghost svg,
+a.card:focus-visible .btn-ghost svg {
+  transform: translateX(3px);
+}
+
+.card.process-card {
+  transition: background-color .3s ease, border-color .3s ease;
+}
+.process-card[data-active="true"] {
+  background: #f3f8f1;
+  border-color: var(--color-primary);
+}
+.process-number, .process-icon {
+  transition: color .3s ease;
+}
+.process-card[data-active="true"] .process-number,
+.process-card[data-active="true"] .process-icon {
+  color: var(--color-primary);
+}
+.process-swipe-hint {
+  transition: opacity .3s ease;
 }
 
 :focus-visible {

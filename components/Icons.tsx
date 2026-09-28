@@ -8,6 +8,19 @@ const s = {
   strokeLinejoin: "miter" as const,
 };
 
+/** 공급처 — 소성로, 열 회수, 재생 원료 */
+export function IconKiln({ className = base }: P) {
+  return <svg viewBox="0 0 24 24" className={className} aria-hidden><path d="M3 20h18M5 20v-8l7-4v12M12 12l7-4v12M5 11V3h3v6" {...s} /><path d="M8 15v2m8-3v3" {...s} /></svg>;
+}
+
+export function IconHeat({ className = base }: P) {
+  return <svg viewBox="0 0 24 24" className={className} aria-hidden><path d="M13 3c1 5 6 6 6 11a7 7 0 0 1-14 0c0-3 2-5 4-7 0 3 1 4 2 4 2-2 2-5 2-8Z" {...s} /><path d="M12 13c-2 2-3 3-3 5a3 3 0 0 0 6 0c0-2-2-3-3-5Z" {...s} /></svg>;
+}
+
+export function IconRawMaterial({ className = base }: P) {
+  return <svg viewBox="0 0 24 24" className={className} aria-hidden><path d="m12 3 8 5-8 5-8-5 8-5ZM4 8v9l8 5 8-5V8M12 13v9" {...s} /></svg>;
+}
+
 /** 파쇄 — 크러셔 조 */
 export function IconCrusher({ className = base }: P) {
   return (

@@ -97,9 +97,9 @@ export function CtaStrip({
             <span className="block h-3 w-3 bg-primary" />
             <span className="cap accent">{eyebrow}</span>
           </div>
-          <p className="d3 mt-4 max-w-2xl text-white">{title}</p>
+          <p className="rv d3 mt-4 max-w-2xl text-white">{title}</p>
         </div>
-        <div className="flex shrink-0 flex-wrap gap-3">
+        <div className="rv rv-action flex shrink-0 flex-wrap gap-3" data-d="160">
           <Link href={href} className="btn btn-primary">
             {cta}
             <Arrow />

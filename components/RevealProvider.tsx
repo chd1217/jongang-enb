@@ -30,6 +30,9 @@ export default function RevealProvider() {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>(SELECTOR));
 
     nodes.forEach((el) => {
+      const actionOnly = el.matches(".btn, .btn-ghost") ||
+        (el.querySelector(".btn, .btn-ghost") && !el.querySelector("p, h1, h2, h3, h4, article"));
+      if (actionOnly) el.classList.add("rv-action");
       if (el.dataset.d) el.style.setProperty("--d", `${el.dataset.d}ms`);
     });
 

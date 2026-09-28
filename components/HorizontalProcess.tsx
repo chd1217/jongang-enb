@@ -6,16 +6,18 @@ import { IconTruck, IconScreen, IconCrusher, IconCert, IconScale } from "./Icons
 
 const STEP_ICONS = [IconTruck, IconScreen, IconCrusher, IconCert, IconScale];
 
-/** 세로 스크롤로 구동되는 가로 핀 섹션 (처리 공정 6단계). */
+/** PC 스크롤 진행 및 모바일 스냅 이동에 연동되는 5단계 공정. */
 export default function HorizontalProcess() {
   const wrap = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const [x, setX] = useState(0);
   const [p, setP] = useState(0);
   const [mobile, setMobile] = useState(true);
+  const [mobileActive, setMobileActive] = useState(0);
+  const [hasSwiped, setHasSwiped] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 1023px)");
+    const mq = window.matchMedia("(max-width: 1023px), (prefers-reduced-motion: reduce)");
     const sync = () => setMobile(mq.matches);
     sync();
     mq.addEventListener("change", sync);
@@ -57,19 +59,23 @@ export default function HorizontalProcess() {
     };
   }, [mobile]);
 
+  const active = mobile ? mobileActive : Math.min(processSteps.length - 1, Math.floor(p * processSteps.length));
+
   const cards = processSteps.map((s, i) => {
     const Icon = STEP_ICONS[i] ?? IconCrusher;
     return (
       <article
         key={s.no}
-        className="corner card flex h-full w-[82vw] shrink-0 flex-col p-7 sm:w-[400px] md:p-9 lg:w-[26vw] lg:min-w-[320px]"
+        className="corner card process-card flex h-full w-[82vw] shrink-0 flex-col p-7 sm:w-[400px] md:p-9 lg:w-[26vw] lg:min-w-[320px]"
+        data-active={i === active}
+        aria-current={i === active ? "step" : undefined}
       >
         <div className="flex items-start justify-between pt-3">
-          <span className="num text-[3.5rem] text-hairline">{s.no}</span>
+          <span className="process-number num text-[3.5rem] text-hairline">{s.no}</span>
           <span className="cap-xs text-mute">STEP</span>
         </div>
         <div className="flex flex-1 items-center justify-center">
-          <Icon className="h-16 w-16 text-primary/15 md:h-20 md:w-20" />
+          <Icon className="process-icon h-16 w-16 text-primary/15 md:h-20 md:w-20" />
         </div>
         <div>
           <h3 className="d3 text-ink">{s.title}</h3>
@@ -87,17 +93,43 @@ export default function HorizontalProcess() {
 
   if (mobile) {
     return (
-      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-[var(--pad)] pb-6">
+      <div>
+      <p className={`process-swipe-hint mb-4 px-[var(--pad)] text-[12px] text-mute ${hasSwiped ? "opacity-0" : "opacity-100"}`} aria-hidden={hasSwiped}>
+        옆으로 넘겨 확인하세요 <span aria-hidden>→</span>
+      </p>
+      <div
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-[var(--pad)] pb-6"
+        role="region"
+        style={{ scrollPaddingInline: "var(--pad)" }}
+        aria-label="5단계 처리 공정. 좌우 방향키로 이동할 수 있습니다."
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+          event.preventDefault();
+          const el = event.currentTarget;
+          const stride = (el.firstElementChild?.getBoundingClientRect().width ?? 320) + 16;
+          el.scrollBy({ left: event.key === "ArrowRight" ? stride : -stride, behavior: "auto" });
+        }}
+        onScroll={(event) => {
+          const el = event.currentTarget;
+          const stride = (el.firstElementChild?.getBoundingClientRect().width ?? 320) + 16;
+          const last = el.scrollLeft >= el.scrollWidth - el.clientWidth - 2;
+          setMobileActive(last ? processSteps.length - 1 : Math.max(0, Math.min(processSteps.length - 1, Math.round(el.scrollLeft / stride))));
+          if (el.scrollLeft > 24) setHasSwiped(true);
+        }}
+      >
         {cards.map((c, i) => (
-          <div key={i} className="snap-start">
+          <div key={i} className="shrink-0 snap-start">
             {c}
           </div>
         ))}
       </div>
+      <p className="px-[var(--pad)] pb-6 text-right text-[12px] text-mute" aria-live="polite" aria-atomic="true">
+        <span className="font-bold accent">{String(active + 1).padStart(2, "0")}</span> / {String(processSteps.length).padStart(2, "0")}
+      </p>
+      </div>
     );
   }
-
-  const active = Math.min(processSteps.length - 1, Math.floor(p * processSteps.length));
 
   return (
     <div ref={wrap} style={{ height: `${processSteps.length * 56}vh` }} className="relative">

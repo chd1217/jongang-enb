@@ -8,7 +8,7 @@ import Marquee from "@/components/Marquee";
 import Faq from "@/components/Faq";
 import { OrganizationJsonLd, FaqJsonLd } from "@/components/JsonLd";
 import { Eyebrow, MaskHeading, GhostLink, Arrow, CtaStrip } from "@/components/ui";
-import { IconTruck, IconDoc, IconCert, IconCrusher, IconAggregate, IconScreen } from "@/components/Icons";
+import { IconTruck, IconDoc, IconCert, IconCrusher, IconAggregate, IconKiln, IconCycle, IconHeat, IconRawMaterial } from "@/components/Icons";
 import {
   services,
   offtakes,
@@ -27,6 +27,7 @@ import {
 
 const ICONS = { truck: IconTruck, doc: IconDoc, cert: IconCert } as const;
 const SERVICE_ICONS = [IconCrusher, IconAggregate, IconTruck];
+const OFFTAKE_ICONS = [IconKiln, IconCycle, IconHeat, IconRawMaterial];
 
 export default function Home() {
   return (
@@ -326,17 +327,19 @@ export default function Home() {
           </div>
 
           <ul className="grid gap-5 sm:grid-cols-2">
-            {offtakes.map((p, i) => (
+            {offtakes.map((p, i) => {
+              const Icon = OFFTAKE_ICONS[i] ?? IconRawMaterial;
+              return (
               <li key={p.grade} className="corner card rv p-7" data-d={i * 80}>
                 <div className="flex items-baseline justify-between pt-3">
                   <span className="num text-[1.75rem] text-ink">{p.grade}</span>
-                  <IconScreen className="h-6 w-6 text-primary" />
+                  <Icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="h4 mt-6 text-ink">{p.name}</h3>
                 <p className="p-sm mt-2 text-mute">{p.use}</p>
                 <p className="p-sm mt-5 border-t border-hairline pt-4 text-body">{p.spec}</p>
               </li>
-            ))}
+            );})}
           </ul>
         </div>
       </section>
