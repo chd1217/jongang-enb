@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 export function Eyebrow({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div className={`rv flex items-center gap-3 ${className}`}>
-      <span className="block h-3 w-3 shrink-0 bg-primary" />
+      <span className="eyebrow-marker block h-3 w-3 shrink-0 bg-primary" />
       <span className="cap accent">{children}</span>
     </div>
   );
@@ -94,7 +94,7 @@ export function CtaStrip({
       <div className="mx-auto flex max-w-[var(--maxw)] flex-col gap-7 md:flex-row md:items-center md:justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <span className="block h-3 w-3 bg-primary" />
+            <span className="eyebrow-marker block h-3 w-3 bg-primary" />
             <span className="cap accent">{eyebrow}</span>
           </div>
           <p className="rv d3 mt-4 max-w-2xl text-white">{title}</p>

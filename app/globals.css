@@ -124,6 +124,17 @@ body {
 .dark-ch .accent {
   color: var(--color-accent-on-dark);
 }
+.dark-ch .eyebrow-marker {
+  background-color: var(--color-accent-on-dark);
+}
+/* Keep photo-backed titles legible without changing typography or photo brightness. */
+.photo-hero h1,
+.team-promise h2 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .3);
+}
+.photo-hero .cap.accent {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .7);
+}
 
 .soft-ch {
   background: var(--color-soft);

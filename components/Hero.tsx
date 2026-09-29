@@ -32,7 +32,7 @@ export default function Hero() {
         {/* 카피 */}
         <div>
           <div className="rv flex items-center gap-3" data-d="60">
-            <span className="block h-3 w-3 bg-primary" />
+            <span className="eyebrow-marker block h-3 w-3 bg-primary" />
             <span className="cap accent">
               폐기물 수집·운반 · 중간재활용 · EST. {company.founded}
             </span>

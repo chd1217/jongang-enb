@@ -17,7 +17,7 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, b
   return (
     <>
       <section
-        className={`dark-ch pt-8 md:pt-24 ${bgImage ? "relative isolate overflow-hidden" : ""}`}
+        className={`dark-ch pt-8 md:pt-24 ${bgImage ? "photo-hero relative isolate overflow-hidden" : ""}`}
       >
         {bgImage && (
           <>
@@ -41,7 +41,7 @@ export default function PageHero({ eyebrow, title, desc, crumbs = [], bgImage, b
         )}
         <div className="mx-auto max-w-[var(--maxw)] px-[var(--pad)] py-14 md:py-20">
           <div className="flex items-center gap-3">
-            <span className="block h-3 w-3 bg-primary" />
+            <span className="eyebrow-marker block h-3 w-3 bg-primary" />
             <span className="cap accent">{eyebrow}</span>
           </div>
 

@@ -243,7 +243,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[24rem_1fr] lg:gap-16">
             <div className="lg:sticky lg:top-32 lg:self-start">
               <div className="rv flex items-center gap-3">
-                <span className="block h-3 w-3 bg-primary" />
+                <span className="eyebrow-marker block h-3 w-3 bg-primary" />
                 <span className="cap accent">Why us</span>
               </div>
               <MaskHeading
