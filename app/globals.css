@@ -584,6 +584,20 @@ button.card:focus-visible {
   background: linear-gradient(90deg, rgba(12,18,24,.82), rgba(12,18,24,.52) 55%, rgba(12,18,24,.12));
 }
 
+/* Grow only wide-screen banners to the source photo ratio; compact layouts retain their height. */
+@media (min-width: 1280px) {
+  .team-promise {
+    min-height: calc(100vw * 941 / 1672);
+  }
+}
+.team-promise-label .accent {
+  color: var(--color-accent-on-dark);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .7);
+}
+.team-promise-label > span:first-child {
+  background-color: var(--color-accent-on-dark);
+}
+
 .photo-hero-right-light {
   pointer-events: none;
   mask-image: linear-gradient(90deg, transparent 35%, #000 90%);
@@ -655,4 +669,3 @@ a.card:focus-visible .btn-ghost svg {
     transform: none;
   }
 }
-

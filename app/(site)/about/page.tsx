@@ -24,7 +24,7 @@ export default function AboutPage() {
       />
 
       {/* 인사말 — 임직원 일동, 배경 배너형 */}
-      <section className="relative isolate overflow-hidden bg-ink">
+      <section className="team-promise relative isolate flex items-center justify-center overflow-hidden bg-ink">
         <div
           className="absolute inset-0 -z-20 bg-cover bg-bottom"
           style={{ backgroundImage: "url(/about/team-detail.jpg)", filter: "saturate(0.3)" }}
@@ -36,7 +36,7 @@ export default function AboutPage() {
         />
 
         <div className="mx-auto max-w-3xl px-[var(--pad)] py-24 text-center md:py-32">
-          <Eyebrow className="justify-center">Our promise</Eyebrow>
+          <Eyebrow className="team-promise-label justify-center">Our promise</Eyebrow>
           <MaskHeading className="d2 mt-6 text-white" lines={[<>{teamMessage.headline}</>]} />
           <div className="mt-8 space-y-5">
             {teamMessage.paragraphs.map((p, i) => (
