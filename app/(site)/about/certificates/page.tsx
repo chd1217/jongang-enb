@@ -39,8 +39,8 @@ export default function CertificatesPage() {
           {certificates.map((c, i) => (
             <li key={c.name} className="corner card rv flex max-w-[280px] flex-col p-4" data-d={i * 60}>
               <Image
-                src={i === 0 ? "/permits/transport.png" : "/permits/recycling.png"}
-                alt={`${c.name} 공개용 사본 — 시설·장비 및 일부 인력 정보 비공개`}
+                src={i === 0 ? "/permits/transport.png" : "/permits/recycling-public-v2.png"}
+                alt={`${c.name} 공개용 사본 — 일부 정보 비공개`}
                 width={i === 0 ? 636 : 610}
                 height={i === 0 ? 891 : 854}
                 className="h-auto w-full object-contain"
@@ -56,7 +56,7 @@ export default function CertificatesPage() {
             ※ 허가증 사본이 필요하신 경우 담당자에게 요청해 주시면 이메일로 발송해 드립니다.
           </p>
           <p className="p-sm mt-2 max-w-3xl text-mute">
-            ※ 게시된 허가증은 홈페이지 공개용 사본으로, 시설·장비 및 일부 인력 정보를 비공개 처리하였습니다.
+            ※ 게시된 허가증은 홈페이지 공개용 사본으로, 일부 정보를 비공개 처리하였습니다.
           </p>
         </div>
       </section>
