@@ -24,9 +24,9 @@ export default function AboutPage() {
       />
 
       {/* 인사말 — 임직원 일동, 배경 배너형 */}
-      <section className="relative isolate overflow-hidden bg-ink">
+      <section className="team-promise relative isolate overflow-hidden bg-ink">
         <div
-          className="absolute inset-0 -z-20 bg-cover bg-bottom"
+          className="team-promise-photo absolute inset-0 -z-20"
           style={{ backgroundImage: "url(/about/team-detail.jpg)", filter: "saturate(0.3)" }}
           aria-hidden
         />

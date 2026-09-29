@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { Eyebrow, MaskHeading, CtaStrip, NextLink } from "@/components/ui";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { IconCert } from "@/components/Icons";
 import { certificates } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -35,12 +35,18 @@ export default function CertificatesPage() {
         <Eyebrow>Licenses</Eyebrow>
         <MaskHeading className="d2 mt-6 text-ink" lines={[<>보유 허가 및 인증</>]} />
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-[repeat(2,minmax(0,280px))]">
           {certificates.map((c, i) => (
-            <li key={c.name} className="corner card rv flex flex-col p-7" data-d={i * 60}>
-              <IconCert className="mt-3 h-7 w-7 text-primary" />
-              <h3 className="h4 mt-7 flex-1 text-ink">{c.name}</h3>
-              <p className="p-sm mt-4 border-t border-hairline pt-4 text-mute">{c.org}</p>
+            <li key={c.name} className="corner card rv flex max-w-[280px] flex-col p-4" data-d={i * 60}>
+              <Image
+                src={i === 0 ? "/permits/transport.png" : "/permits/recycling.png"}
+                alt={`${c.name} 공개용 사본 — 시설·장비 및 일부 인력 정보 비공개`}
+                width={i === 0 ? 636 : 610}
+                height={i === 0 ? 891 : 854}
+                className="h-auto w-full object-contain"
+                sizes="(max-width: 320px) 80vw, 248px"
+              />
+              <h3 className="h4 mt-6 text-ink">{c.name}</h3>
             </li>
           ))}
         </ul>
@@ -48,6 +54,9 @@ export default function CertificatesPage() {
         <div className="mt-12 border-t border-hairline pt-8">
           <p className="p-sm max-w-3xl text-mute">
             ※ 허가증 사본이 필요하신 경우 담당자에게 요청해 주시면 이메일로 발송해 드립니다.
+          </p>
+          <p className="p-sm mt-2 max-w-3xl text-mute">
+            ※ 게시된 허가증은 홈페이지 공개용 사본으로, 시설·장비 및 일부 인력 정보를 비공개 처리하였습니다.
           </p>
         </div>
       </section>
