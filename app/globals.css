@@ -656,23 +656,3 @@ a.card:focus-visible .btn-ghost svg {
   }
 }
 
-/* Keep the entire team visible on wide screens instead of enlarging to cover. */
-.team-promise-photo {
-  background-size: auto 100%;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-}
-@media (min-width: 1024px) {
-  .team-promise-photo {
-    background-size: contain;
-    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    height: 100%;
-    width: auto;
-    aspect-ratio: 1672 / 941;
-    max-width: 100%;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-  }
-}
