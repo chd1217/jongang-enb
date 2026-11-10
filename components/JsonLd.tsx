@@ -38,7 +38,7 @@ export function OrganizationJsonLd() {
             addressCountry: "KR",
           },
           areaServed: serviceAreas.map((a) => ({ "@type": "Place", name: a })),
-          openingHours: ["Mo-Fr 08:30-18:00"],
+          openingHours: ["Mo-Fr 08:30-17:30"],
           knowsAbout: [
             "폐기물 수집·운반",
             "폐기물 중간재활용",

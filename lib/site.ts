@@ -24,7 +24,7 @@ export const company = {
   headerEmail: "chd1217@naver.com",
   address: "충청남도 공주시 탄천면 차돌배기길 72-14 (안영리)",
   addressEn: "Gongju-si, Chungcheongnam-do, Republic of Korea",
-  hours: "평일 08:30 – 18:00 (주말·공휴일 휴무)",
+  hours: "평일 08:30 – 17:30 (주말·공휴일 휴무)",
 } as const;
 
 /** tel: 링크용 — "041-858-9701~3" 같은 범위 표기에서 "~3"을 떼고 첫 번호만 남긴다. */
