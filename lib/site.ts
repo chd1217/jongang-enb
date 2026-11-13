@@ -19,9 +19,9 @@ export const company = {
   wasteCode: "51-03-01 (폐합성수지류)",
   tel: "041-858-9701~3",
   fax: "041-858-9704",
-  email: "lie2322@naver.com",
-  /** 헤더 상단 유틸리티 바에만 노출되는 대표 개인 이메일 (견적 문의는 company.email로 그대로 발송). */
-  headerEmail: "chd1217@naver.com",
+  email: "rainjo@wehago.com",
+  /** 헤더·푸터에 표시하는 회사 대표 이메일. 견적 알림 수신 목록은 lib/email.ts에서 관리. */
+  headerEmail: "rainjo@wehago.com",
   address: "충청남도 공주시 탄천면 차돌배기길 72-14 (안영리)",
   addressEn: "Gongju-si, Chungcheongnam-do, Republic of Korea",
   hours: "평일 08:30 – 17:30 (주말·공휴일 휴무)",

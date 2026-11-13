@@ -57,7 +57,7 @@ export async function sendInquiryEmail(input: {
 
   const { error } = await resend.emails.send({
     from: "중앙이엔비 웹문의 <no-reply@jungangenb.com>",
-    to: company.email,
+    to: ["lie2322@naver.com", "chd1217@naver.com", company.email],
     replyTo: input.email || undefined,
     subject: `[견적문의] ${input.company || input.name} - ${input.waste}`,
     html,
